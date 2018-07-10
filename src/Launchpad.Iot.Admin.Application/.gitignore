@@ -1,5 +1,8 @@
 ## Ignore Visual Studio temporary files, build results, and
 
+[Dd]ebug/
+[Dd]ebugPublic/
+
 [Rr]elease/
 [Rr]eleases/
 
