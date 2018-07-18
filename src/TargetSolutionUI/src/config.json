@@ -7,6 +7,6 @@
     "isPolicy" : true,
 	"trackingId" : "UA-116676761-1",
 	"b2cScopes" : "https://dovercvcdev.onmicrosoft.com/8e75a2fc-3da2-44ae-8e34-f3ee0e10a24f/user.read",
-	"redirectUrl" : "https://localhost:20300",
+	"redirectUrl" : "http://localhost:20300",
 	"signinPolicy" : "b2c_1_cvc_signin_policy"
 }
