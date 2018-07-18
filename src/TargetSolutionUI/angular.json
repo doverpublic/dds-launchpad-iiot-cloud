@@ -20,12 +20,18 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/config.json",
+              "src/privacy.pdf",
+              "src/terms.pdf"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+			  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+			    "node_modules/font-awesome/css/font-awesome.css",
+                 "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/jquery/dist/jquery.min.js","node_modules/popper.js/dist/umd/popper.min.js","node_modules/bootstrap/dist/js/bootstrap.js"]
           },
           "configurations": {
             "production": {
