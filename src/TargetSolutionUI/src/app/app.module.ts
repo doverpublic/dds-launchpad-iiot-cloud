@@ -46,7 +46,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { DriversComponent } from './drivers/drivers.component';
 import { UsersComponent } from './users/users.component';
 import { OrderModule } from 'ngx-order-pipe';
-// import { ExcelService } from './shared/services/excel.service';
+//import { ExcelService } from './shared/services/excel.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { AssetsComponent } from './assets/assets.component';
 import { ViewtrailerdetailComponent } from './trailercompany/viewtrailerdetail/viewtrailerdetail.component';
@@ -226,8 +226,8 @@ const routes: Routes = [
     })
   ],
 
-//  providers: [AppConfig,,MSALService,AuthenticationHttpInterceptor,ExcelService, CreateTrailerService,  PagerService,CreateDispatchOfficeService,CreateUsersService,
-  providers: [AppConfig,,MSALService,AuthenticationHttpInterceptor, CreateTrailerService,  PagerService,CreateDispatchOfficeService,CreateUsersService,
+//	// providers: [AppConfig,MSALService,AuthenticationHttpInterceptor,ExcelService,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
+	providers: [AppConfig,MSALService,AuthenticationHttpInterceptor,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
     {
         provide: APP_INITIALIZER,
         useFactory: (config: AppConfig) => () => config.load(),
