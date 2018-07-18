@@ -1,5 +1,36 @@
 Changes on 2018-07-17
 ========================================================================================
+1- Eliminated all those .cmd and other linux commmand files with the same name
+It seems the application can start and works the same
+Khader- please try to see if this will correct the issue with the Excel Service because now we don't 
+have the commands in the root that seems to be the cause of the app starting problem
+
+2- I have changed the Express application to work with HTTPS
+We have good news and bad news
+It seems that now we can work on HTTPS for both the login and after login (good news)
+The bad news is that the redirection coming back to the app to /admin/TrailerCompany/view fails with a 404
+However if we redirect (manually) the application to / (root) then it will continue to work with HTTPS
+and somehow from the Root it will go back and then works fine with /admin/TrailerCompany/view and any other
+uri's of the application (including the API url/uri)
+Khader- can you work on this aspect to figure out why we have such a problem getting control back in the
+application after the B2C login? (I am wondering if we should probably always redirecting from B2C to root)
+We can always go back and figure out what is going on.
+
+3- Some additional comments related to #1 above
+It is not guaranteed that we will have all those pesky .cmd files reappering when we do a new module install
+At this point we asserted that we can work without those files present in the TargetSolutionUI root directory 
+Later we will to continue to investigate how to make it stop - it seems that it started to happen in nodejs
+recently - I have found very little reference how to resolve the issue - the few solutions I saw seems that
+do not make a lot of sense
+Khader- this is going to annoy us and we will have to continue to investigate about it - right now we those
+other issues that are more urgent - however if you have any chance let's start investigating it.
+
+
+
+
+
+Changes on 2018-07-17
+========================================================================================
 
 1- TargetSolutionUI/angular.json
 	Lines 24 - 26 - added
