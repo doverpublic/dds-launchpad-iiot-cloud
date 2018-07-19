@@ -60,13 +60,13 @@ app.get('/docs', (req, res) => {
 */
 
 
-var modulesListPath = path.join('./data/files/adas', 'modules_list.json');
+var modelsPath = './dist/TargetSolutionUI/assets/models/_ref';
 
 /**
  * @swagger
  * /:class/new:
- *   post:
- *     description: Provide a clean template for the class to use for the creation of a new entity instance
+ *   get:
+ *     description: Provide a clean entity for the class to be used for the creation of a new instance
  *     produces:
  *       - application/json
  *     parameters:
@@ -80,7 +80,35 @@ var modulesListPath = path.join('./data/files/adas', 'modules_list.json');
  *         description: 200 203 response
  */
 app.get('/:class/new', (req, res) => {
-    var readable = fs.createReadStream(modulesListPath);
+    var className = req.params.class;
+    var fileName = className + '-new.json';
+    var filePath = path.join(modelsPath, fileName);
+    var readable = fs.createReadStream(filePath);
+    readable.pipe(res);
+});
+
+/**
+ * @swagger
+ * /:class/template:
+ *   get:
+ *     description: Provide information about the entity schema including the field definitions
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: class
+ *         description: Name of the instance type e.g. User, Company, etc.
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: 200 203 response
+ */
+app.get('/:class/template', (req, res) => {
+    var className = req.params.class;
+    var fileName = className + '-template.json';
+    var filePath = path.join(modelsPath, fileName);
+    var readable = fs.createReadStream(filePath);
     readable.pipe(res);
 });
 

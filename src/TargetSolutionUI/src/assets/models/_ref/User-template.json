@@ -1,0 +1,124 @@
+{
+	"EntityType": "User",
+	"Fields": [{
+		"Name": "id",
+		"Type": "string",
+		"Usage": "key,auto",
+		"Label": "Internal Id",
+		"InputMask": "",
+		"MinSize": 0,
+		"MaxSize": 0,
+		"ValidationExpression": "",
+		"DefaultValue": ""
+	},
+	{
+		"Name": "firstName",
+		"Type": "string",
+		"Usage": "",
+		"Label": "First Name",
+		"InputMask": "",
+		"MinSize": 1,
+		"MaxSize": 50,
+		"ValidationExpression": "",
+		"DefaultValue": ""
+	},
+	{
+		"Name": "lastName",
+		"Type": "string",
+		"Usage": "",
+		"Label": "Last Name",
+		"InputMask": "",
+		"MinSize": 1,
+		"MaxSize": 50,
+		"ValidationExpression": "",
+		"DefaultValue": ""
+	},
+	{
+		"Name": "userName",
+		"Type": "string",
+		"Usage": "unique",
+		"Label": "Login Name",
+		"InputMask": "",
+		"MinSize": 8,
+		"MaxSize": 50,
+		"ValidationExpression": "",
+		"DefaultValue": "<<email>>"
+	},
+	{
+		"Name": "email",
+		"Type": "string",
+		"Usage": "",
+		"Label": "Email",
+		"InputMask": "",
+		"MinSize": 6,
+		"MaxSize": 200,
+		"ValidationExpression": "",
+		"DefaultValue": ""
+	},
+	{
+		"Name": "phone",
+		"Type": "string",
+		"Usage": "",
+		"Label": "Phone",
+		"InputMask": "",
+		"MinSize": 8,
+		"MaxSize": 50,
+		"ValidationExpression": "",
+		"DefaultValue": ""
+	},
+	{
+		"Name": "activeFlag",
+		"Type": "bool",
+		"Usage": "",
+		"Label": "Active",
+		"InputMask": "",
+		"MinSize": 1,
+		"MaxSize": 1,
+		"ValidationExpression": "",
+		"DefaultValue": "true"
+	},
+	{
+		"Name": "createdBy",
+		"Type": "string",
+		"Usage": "audit",
+		"Label": "Created By",
+		"InputMask": "",
+		"MinSize": 8,
+		"MaxSize": 50,
+		"ValidationExpression": "",
+		"DefaultValue": "System"
+	},
+	{
+		"Name": "createTS",
+		"Type": "timestamp",
+		"Usage": "audit",
+		"Label": "Create Timestamp",
+		"InputMask": "",
+		"MinSize": 0,
+		"MaxSize": 0,
+		"ValidationExpression": "",
+		"DefaultValue": "<<now>>"
+	},
+	{
+		"Name": "lastUpdatedBy",
+		"Type": "string",
+		"Usage": "audit",
+		"Label": "Last Updated By",
+		"InputMask": "",
+		"MinSize": 8,
+		"MaxSize": 50,
+		"ValidationExpression": "",
+		"DefaultValue": "System"
+	},
+	{
+		"Name": "lastUpdateTS",
+		"Type": "timestamp",
+		"Usage": "audit",
+		"Label": "Last Update Timestamp",
+		"InputMask": "",
+		"MinSize": 0,
+		"MaxSize": 0,
+		"ValidationExpression": "",
+		"DefaultValue": "<<now>>"
+	}]
+}
