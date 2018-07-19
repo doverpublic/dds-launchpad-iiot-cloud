@@ -12,6 +12,7 @@ import { state } from '../../state';
 import { log } from 'util';
 import { cities } from '../../cities';
 import { ToastrService } from 'ngx-toastr';
+import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -93,15 +94,15 @@ public city:null;
   groups = [
 
     {
-      title: 'Trailer company details',
+      title: 'TRAILER COMPANY DETAILS',
       content: 'Trailer'
     },
     {
-      title: 'Address info',
+      title: 'ADDRESS INFO',
       content: 'Address'
     },
     {
-      title: 'Contact details',
+      title: 'CONTACT INFO',
       content: 'Contact'
     }
   ];
@@ -143,10 +144,18 @@ onCountrySelect(n) {
 }
 onSateSelect(stateId) {
     this.citiesList = [];
+    console.log(stateId);
+
     this.citiesList = this.cities.filter(function (i) {
 
       return i.state_id == stateId.id;
     });
+    console.log(this.citiesList);
+
+   /*  if(this.citiesList.length===0){
+      console.log("True");
+      this.citiesList.push({"name":stateId.name,"state_id":stateId.id});
+    } */
   }
   onCitySelect(cityid) {
     this.wlCity = cityid;

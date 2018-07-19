@@ -1,7 +1,7 @@
 <ol class="CV-breadcrumb">
     <li class="CV-breadcrumb-item">
         <a [routerLink]="['../viewDispatchOffice']">
-            View DispatchOffice Detail
+            View Dispatch Office Detail
           </a>
     </li>
     <li class="CV-breadcrumb-item">
@@ -116,7 +116,7 @@
                     </div>
                     <div class=" col-sm-9 ">
                         <div class="row">
-                            <div class="col-sm-9 form-group inputstyle">
+                            <div class="col-sm-12 form-group inputstyle">
                                 <input id="textaddress" formControlName="address" placeholder="address" required>
                                 <label class="inputlabel" for="textaddress">Address
                                         <span class="star">*</span>
@@ -132,7 +132,7 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-sm-2 form-group inputstyle">
+                            <div class="col-sm-4 form-group inputstyle">
 
                                 <select class="editorinput dropdownaddress"  (change)="onCountrySelect(dispatch.controls['country'].value)" formControlName="country" required>
 <!--                                         <option [ngValue]="null" disabled selected> Country  </option>
@@ -148,9 +148,9 @@
                                             Country is required
                                         </div>
                             </div>
-                            <div class="col-sm-2 form-group inputstyle">
+                            <div class="col-sm-4 form-group inputstyle">
                                 <select class="editorinput dropdownaddress" (change)="onSateSelect(dispatch.controls['state'].value)" formControlName="state" required>
-                                        <option [ngValue]="null" disabled selected> State 
+                                        <option [ngValue]="null" disabled selected> State / Province
                                             <span class="star" >*</span>
 
                                     </option>
@@ -163,7 +163,7 @@
                                         State is required
                                     </div>
                             </div>
-                            <div class=" col-sm-2 form-group inputstyle">
+                            <div class=" col-sm-4 form-group inputstyle">
                                 <select class="editorinput dropdownaddress" (change)="onCitySelect(dispatch.controls['city'].value)" formControlName="city" required>
                                         <option [ngValue]="null" disabled selected> City 
                                             <span class="star" >*</span>
@@ -178,20 +178,21 @@
                                         City is required
                                     </div>
                             </div>
-                            <div class="col-sm-3 form-group inputstyle">
-                                <input id="textZipcode" formControlName="zipcode" placeholder="Zipcode" required>
-                                <label class="inputlabel" for="textZipcode">Zipcode
-                                        <span class="star">*</span>
-
-                                </label>
-                                <div class="error" *ngIf="dispatch.get('zipcode').touched && dispatch.get('zipcode').hasError('pattern')">
-                                        Zip code is not valid
-                                    </div>
-                                    
-    
-                            </div>
+                         
                         </div>
                         <div class="row">
+                                <div class="col-sm-4 form-group inputstyle">
+                                        <input id="textZipcode" formControlName="zipcode" placeholder="Postal Code" required>
+                                        <label class="inputlabel" for="textZipcode">Postal Code
+                                                <span class="star">*</span>
+        
+                                        </label>
+                                        <div class="error" *ngIf="dispatch.get('zipcode').touched && dispatch.get('zipcode').hasError('pattern')">
+                                                Postal Code  is not valid
+                                            </div>
+                                            
+            
+                                    </div>
                             <div class=" col-sm-4 form-group inputstyle">
                                 <input id="textlatitude" formControlName="latitude" placeholder="latitude" (keyup)="onKey($event,'lat')">
                                 <label class="inputlabel" for="textlatitude">Latitude</label>
@@ -247,11 +248,11 @@
                                 <p>{{ dispatch.controls.code.value}}</p>
                                 </section>
                                 <section *ngIf="dispatch.controls.address.value">
-                                        <label class="previewDataLabel"> address</label>
+                                        <label class="previewDataLabel"> Address</label>
                                      <p>{{ dispatch.controls.address.value}}</p>
                                      </section>
                                      <section *ngIf="dispatch.controls.country.value">
-                                            <label class="previewDataLabel"> country</label>
+                                            <label class="previewDataLabel"> Country</label>
                                          <p>{{ dispatch.controls.country.value.name}}</p>
                                          </section>
                        
@@ -291,22 +292,18 @@
                                 <input id="textphone{{i}}" type="text" formControlName="phone" placeholder="Phone number">
                                 <label class="inputlabel" for="textphone{{i}}">Phone number</label>
                                 <div class="error" *ngIf="dispatch.controls.itemRows.controls[i].controls.phone.touched && dispatch.controls.itemRows.controls[i].controls.phone.hasError('pattern')">
-                                        Phone Nummber is not valid   
+                                        Phone No is not valid   
                                  </div> 
                             </div>
 
                             <div class="col-sm-1" *ngIf="dispatch.controls['itemRows'].controls.length > 1 && i!=dispatch.controls['itemRows'].controls.length-1" (click)="deleteRow(i,'contact')">
-                                <button class="plusButton">
-                                    <i class="fa fa-minus " aria-hidden="true">
+                                    <i class="fa fa-minus plusButton iconAsButton" aria-hidden="true">
 
                                     </i>
 
-                                </button>
                                 </div>
                             <div class="col-sm-1" *ngIf="i==dispatch.controls['itemRows'].controls.length-1"  (click)="addNewRow('contact')">
-                                <button class="pull-right plusButton">
-                                        <i class="fa fa-plus"></i>
-                                </button>
+                                        <i class="fa fa-plus pull-right plusButton iconAsButton"></i>
                                    
                             </div>
                         </div>
@@ -325,6 +322,7 @@
                 <div class="col-sm-9" formArrayName="ShiftItems">
                         <div class="row" *ngFor="let contactdeail of dispatch.controls.ShiftItems.controls; let i=index">
                         <div class="row" [formGroupName]="i">
+
                             <div class="col-sm-3 form-group inputstyle">
                                 <input id="textShiftName{{i}}" formControlName="shiftname" type="text" placeholder="Shift name">
                                 <label class="inputlabel" for="textShiftName{{i}}">Shift name</label>
@@ -349,24 +347,24 @@
                                         </ng-template>
                             </div>
                             <div class="col-sm-3 form-group inputstyle">
-                                <select class="editorinput"  formControlName="timezone" >
-                                    <option value="null" disabled="true" [selected]="true"> Time Zone
-                                   </option>
+                                <select class="editorinput dropdownaddress"  formControlName="timezone" >
+                                        <option [ngValue]="null" disabled selected> Time Zone
+                                                <span class="star" >*</span>
+                                                            </option>
                                     <option *ngFor=" let t of TimeZoneData;let i=index" [ngValue]="t">{{t.text}}
                                     </option>
                                 </select>
+                                <label [ngClass]="{ 'lableFocused' : dispatch.controls.ShiftItems.controls[i].value.timezone.length != 0 }">Time zone
+                                        <span class="star" >*</span></label>
+
                             </div>
                             <div class="col-sm-1" *ngIf="dispatch.controls['ShiftItems'].controls.length > 1 && i!=dispatch.controls['ShiftItems'].controls.length-1" (click)="deleteRow(i,'shift')">
-                                <button class="plusButton">
-                                    <i class="fa fa-minus " aria-hidden="true">
+                                    <i class="fa fa-minus plusButton iconAsButton " aria-hidden="true">
                                     </i>
 
-                               </button>
                             </div>
                             <div class="col-sm-1" *ngIf="i==dispatch.controls['ShiftItems'].controls.length-1"  (click)="addNewRow('shift')">
-                                <button class="pull-right plusButton">
-                                        <i class="fa fa-plus"></i>
-                                </button>
+                                        <i class="fa fa-plus pull-right plusButton iconAsButton"></i>
                                    
                             </div>
                          </div>

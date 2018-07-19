@@ -73,11 +73,11 @@ public city:null;
   groups = [
 
     {
-      title: 'Users details',
+      title: 'USER INFO',
       content: 'Users'
     },
     {
-      title: 'Address info',
+      title: 'ADDRESS & CONTACT INFO',
       content: 'Address'
     }
   ];
@@ -112,6 +112,12 @@ public city:null;
 
       return i.state_id == stateId.id;
     });
+    console.log(JSON.stringify(this.citiesList));
+/* 
+    if(this.citiesList.length===0){
+      console.log("True");
+      this.citiesList.push({"name":stateId.name,"state_id":stateId.id});
+    } */
   }
   onCitySelect(cityid) {
   }

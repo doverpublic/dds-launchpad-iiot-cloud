@@ -1,6 +1,8 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
-import { CreateTrailerService } from './create-and-edit-trailer-data/createTrailer.service'
+import { CreateTrailerService } from './create-and-edit-trailer-data/createTrailer.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 import {
   trigger,
   state,
@@ -16,8 +18,14 @@ import * as _ from "lodash";
   styleUrls: ['./trailercompany.component.scss']
 })
 export class TrailercompanyComponent implements OnInit {
+  public id: any;
 
+constructor()
+{
+
+}
   ngOnInit() {
+  
 
 
   }

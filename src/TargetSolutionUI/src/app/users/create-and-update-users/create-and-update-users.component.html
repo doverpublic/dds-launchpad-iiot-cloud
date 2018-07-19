@@ -14,17 +14,17 @@
   <form [formGroup]="users" class="editorForm">
 
 <div class="form-group">
-        <label>Select User role</label>
+        <label>SELECT USER PERSONA</label>
 
         <div class="btn-group userRole" btnRadioGroup formControlName="RoleType">
           <label btnRadio="System Admin" class="btn"
-                 tabindex="0" role="button">System Admin</label>
+                 tabindex="0" role="button">SYSTEM ADMIN</label>
           <label btnRadio="Terminal Manager" class="btn "
-                 tabindex="0" role="button">Terminal Manager</label>
+                 tabindex="0" role="button">TERMINAL MANAGER</label>
           <label btnRadio="Dispatcher" class="btn"
-                 tabindex="0" role="button">Dispatcher</label>
+                 tabindex="0" role="button">DISPATCHER</label>
                  <label btnRadio="Maintenance Technician" class="btn "
-                 tabindex="0" role="button">Maintenance Technician</label>       
+                 tabindex="0" role="button"> MAINTENANCE TECHNICIAN </label>       
         </div>
       </div>
       <accordion class="civaconAccordion" [closeOthers]="oneAtATime">
@@ -32,7 +32,7 @@
           <accordion-group [isDisabled]="true" [panelClass]="customClass" *ngFor="let group of groups;let i = index;" [isOpen]="group.isFirstOpen">
       
               <div accordion-heading class="clearfix">
-                  <a class="Accordionheader" (click)="open(group,i)" [ngClass]="group.isFirstOpen?'activeheader':'inactiveHeader'"> {{group.title}}
+                  <a class="Accordionheader" (click)="open(group,i)" [ngClass]="group.isFirstOpen?'activeheader':'inactiveHeader'"> {{group.title | uppercase}}
                       <i id="icon" [ngClass]="group.isFirstOpen? 'fa fa-chevron-right open':'fa fa-chevron-right' "></i>
                       <i class="fa fa-pencil pencil" [ngClass]="group.isFirstOpen? 'pencilHide':'pencilpen'" aria-hidden="true"></i>
                   </a>
@@ -226,7 +226,7 @@
                                   </div>
                                   <div class="col-sm-4 form-group inputstyle">
                                       <select class="editorinput dropdownaddress" (change)="onSateSelect(users.controls['state'].value)" formControlName="state" required>
-                                          <option [ngValue]="null" disabled selected> State 
+                                          <option [ngValue]="null" disabled selected> State / Province
                                                   <span class="star" >*</span>
       
                                           </option>
@@ -256,13 +256,13 @@
                                           </div>
                                   </div>
                                   <div class="col-sm-4 form-group inputstyle">
-                                      <input id="textZipcode" formControlName="zipcode" placeholder="Zipcode" required>
-                                      <label class="inputlabel" for="textZipcode">Zipcode
+                                      <input id="textZipcode" formControlName="zipcode" placeholder="Postal Code" required>
+                                      <label class="inputlabel" for="textZipcode">Postal Code
                                               <span class="star">*</span>
       
                                       </label>
                                       <div class="error" *ngIf="users.get('zipcode').touched && users.get('zipcode').hasError('pattern')">
-                                              Zip code is not valid
+                                            Postal Code is not valid
                                           </div>
                                           
           
@@ -274,12 +274,12 @@
                                         <label class="inputlabel" for="textlatitude">Phone No</label>
                                     
                                     </div>
-                                    <div class=" col-sm-4 form-group inputstyle">
+                                    <!-- <div class=" col-sm-4 form-group inputstyle">
                                         <input id="textlongitude" formControlName="fax" placeholder="Fax">
                                         <label class="inputlabel" for="textlongitude">Fax</label>
                                
                                     </div>
-        
+         -->
         
                                 </div>
                         

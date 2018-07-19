@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
-// import { ExcelService } from '../shared/services/excel.service';
-import { PagerService } from './pager.service';
+/* import { ExcelService } from '../shared/services/excel.service';
+ */import { PagerService } from './pager.service';
 import {
   trigger,
   state,
@@ -66,8 +66,8 @@ public contentarray;
 
   constructor(private router: Router,
     private modalService: BsModalService,
- //   private excelService: ExcelService,
-  private pagerService:PagerService) {
+/*     private excelService: ExcelService,
+ */  private pagerService:PagerService) {
 
   }
 
@@ -97,8 +97,8 @@ public contentarray;
 }
 
   exportToExcel() {
-    //this.excelService.exportAsExcelFile(this.games, 'persons');
-  }
+/*     this.excelService.exportAsExcelFile(this.games, 'persons');
+ */  }
 
 
   // Getting Selected Games and Count
@@ -174,8 +174,8 @@ public contentarray;
   {
 if(event.target.value=="excel")
 {
-  this.exportToExcel();
-}
+/*   this.exportToExcel();
+ */}
   }
 
 

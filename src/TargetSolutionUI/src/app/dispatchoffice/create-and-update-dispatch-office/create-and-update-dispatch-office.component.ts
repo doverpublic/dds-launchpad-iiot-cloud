@@ -76,19 +76,19 @@ public city:null;
   groups = [
 
     {
-      title: 'Dispatch Office details',
+      title: 'DISPATCH OFFICE DETAILS',
       content: 'Dispatch'
     },
     {
-      title: 'Address info',
+      title: 'ADDRESS INFO',
       content: 'Address'
     },
     {
-      title: 'Contact details',
+      title: 'CONTACT INFO',
       content: 'Contact'
     },
     {
-      title:"Preferences",
+      title:"PREFERENCES",
       content:'Preferences'
     }
   ];
@@ -124,6 +124,12 @@ public city:null;
 
       return i.state_id == stateId.id;
     });
+    console.log(JSON.stringify(this.citiesList));
+
+    /* if(this.citiesList.length===0){
+      console.log("True");
+      this.citiesList.push({"name":stateId.name,"state_id":stateId.id});
+    } */
   }
   onCitySelect(cityid) {
   }
@@ -261,6 +267,8 @@ public city:null;
     this.onSateSelect(this.data.dispatchData.state);
      this.dispatch.controls['state'].setValue(this.states[this.indextestsate], {onlySelf: true});
      this.url = this.data.dispatchData.file;
+   console.log(this.cities[this.indextestcity]);
+   console.log("city data");
 
   
   this.dispatch.controls['city'].setValue(this.cities[this.indextestcity], {onlySelf: true});  
@@ -367,8 +375,8 @@ public city:null;
     return  this.fb.group({
         'firstname': [''],
         'lastname': [''],
-        'email': [''],
-        'phone':['']
+        'email': ['', [Validators.pattern(this.emailPattern)]],
+        'phone':['', [Validators.pattern(this.mobnumPattern)]]
      })
   }
   initShiftItemRows() {

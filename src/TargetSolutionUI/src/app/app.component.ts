@@ -19,7 +19,7 @@ export class AppComponent {
   ngOnInit()
   {
     if(this.service.isOnline()) {
-      this.router.navigate(['']);
+      this.router.navigate(['admin']);
   }else {
     console.log("login");
       this.service.login();

@@ -148,7 +148,7 @@
                                 </div>
                                 <div class="col-sm-4 form-group inputstyle">
                                     <select class="editorinput dropdownaddress" (change)="onSateSelect(user.controls['state'].value)" formControlName="state" required>
-                                            <option [ngValue]="null" disabled selected> State 
+                                            <option [ngValue]="null" disabled selected> State / Province
                                                 <span class="star" >*</span>
 
                                         </option>
@@ -180,13 +180,13 @@
                             </div>
                             <div class="row">
                                     <div class="col-sm-4 form-group inputstyle">
-                                            <input id="textZipcode" formControlName="zipcode" placeholder="Zipcode" required>
-                                            <label class="inputlabel" for="textZipcode">Zipcode
+                                            <input id="textZipcode" formControlName="zipcode" placeholder="Postal Code" required>
+                                            <label class="inputlabel" for="textZipcode">Postal Code
                                                     <span class="star">*</span>
         
                                             </label>
                                             <div class="error" *ngIf="user.get('zipcode').touched && user.get('zipcode').hasError('pattern')">
-                                                    Zip code is not valid
+                                                    Postal Code is not valid
                                                 </div>
                                                 
                 
@@ -241,11 +241,11 @@
                                     <p>{{ user.controls.code.value}}</p>
                                     </section>
                                     <section *ngIf="user.controls.address.value">
-                                            <label class="previewDataLabel"> address</label>
+                                            <label class="previewDataLabel"> Address</label>
                                          <p>{{ user.controls.address.value}}</p>
                                          </section>
                                          <section *ngIf="user.controls.country.value">
-                                                <label class="previewDataLabel"> country</label>
+                                                <label class="previewDataLabel"> Country</label>
                                              <p>{{ user.controls.country.value.name}}</p>
                                              </section>
                            
@@ -257,18 +257,17 @@
                             <div class="row" [formGroupName]="i">
                                 <div class="col-sm-12">
                                     <p *ngIf="i==0"> Point of Contact </p>
-                                    <p *ngIf="i>0"> Point of Contact {{i}}</p>
                                 </div>
 
                                 <div class="col-sm-3  inputstyle form-group">
 
                                     <input id="textFirstName{{i}}" type="text" formControlName="firstname" placeholder="First name">
-                                    <label class="inputlabel" for="textFirstName{{i}}">First name</label>
+                                    <label class="inputlabel" for="textFirstName{{i}}">First Name</label>
 
                                 </div>
                                 <div class="col-sm-3  inputstyle form-group">
                                     <input id="textLastName{{i}}" type="text" formControlName="lastname" placeholder="Last name">
-                                    <label class="inputlabel" for="textLastName{{i}}">Last name</label>
+                                    <label class="inputlabel" for="textLastName{{i}}">Last Name</label>
 
                                 </div>
 
@@ -283,24 +282,19 @@
 
                                 <div class="col-sm-2  inputstyle form-group">
                                     <input id="textphone{{i}}" type="text" formControlName="phone" placeholder="Phone number">
-                                    <label class="inputlabel" for="textphone{{i}}">Phone number</label>
+                                    <label class="inputlabel" for="textphone{{i}}">Phone Number</label>
                                     <div class="error" *ngIf="user.controls.itemRows.controls[i].controls.phone.touched && user.controls.itemRows.controls[i].controls.phone.hasError('pattern')">
                                             Ph Number is not valid   
                                      </div> 
                                 </div>
 
                                 <div class="col-sm-1 " *ngIf="user.controls['itemRows'].controls.length > 1 && i!=user.controls['itemRows'].controls.length-1" (click)="deleteRow(i)">
-                                    <button class="plusButton" (click)="remove(i,template)">
-                                        <i class="fa fa-minus " aria-hidden="true">
+                                        <i class="fa fa-minus plusButton iconAsButton" aria-hidden="true" (click)="remove(i,template)">
 
                                         </i>
-
-                                    </button>
                                     </div>
                                     <div class="col-sm-1 ">
-                                    <button *ngIf="i==user.controls['itemRows'].controls.length-1" class="pull-right plusButton" (click)="addNewRow()">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
+                                            <i class="fa fa-plus plusButton iconAsButton" *ngIf="i==user.controls['itemRows'].controls.length-1" (click)="addNewRow()"></i>
                                        
                                 </div>
                             </div>
