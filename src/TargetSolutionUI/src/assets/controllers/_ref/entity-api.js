@@ -64,7 +64,11 @@ var modelsPath = './dist/TargetSolutionUI/assets/models/_ref';
 
 /**
  * @swagger
+<<<<<<< HEAD
  * /{class}/new:
+=======
+ * /api/entity/{class}/new:
+>>>>>>> 0f3876f2cd3ddab6f8135642ee4129765388abc1
  *   get:
  *     description: Provide a clean entity for the class to be used for the creation of a new instance
  *     produces:
@@ -89,7 +93,11 @@ app.get('/:class/new', (req, res) => {
 
 /**
  * @swagger
+<<<<<<< HEAD
  * /{class}/template:
+=======
+ * /api/entity/{class}/template:
+>>>>>>> 0f3876f2cd3ddab6f8135642ee4129765388abc1
  *   get:
  *     description: Provide information about the entity schema including the field definitions
  *     produces:
