@@ -16,6 +16,8 @@ var modulesListPath = path.join('./data/files/adas', 'modules_list.json');
 
 app.get('/list', (req, res) => {
     var readable = fs.createReadStream(modulesListPath);
+
+    res.setHeader('Content-Type', 'application/json');
     readable.pipe(res);
 });
 

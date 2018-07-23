@@ -48,6 +48,7 @@
         "swagger-express-router": "latest",
         "swagger-jsdoc": "latest",
         "tingodb": "latest",
+        "uuid": "latest",
         "xlsx": "^0.13.1",
         "zone.js": "^0.8.26"
     },
