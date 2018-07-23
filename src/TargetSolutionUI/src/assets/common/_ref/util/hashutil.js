@@ -10,9 +10,7 @@ var getUniqueId = function() {
     for (var index = 0; index < parts.length; index++) {
         strRet += parts[index];
     }
-}
-
-return strRet;
+    return strRet;
 }
 
 module.exports = {
