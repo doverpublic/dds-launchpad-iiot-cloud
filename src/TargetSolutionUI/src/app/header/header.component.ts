@@ -9,12 +9,15 @@ import { MSALService} from '../shared/services/msal.service';
 })
 export class HeaderComponent implements OnInit {
   search: string;
+  public userProfile;
+
   constructor(public service: MSALService) { }
  /* // Logout Method
  public logout() {
   this.service.logout();
 } */
   ngOnInit() {
+    this.userProfile=this.service.getUser().name;
 
   }
 

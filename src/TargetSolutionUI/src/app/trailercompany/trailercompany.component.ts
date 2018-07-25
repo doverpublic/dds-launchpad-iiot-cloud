@@ -2,6 +2,7 @@ import { Component, OnInit ,ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { CreateTrailerService } from './create-and-edit-trailer-data/createTrailer.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { MSALService} from '../shared/services/msal.service';
 
 import {
   trigger,
@@ -20,7 +21,7 @@ import * as _ from "lodash";
 export class TrailercompanyComponent implements OnInit {
   public id: any;
 
-constructor()
+constructor(private service:MSALService)
 {
 
 }

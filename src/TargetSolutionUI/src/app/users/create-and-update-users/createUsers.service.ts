@@ -20,6 +20,7 @@ export class CreateUsersService {
   phonenumber:number;
   fax:number;
   search:string;
+  userGroup:string;
   
 
   public UsersData:any;

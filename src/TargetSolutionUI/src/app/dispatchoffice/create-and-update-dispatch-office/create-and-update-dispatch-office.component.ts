@@ -76,7 +76,7 @@ public city:null;
   groups = [
 
     {
-      title: 'DISPATCH OFFICE DETAILS',
+      title: 'BRANCH OFFICE DETAILS',
       content: 'Dispatch'
     },
     {

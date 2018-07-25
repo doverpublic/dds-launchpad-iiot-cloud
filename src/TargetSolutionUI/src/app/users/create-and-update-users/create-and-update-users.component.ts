@@ -22,6 +22,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CreateAndUpdateUsersComponent implements OnInit {
   users: FormGroup;
   public indextest;
+  public indextestUsergroup;
   public isvalid;
   error: any = { isError: false, errorMessage: '' };
   customClass: string = 'customClass';
@@ -34,6 +35,7 @@ export class CreateAndUpdateUsersComponent implements OnInit {
   public countries;
   public states;
   public cities;
+  public usergroups;
   public lng: number;
   public lat: number;
   pager: any = {};
@@ -61,6 +63,16 @@ public city:null;
       this.states=state;
       this.cities=cities;
       this.TimeZoneData=Timezone;
+      this.usergroups=[{
+
+        "name":"admin",
+        
+      },
+      {
+
+        "name":"admin1",
+        
+      }]
      }
 
   ngOnInit() {
@@ -169,6 +181,7 @@ public city:null;
       lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
       ToggleActive:'Active',     
       file:[''],
+      userGroup:[''],
       username:['',Validators.compose([Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
       email:['',Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
       address: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
@@ -188,6 +201,8 @@ public city:null;
         lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
         ToggleActive:'Active',     
         file:[''],
+        userGroup:[''],
+
         username:['',Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
         email:['',Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
         address: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
@@ -207,6 +222,8 @@ public city:null;
       lastname: [this.data.UsersData.lastname,Validators.compose([ Validators.required, Validators.minLength(2)])],
       ToggleActive:this.data.UsersData.ToggleActive,     
       file:[this.data.UsersData.file],
+      userGroup:[this.data.UsersData.userGroup],
+
       username:[this.data.UsersData.username,Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
       email:[this.data.UsersData.email,Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
       address: [this.data.UsersData.address, Validators.required],
@@ -222,12 +239,15 @@ public city:null;
       this.indextest = _.findIndex(this.countries,this.data.UsersData.country);
       this.indextestsate = _.findIndex(this.states,this.data.UsersData.state);
       this.indextestcity = _.findIndex(this.cities,this.data.UsersData.city);
+      this.indextestUsergroup=_.findIndex(this.cities,this.data.UsersData.userGroup);
     this.users.controls['country'].setValue(this.countries[this.indextest], {onlySelf: true});
     this.onCountrySelect(this.data.UsersData.country);
     this.onSateSelect(this.data.UsersData.state);
      this.users.controls['state'].setValue(this.states[this.indextestsate], {onlySelf: true});
     this.url = this.data.UsersData.file;
      this.users.controls['city'].setValue(this.cities[this.indextestcity], {onlySelf: true});  
+     this.users.controls['userGroup'].setValue(this.usergroups[this.indextestUsergroup], {onlySelf: true});  
+
     }
 
 

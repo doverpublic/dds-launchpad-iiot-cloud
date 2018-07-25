@@ -2,50 +2,50 @@
 {
     height:50px;
 }
-.myTab {
-    background-color: #f8f9fa!important;
-    border-bottom: 1px solid #dee2e6;
-}
 .civoconTab
 {
-    background-color: #f6fcfd;
-    border: 1px solid #8ee8ff;
-    color:rgb(175,226,245);
-}
-
-
-
-
-  /* .civoconTab > li > a:active{
-    background-color: white !important;
-    color:black !important;
-      
-      
-  } */
-  .nav-link:hover {
-    color: #495057;
- 
-  position: relative;
-   background: trnasperent;
-    /* border-color: #dee2e6 #dee2e6 #fff; */
-    svg
+    background-color: white;
+    border: 1px solid #bebebe;
+    color:#323232;
+    i
     {
-        fill:black;
+        font-size:25px;
+    }
+    .nav-link.active  {
+        color: #323232;
+        font-weight: bold;
+        background-color: #fff;
+        position: relative;
+        background: trnasperent;
+        border-bottom: 2px solid #004898;
+        z-index: 1;
+    }
+        .nav-link
+    {
+        display: block;
+        padding: 0rem 1rem;
+        color: #143fa1;
+        border: none;
+        padding: 0rem 1.5rem;
+    }
+        
+
+    .nav-link:hover {
+        color: #495057;
+    
+    position: relative;
+    background: trnasperent;
+        /* border-color: #dee2e6 #dee2e6 #fff; */
+        svg
+        {
+            fill:black;
+        }
     }
 }
+ 
 
-  .nav-link.active  {
-    color: #495057;
-    background-color: #fff;
-  position: relative;
-   background: trnasperent;
-  border-bottom: 2px solid red;
-  z-index: 1;
-
-    /* border-color: #dee2e6 #dee2e6 #fff; */
-}
-
-.nav-link.active:after
+  
+/* .nav-link.active:after
 {
 
     height: 10px;
@@ -53,23 +53,59 @@
     position: absolute;
   content: '';
   background: white;
-  border: 2px solid red;
+  border: 3px solid #004898;
   border-top-width: 0px;
   border-left-width: 0px;
   transform: rotate(45deg);
-  bottom: -6px;
   left: calc(50% - 4px);
 
-}
+} */
 .civaconSecondTab
 {
     background-color: white;
-    color:rgb(175,226,245);
-    li
+    color: #143fa1;
+    border-bottom: 1px solid #bebebe;
+    
+    .nav-item
     {
-        padding-right: 28px;
+        border-right: 1px solid #bebebe;
+        }
+    svg
+    {
+        width:25px;
+        margin-right: 10px;
+    }
+    
+    .nav-link
+    {
+        padding: 5px 20px;
+        display: block;
+        color: #143fa1;
+        border: none;
+    }
+    .nav-link.active  {
+        color: #143fa1;
+        font-weight: bold;
+        background-color: #fff;
+        position: relative;
+        background: trnasperent;
+        border-bottom: 2px solid #004898;
+        z-index: 1;
 
     }
+
+    .nav-link:hover {
+        color: #495057;
+        position: relative;
+        background: trnasperent;
+        svg
+        {
+            fill:black;
+        }
+    }
+
+ 
+
 }
 .dropdown
 {
@@ -79,6 +115,10 @@
 .civaconNestedTab >li 
 {
     margin: auto 0.01rem;
+    .nav-link
+    {
+        padding: 10px 10px;
+        }
 }
 .ml-auto .dropdown-menu {
     left: auto !important;
@@ -87,8 +127,8 @@
   .avatar {
       
     vertical-align: middle;
-    width: 50px;
-    height: 50px;
+    width: 35PX;
+    height: 35PX;
     border-radius: 50%;
     
 }
@@ -96,7 +136,7 @@ svg .svgimage
 {
     filter: invert(.5) sepia(1) saturate(2.1) hue-rotate(158deg);
 }
-.notification
+    .notification
     {
         opacity: 0.3;
     margin-right: 12px;
@@ -104,13 +144,13 @@ svg .svgimage
     .civaconAssetIcon
     {
 
-        border-right: 1px solid #d1f5fe;   
+        border-right: 1px solid #bebebe;   
     }
-.civaconAssetIcon a
-{
-    margin: 9px auto;
+    .civaconAssetIcon a
+    {
+        margin: 9px auto;
 
-}
+    }
 
     
 
@@ -130,8 +170,7 @@ input::-webkit-search-cancel-button {
 svg
 {
     width: 24px;
-        padding-top: 0.5rem;
-    fill: #a9dff5;
+    fill: #004898;
 
 }
 
@@ -171,35 +210,20 @@ input::-webkit-input-placeholder {
 {
     text-align: center!important;
 }
-.nav-link
-{
-    display: block;
-    padding: 0rem 1rem;
-    color: #8fd5f1;
-    border: none;
-}
+
 .topNav
 {
-    color: #accedc;
+    color: #323232;
     border:none;
 }
-.secondnav
-{
-    color: #a9dff5;
-    border:none;
 
-
-}
 
 .civacontopnav
 {
     line-height: 3.5;
-    color: #accedc;
+    color: #323232;
 }
-.civacontopnavlist
-{
-    border-bottom: 1px solid #8ee8ff;
-    background-color: white;}
+
 
     
 /* Demo 2 */

@@ -13,18 +13,18 @@
     <div class="col-sm-1 gridOperationchild">
       <label>
           <span><i class="fa fa-filter"></i></span>
-          filter
+          FILTER
       </label>
     
       </div>
       <div class="col-sm-2 gridOperationchild">
-          <input [(ngModel)]="searchText" placeholder="search trailer" class="filter-input form-control">
+          <input [(ngModel)]="searchText" placeholder="SEARCH" class="filter-input form-control">
           <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
       </div>
     <div class="col-sm-2 gridOperationchild">
     
      <select class="form-control"  [(ngModel)]="sortBy" >
-          <option [ngValue]="undefined" disabled  selected> sortBY </option>
+          <option [ngValue]="undefined" disabled  selected> SORT BY </option>
 
         <option value="name">Name</option>
         <option value="address">Address</option>
@@ -39,14 +39,14 @@
             <input type="checkbox" (change)="selectAll()" id="selectall" value="{{g?.id}}" [(ngModel)]="selectedAll">
         </span>
         
-          select All
+          select all
       </label>
      
 
     </div>
     <div class="col-sm-2 gridOperationchild">
          <select class="form-control" (change)="onExportChange($event)" id="exportselect" [(ngModel)]="exportBy">
-          <option [ngValue]="undefined" disabled  selected> ExportBY </option>
+          <option [ngValue]="undefined" disabled  selected> EXPORT BY </option>
 
         <option value="excel">Excel</option>
 
@@ -61,7 +61,7 @@
         create new {{this.flagItems[0].name}}</button>
     </div>
   </div>
-  <hr>
+  
   <div class="row " *ngIf="this.flagItems[0].name=='Users'">
     <div class="col-sm-3 " *ngFor="let g of pagedItems| orderBy :sortBy | filter : searchText ">
       <ng-template #template>
@@ -346,9 +346,7 @@
       <div class="col-sm-4">
           <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           viewBox="0 0 448.5 448.5" style="enable-background:new 0 0 448.5 448.5;" xml:space="preserve">
-       <style type="text/css">
-         .st0{fill:none;}
-       </style>
+      
        <g>
          <path class="st0" d="M222.7,137.9c-10.4,16.1-36.5,37.2-36.5,57.3c0,20.1,16.3,36.5,36.5,36.5c20.1,0,36.5-16.3,36.5-36.5
            C259.1,175.1,228.4,129.1,222.7,137.9z"/>

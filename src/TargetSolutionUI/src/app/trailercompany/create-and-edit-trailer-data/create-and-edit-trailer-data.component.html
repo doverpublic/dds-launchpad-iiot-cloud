@@ -1,12 +1,58 @@
 <ol class="CV-breadcrumb">
         <li class="CV-breadcrumb-item">
             <a [routerLink]="['../view']">
-                View Trailer Detail
+                View Company Details
               </a>
         </li>
+        <li class="CV-breadcrumb-item">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="14px"  viewBox="0 0 444.819 444.819" style="enable-background:new 0 0 444.819 444.819;"
+                xml:space="preserve">
+           <g>
+               <path d="M352.025,196.712L165.884,10.848C159.029,3.615,150.469,0,140.187,0c-10.282,0-18.842,3.619-25.697,10.848L92.792,32.264
+                   c-7.044,7.043-10.566,15.604-10.566,25.692c0,9.897,3.521,18.56,10.566,25.981l138.753,138.473L92.786,361.168
+                   c-7.042,7.043-10.564,15.604-10.564,25.693c0,9.896,3.521,18.562,10.564,25.98l21.7,21.413
+                   c7.043,7.043,15.612,10.564,25.697,10.564c10.089,0,18.656-3.521,25.697-10.564l186.145-185.864
+                   c7.046-7.423,10.571-16.084,10.571-25.981C362.597,212.321,359.071,203.755,352.025,196.712z"/>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           </svg>
+        </li>
         <li class="CV-eadcrumb-item">
+        
+           
+                  
                 <a class="active">
-                        Edit
+                        ADD COMPANY
                     </a>
 </li>
       </ol>
@@ -27,11 +73,11 @@
 
 
             <div [ngSwitch]="group?.content">
-                <div *ngSwitchCase="'Trailer'" class="row col-sm-12 AccordionDeatailStyle">
+                <div *ngSwitchCase="'Trailer'" class="row col-sm-12 ">
                     <div class="col-sm-5 row">
                         <div class="form-group col-sm-6 inputstyle">
-                            <input id="textTrailerName" type="text" formControlName="name" placeholder="Trailer Company Name" required/>
-                            <label class="inputlabel" for="textTrailerName">Trailer Company Name               
+                            <input id="textTrailerName" type="text" formControlName="name" placeholder="Company Name" required/>
+                            <label class="inputlabel" for="textTrailerName">Company Name               
                                 <span class="star" >*</span>
                             </label>
 
@@ -61,8 +107,8 @@
                         </div>
 
                         <div class="form-group col-sm-12 inputstyle">
-                            <textarea style="height:150px" id="textdescription" formControlName="description" placeholder="Trailer Company Description"></textarea>
-                            <label class="inputlabel" for="textdescription">Trailer Company Description</label>
+                            <textarea style="height:150px" id="textdescription" formControlName="description" placeholder=" Company Description"></textarea>
+                            <label class="inputlabel" for="textdescription"> Company Description</label>
 
                         </div>
 
@@ -72,7 +118,7 @@
                     <div class="form-group col-sm-3 trailerlogoupload ">
                         <label>Upload company logo</label>
                         <div class="btn-file">
-                            Browse & Upload
+                            BROWSE & UPLOAD
                             <input type="file" accept="image/*"  (change)="onSelectFile($event)">
                         </div>
                         <label>
@@ -96,25 +142,10 @@
 
                     </div>
                 </div>
-                <div *ngSwitchCase="'Address'" class="row col-sm-12 AccordionDeatailStyle">
+                <div *ngSwitchCase="'Address'" class="row col-sm-12 ">
                     <div class="row col-sm-12">
-                        <div class=" col-sm-3 form-group" >
-                            <div class="trailerdatapreview">
-                                        
-                                <section *ngIf="user.controls.name.value">
-                                        <label class="previewDataLabel">Trailer Company</label>
-                                       <p>{{ user.controls.name.value}}</p> 
-                                    </section>
-                                    <section *ngIf="user.controls.code.value">
-                                       <label class="previewDataLabel"> Code</label>
-                                    <p>{{ user.controls.code.value}}</p>
-                                    </section>
-    
-
-                            </div>
-
-                        </div>
-                        <div class=" col-sm-9">
+                       
+                        <div class=" col-sm-12">
                             <div class="row">
                                 <div class="col-sm-12 form-group inputstyle">
                                     <input id="textaddress" formControlName="address" placeholder="address" required>
@@ -227,37 +258,15 @@
 
 
                 </div>
-                <div *ngSwitchCase="'Contact'" class="row col-sm-12 AccordionDeatailStyle">
+                <div *ngSwitchCase="'Contact'" class="row col-sm-12 ">
 
-                    <div class="col-sm-3">
-                        <div class="trailerdatapreview">
-                                      
-                                <section *ngIf="user.controls.name.value">
-                                        <label class="previewDataLabel">Trailer Company</label>
-                                       <p>{{ user.controls.name.value}}</p> 
-                                    </section>
-                                    <section *ngIf="user.controls.code.value">
-                                       <label class="previewDataLabel"> Code</label>
-                                    <p>{{ user.controls.code.value}}</p>
-                                    </section>
-                                    <section *ngIf="user.controls.address.value">
-                                            <label class="previewDataLabel"> Address</label>
-                                         <p>{{ user.controls.address.value}}</p>
-                                         </section>
-                                         <section *ngIf="user.controls.country.value">
-                                                <label class="previewDataLabel"> Country</label>
-                                             <p>{{ user.controls.country.value.name}}</p>
-                                             </section>
-                           
-                        </div>
-                    </div>
-                    <div class="col-sm-9" formArrayName="itemRows">
-
-                        <div class="row" *ngFor="let contactdeail of user.controls.itemRows.controls; let i=index">
-                            <div class="row" [formGroupName]="i">
-                                <div class="col-sm-12">
-                                    <p *ngIf="i==0"> Point of Contact </p>
+                    <div class="col-sm-12" formArrayName="itemRows">
+                            <div class="row col-sm-12">
+                                    <p> Point of Contact </p>
                                 </div>
+                        <div class="row" *ngFor="let contactdeail of user.controls.itemRows.controls; let i=index">
+                            <div class="row col-sm-12" [formGroupName]="i">
+                                
 
                                 <div class="col-sm-3  inputstyle form-group">
 
@@ -292,9 +301,9 @@
                                         <i class="fa fa-minus plusButton iconAsButton" aria-hidden="true" (click)="remove(i,template)">
 
                                         </i>
-                                    </div>
-                                    <div class="col-sm-1 ">
-                                            <i class="fa fa-plus plusButton iconAsButton" *ngIf="i==user.controls['itemRows'].controls.length-1" (click)="addNewRow()"></i>
+                                </div>
+                                <div class="col-sm-1 ">
+                                 <i class="fa fa-plus plusButton iconAsButton" *ngIf="i==user.controls['itemRows'].controls.length-1" (click)="addNewRow()"></i>
                                        
                                 </div>
                             </div>

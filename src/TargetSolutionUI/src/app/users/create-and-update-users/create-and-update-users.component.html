@@ -1,12 +1,55 @@
 <ol class="CV-breadcrumb">
     <li class="CV-breadcrumb-item">
         <a [routerLink]="['../viewUsers']">
-            View Users Detail
+            View Users Details
           </a>
     </li>
     <li class="CV-breadcrumb-item">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="14px"  viewBox="0 0 444.819 444.819" style="enable-background:new 0 0 444.819 444.819;"
+            xml:space="preserve">
+       <g>
+           <path d="M352.025,196.712L165.884,10.848C159.029,3.615,150.469,0,140.187,0c-10.282,0-18.842,3.619-25.697,10.848L92.792,32.264
+               c-7.044,7.043-10.566,15.604-10.566,25.692c0,9.897,3.521,18.56,10.566,25.981l138.753,138.473L92.786,361.168
+               c-7.042,7.043-10.564,15.604-10.564,25.693c0,9.896,3.521,18.562,10.564,25.98l21.7,21.413
+               c7.043,7.043,15.612,10.564,25.697,10.564c10.089,0,18.656-3.521,25.697-10.564l186.145-185.864
+               c7.046-7.423,10.571-16.084,10.571-25.981C362.597,212.321,359.071,203.755,352.025,196.712z"/>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       <g>
+       </g>
+       </svg>
+    </li>
+    <li class="CV-breadcrumb-item">
             <a class="active">
-                    Edit
+                    ADD USER
                 </a>
 </li>
   </ol>
@@ -14,15 +57,15 @@
   <form [formGroup]="users" class="editorForm">
 
 <div class="form-group">
-        <label>SELECT USER PERSONA</label>
+        <label style="margin-bottom: 0rem">SELECT USER PERSONA</label>
 
         <div class="btn-group userRole" btnRadioGroup formControlName="RoleType">
           <label btnRadio="System Admin" class="btn"
                  tabindex="0" role="button">SYSTEM ADMIN</label>
           <label btnRadio="Terminal Manager" class="btn "
-                 tabindex="0" role="button">TERMINAL MANAGER</label>
+                 tabindex="0" role="button">BRANCH MANAGER</label>
           <label btnRadio="Dispatcher" class="btn"
-                 tabindex="0" role="button">DISPATCHER</label>
+                 tabindex="0" role="button">BUISNESS CLERK</label>
                  <label btnRadio="Maintenance Technician" class="btn "
                  tabindex="0" role="button"> MAINTENANCE TECHNICIAN </label>       
         </div>
@@ -40,7 +83,7 @@
       
       
               <div [ngSwitch]="group?.content">
-                  <div *ngSwitchCase="'Users'" class="row col-sm-12 AccordionDeatailStyle">
+                  <div *ngSwitchCase="'Users'" class="row col-sm-12 ">
                      
                         <div class="col-sm-12 row">
                           <div class="form-group col-sm-3 inputstyle">
@@ -75,10 +118,10 @@
                           </div>
                           <div class="form-group col-sm-2">
                                         <div class="btn-group ToggleActive"  btnRadioGroup formControlName="ToggleActive">
-                                          <label btnRadio="Active" class="btn " 
-                                                 tabindex="0" role="button">Active</label>
+                                          <label btnRadio="Active" class="btn" 
+                                                 tabindex="0" role="button" style="font-size:14px">ACTIVE</label>
                                           <label btnRadio="InActive" class="btn" 
-                                                 tabindex="0" role="button">InActive</label>
+                                                 tabindex="0" role="button" style="font-size:14px">INACTIVE</label>
                                          
                                         </div>
                               </div>
@@ -89,10 +132,10 @@
                       </div>
 
                       <div class="col-sm-12 row">
-                            <div class="form-group col-sm-4 trailerlogoupload ">
+                            <div class="form-group col-sm-3 trailerlogoupload ">
                                     <label>Upload Photo</label>
                                     <div class="btn-file">
-                                        Browse & Upload
+                                        BROWSE & UPLOAD
                                         <input type="file" accept="image/*"  (change)="onSelectFile($event)">
                                     </div>
                                     <label>
@@ -112,85 +155,77 @@
                                               </section>
                                                           
                                         </div>
+                                        <div class="col-sm-3 form-group inputstyle">
+                                                <select class="editorinput dropdownaddress" (change)="onCountrySelect(users.controls['userGroups'].value)" formControlName="userGroup" required>
+                                                       <option [ngValue]="null" disabled selected> Assign User Group </option>
+                                              
+                                               <!--  <option value="null" disabled="true" [selected]="true"> Country
+                                                    <span class="star" >*</span>
+                                                                </option> -->
+                                                    <option *ngFor=" let n of usergroups;let i=index" [ngValue]="n">{{n.name}}</option>
+                                                </select>
+                                                <label [ngClass]="{ 'lableFocused' : users.controls['userGroup'].value.length != 0 }">Assign User Group</label>
+          
+                                            
+          
+                                            </div>
                       </div>
                     
-                      <div class="col-sm-12 row">
+                      <div class="row">
                             <div class="col-sm-12">
                                     <label>Create Login Information</label>
                     
                                 </div>
-<div class="form-group col-sm-8">
-       <div class="row">
-            <div class="form-group col-sm-6 inputstyle">
-                    <input id="textUsername" formControlName="username" placeholder="User Name" required/>
-                    <label class="inputlabel" for="textUsername">User Name
-                            <span class="star" >*</span>
-    
-                    </label>
-    
-                    <div class="error" *ngIf="users.get('username').touched && users.get('username').hasError('required')">
-                            Username is required
-                        </div>
-                        <div class="error" *ngIf="users.get('username').touched && users.get('username').hasError('minlength')">
-                            Minimum of 8 characters
-                        </div>
-                        <div class="error" *ngIf="users.get('username').touched && users.get('username').hasError('maxlength')">
-                                Maximum of 15 characters
+                 <div class="col-sm-12">
+                            <div class="form-group col-sm-3 inputstyle">
+                                    <input id="textUsername" formControlName="username" placeholder="User Name" required/>
+                                    <label class="inputlabel" for="textUsername">User Name
+                                            <span class="star" >*</span>
+                    
+                                    </label>
+                    
+                                    <div class="error" *ngIf="users.get('username').touched && users.get('username').hasError('required')">
+                                            Username is required
+                                        </div>
+                                        <div class="error" *ngIf="users.get('username').touched && users.get('username').hasError('minlength')">
+                                            Minimum of 8 characters
+                                        </div>
+                                        <div class="error" *ngIf="users.get('username').touched && users.get('username').hasError('maxlength')">
+                                                Maximum of 15 characters
+                                            </div>
+                                        <div class="error" *ngIf="users.get('username').touched&& users.get('username').hasError('pattern')">
+                                                Username is not valid   
+                                        </div> 
+                                        
                             </div>
-                        <div class="error" *ngIf="users.get('username').touched&& users.get('username').hasError('pattern')">
-                                Username is not valid   
-                         </div> 
-                        
-            </div>
-            <div class="col-sm-6">
-                    <label>
-                        <i style="font-size: 1.5rem;" class="fa fa-check-circle-o" [ngClass]="{ 'heightlightIcon' : users.controls['username'].valid}" aria-hidden="true"></i > &nbsp; An Email will be be sent to the user for reset password</label>
-            </div>
-            <div class="form-group col-sm-6 inputstyle">
-                    <input id="textEmailId"  formControlName="email" placeholder="EmailId for Notification" required/>
-                    <label class="inputlabel" for="textEmailId">Email ID for notification
-                            <span class="star" >*</span>
-
-                    </label>
-                    <div class="error" *ngIf="users.get('email').touched && users.get('email').hasError('required')">
-                            Email ID is required
-                        </div>
-                       
-                        <div class="error" *ngIf="users.get('email').touched && users.get('email').hasError('pattern')">
-                                Email  ID is not valid   
-                         </div> 
+                            <div class="form-group  col-sm-3">
+                                    <label>
+                                        <i style="font-size: 1.5rem;" class="fa fa-check-circle-o" [ngClass]="{ 'heightlightIcon' : users.controls['username'].valid}" aria-hidden="true"></i > &nbsp; An Email will be be sent to the user for reset password</label>
+                            </div>
                 </div>
-
-       </div>
-    
-          
-</div>
-                        
+                <div class="col-sm-12">
+                        <div class="form-group col-sm-3 inputstyle">
+                                <input id="textEmailId"  formControlName="email" placeholder="EmailId for Notification" required/>
+                                <label class="inputlabel" for="textEmailId">Email ID for notification
+                                        <span class="star" >*</span>
+            
+                                </label>
+                                <div class="error" *ngIf="users.get('email').touched && users.get('email').hasError('required')">
+                                        Email ID is required
+                                    </div>
+                                   
+                                    <div class="error" *ngIf="users.get('email').touched && users.get('email').hasError('pattern')">
+                                            Email  ID is not valid   
+                                     </div> 
+                            </div>
+            
+                   </div>
+                
                           </div>
                   </div>
-                  <div *ngSwitchCase="'Address'" class="row col-sm-12 AccordionDeatailStyle">
-                      <div class="row col-sm-12">
-                          <div class=" col-sm-3 form-group" >
-                              <div class="trailerdatapreview" *ngIf="users.value.length!=0">
-                                          
-                                 <section *ngIf="users.controls.firstname.value">
-                                          <label class="previewDataLabel">FirstName:</label>
-                                         <p>{{ users.controls.firstname.value}}</p> 
-                                      </section>
-                                      <section *ngIf="users.controls.lastname.value">
-                                         <label class="previewDataLabel"> LastName:</label>
-                                      <p>{{ users.controls.lastname.value}}</p>
-                                      </section>
-                                       <section *ngIf="users.controls.RoleType.value">
-                                         <label class="previewDataLabel"> RoleType:</label>
-                                      <p>{{ users.controls.RoleType.value}}</p>
-                                      </section>
-       
-      
-                              </div>
-      
-                          </div>
-                          <div class=" col-sm-9 ">
+                  <div *ngSwitchCase="'Address'" class="row col-sm-12 ">
+                      <div class="row col-sm-12">                         
+                          <div class=" col-sm-12 ">
                               <div class="row">
                                   <div class="col-sm-12 form-group inputstyle">
                                       <input id="textaddress" formControlName="address" placeholder="address" required>

@@ -14,18 +14,18 @@ export class AppComponent {
   title = 'app';
   constructor(private router: Router, public service: MSALService){
         setTheme('bs4'); // or 'bs4'
-      
   }
-  ngOnInit()
-  {
+  /* ngOnInit() {
     if(this.service.isOnline()) {
-      this.router.navigate(['admin']);
+      console.log("true");
+
+      this.router.navigate(['/admin']);
   }else {
     console.log("login");
       this.service.login();
-  }
+  } 
    
-    
   }
+ */
 
 }

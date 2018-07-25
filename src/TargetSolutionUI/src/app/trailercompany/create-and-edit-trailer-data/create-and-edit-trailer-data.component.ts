@@ -94,7 +94,7 @@ public city:null;
   groups = [
 
     {
-      title: 'TRAILER COMPANY DETAILS',
+      title: 'COMPANY DETAILS',
       content: 'Trailer'
     },
     {

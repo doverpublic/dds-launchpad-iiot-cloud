@@ -2,7 +2,7 @@
 {
 .active
 {
-color:deepskyblue;
+color:#003664;
 
 }
 label
@@ -13,7 +13,7 @@ label
 }
 .ToggleActive
 {
-    border: 2px solid deepskyblue;
+    border: 2px solid #003664;
     border-radius: 32px;
     color:black;
 
@@ -21,14 +21,14 @@ label
 
     {
         color:white;
-        background-color: deepskyblue;
+        background-color: #003664;
         border-radius: 63px 64px 64px 63px;
         padding: 0.01rem 0.25rem;
     }
 
     label
     {
-        opacity: 0.5;
+        opacity: 0.8;
 
         padding: 0.01rem 0.25rem;
         margin-bottom: 0px;
@@ -41,3 +41,8 @@ label
     color:green;
 
 }
+.pencilHide
+  {
+
+    display: none;
+  }

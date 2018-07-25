@@ -13,7 +13,7 @@
 }
 .createButton
 {
-    background-color: deepskyblue;
+    background-color: #003664;
     border: none;
     color: white;
     text-decoration: none;
@@ -26,7 +26,7 @@
     margin-right: 0px;
      svg
     {
-        width: 36px;
+        width: 25px;
         margin: 0px auto;
         display: block;
         fill:#a9dff5;
@@ -149,22 +149,22 @@
 .gridOperationDiv
 {
     text-align: center;
-    background-color: #eaf9ff;
-    border: 1px solid #8ee8ff;
-    font-size: 0.9rem;
+    background-color: #ffffff;
+    border: 1px solid #bebebe;
+    margin-bottom: 20px;
+    font-size:14px;
 
 }
 .gridOperationDiv > *
 {
-    border-right: 1px solid #8ee8ff;
-font-size: 0.9rem;
-display: flex;
+    border-right: 1px solid #bebebe;
+    display: flex;
     align-items: center;
     justify-content: center;
     line-height: 2.5rem;
 }
-.gridOperationchild > * 
+ .gridOperationchild > * 
 {
-    font-size: 0.9rem;
+    font-size:14px;
 
-}
+} 

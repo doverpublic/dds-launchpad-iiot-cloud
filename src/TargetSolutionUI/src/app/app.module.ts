@@ -47,6 +47,7 @@ import { DriversComponent } from './drivers/drivers.component';
 import { UsersComponent } from './users/users.component';
 import { OrderModule } from 'ngx-order-pipe';
 //import { ExcelService } from './shared/services/excel.service';
+import {AuthGuard} from './shared/services/authguard.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { AssetsComponent } from './assets/assets.component';
 import { ViewtrailerdetailComponent } from './trailercompany/viewtrailerdetail/viewtrailerdetail.component';
@@ -60,28 +61,28 @@ import { ViewUsersComponent } from './users/view-users/view-users.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'admin',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home', component: HomeComponent, canActivate: [AuthGuard]
   },
 
   {
     path: 'asset',
-    component: AssetmanagementComponent
+    component: AssetmanagementComponent, canActivate: [AuthGuard]
   },
   {
     path: 'track',
-    component: LivetrackingComponent
+    component: LivetrackingComponent, canActivate: [AuthGuard]
   },
   {
     path: 'report',
-    component: ReportsComponent
+    component: ReportsComponent, canActivate: [AuthGuard]
   },
   {
     path: 'admin',
-    component: AdminstrationComponent,
+    component: AdminstrationComponent, canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -227,7 +228,7 @@ const routes: Routes = [
   ],
 
 //	// providers: [AppConfig,MSALService,AuthenticationHttpInterceptor,ExcelService,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
-	providers: [AppConfig,MSALService,AuthenticationHttpInterceptor,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
+	providers: [AuthGuard,AppConfig,MSALService,AuthenticationHttpInterceptor,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
     {
         provide: APP_INITIALIZER,
         useFactory: (config: AppConfig) => () => config.load(),

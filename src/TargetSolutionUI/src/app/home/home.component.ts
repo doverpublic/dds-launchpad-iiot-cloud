@@ -10,14 +10,17 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, public service: MSALService){
   }
+  
+
   ngOnInit() {
-    
-   /*  if(this.service.isOnline()) {
-      this.router.navigate(['']);
+    if(this.service.isOnline()) {
+      console.log("true");
+
+      this.router.navigate(['/admin']);
   }else {
     console.log("login");
       this.service.login();
-  } */
+  } 
    
   }
 
