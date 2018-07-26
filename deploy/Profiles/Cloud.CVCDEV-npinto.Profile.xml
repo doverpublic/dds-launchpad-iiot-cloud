@@ -19,9 +19,9 @@
                                     AzureActiveDirectory="true"
                                     ServerCertThumbprint="0123456789012345678901234567890123456789" />
   -->
-    <ClusterConnectionParameters ConnectionEndpoint="ddcvcdev.centralus.cloudapp.azure.com:19000"
+    <ClusterConnectionParameters ConnectionEndpoint="cvcdev.centralus.cloudapp.azure.com:19000"
 								X509Credential="true"
-								ServerCertThumbprint="F77EA6BA256742B9BE2725F937C4BF956E91332A"
+								ServerCertThumbprint="6C8D41A0A50465AAD72D286E53FD9CBFA8BBA55F"
 								FindType="FindByThumbprint"
 								FindValue="A58528892D4827FCBD37EE9E1CC88DE82EFA08EC"
 								StoreLocation="CurrentUser"

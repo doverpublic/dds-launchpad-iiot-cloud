@@ -18,8 +18,8 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-   <ItemGroup>
-    <Content Include="..\TargetSolutionUI\**\*.*"  Exclude="..\TargetSolutionUI\node_modules\**\*.*">
+  <ItemGroup>
+    <Content Include="..\TargetSolutionUI\**\*.*" Exclude="..\TargetSolutionUI\node_modules\**\*.*">
       <Link>ApplicationPackageRoot\Launchpad.Iot.TargetSolutionPkg\Code\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
     <Content Include="ApplicationPackageRoot\Launchpad.Iot.TargetSolutionPkg\Config\Settings.xml" />
