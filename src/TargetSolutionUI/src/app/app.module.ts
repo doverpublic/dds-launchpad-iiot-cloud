@@ -8,6 +8,7 @@ import { Http, HttpModule } from '@angular/http';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { AppComponent } from './app.component';
 import { AppConfig }  from './app.config';
+import {AppConstants } from './config/app.constants';
 
 import { MSALService } from './shared/services/msal.service';
 import { AuthenticationHttpInterceptor } from './shared/services/authentication.httpInterceptor';
@@ -24,7 +25,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateTrailerService } from "./trailercompany/create-and-edit-trailer-data/createTrailer.service"
 import { CreateDispatchOfficeService } from './dispatchoffice/create-and-update-dispatch-office/createDispatchOffice.service';
 import { CreateUsersService } from './users/create-and-update-users/createUsers.service';
+import { TrailercompanyService } from './trailercompany/trailercompany.service';
 
+import { UsersService } from './users/Users.service'
+import { HttpService } from './shared/services/http.service';
 import { CreateAndEditTrailerDataComponent } from './trailercompany/create-and-edit-trailer-data/create-and-edit-trailer-data.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -39,6 +43,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { TileComponent } from './tile/tile.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { ClearinputDirective } from './shared/directives/clearinput.directive';
 import { DispatchofficeComponent } from './dispatchoffice/dispatchoffice.component';
@@ -212,6 +217,7 @@ const routes: Routes = [
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    NgMultiSelectDropDownModule.forRoot(),
     NgbModule.forRoot(),
     TimepickerModule.forRoot(),
     AccordionModule.forRoot(),
@@ -228,7 +234,7 @@ const routes: Routes = [
   ],
 
 //	// providers: [AppConfig,MSALService,AuthenticationHttpInterceptor,ExcelService,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
-	providers: [AuthGuard,AppConfig,MSALService,AuthenticationHttpInterceptor,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
+	providers: [AppConstants,HttpService,TrailercompanyService,UsersService,AuthGuard,AppConfig,MSALService,AuthenticationHttpInterceptor,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
     {
         provide: APP_INITIALIZER,
         useFactory: (config: AppConfig) => () => config.load(),

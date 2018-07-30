@@ -46,7 +46,7 @@ public city:null;
   pagedItems: any[];
   public TimeZoneData:any[];
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
+  mobnumPattern = "^((\\+-?))?[0-9]{5,10}$"; 
 
   @Output()
   click = new EventEmitter();
@@ -76,19 +76,19 @@ public city:null;
   groups = [
 
     {
-      title: 'BRANCH OFFICE DETAILS',
+      title: 'Branch Office Details',
       content: 'Dispatch'
     },
     {
-      title: 'ADDRESS INFO',
+      title: 'Address Information',
       content: 'Address'
     },
     {
-      title: 'CONTACT INFO',
+      title: 'Contact Information',
       content: 'Contact'
     },
     {
-      title:"PREFERENCES",
+      title:"Preferences",
       content:'Preferences'
     }
   ];
@@ -184,7 +184,7 @@ public city:null;
       country: ['',Validators.required],
       state: ['',Validators.required],
       city: ['',Validators.required],
-      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
+      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
       
       longitude: [''],
       latitude: [''],
@@ -218,7 +218,7 @@ public city:null;
         country: ['',Validators.required],
         state: ['',Validators.required],
         city: ['',Validators.required],
-        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
+        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
         longitude: [''],
         latitude: [''],
         search: [''],

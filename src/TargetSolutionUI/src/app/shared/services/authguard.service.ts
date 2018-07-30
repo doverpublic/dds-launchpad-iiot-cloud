@@ -15,7 +15,12 @@ export class AuthGuard implements CanActivate {
         let isLogin = new Observable(observer => {
             observer.next(42);
         });
+      /*   const urlParams = new URLSearchParams(window.location.hash);
 
+        if (urlParams.get('id_token') !== null || urlParams.get('id_token') !== undefined) {
+            window.sessionStorage.setItem('msal.idtoken', urlParams.get('id_token'));
+          } */
+          
         if (this.msalService.isOnline()) {
             return isLogin.map(() => {
                 return true;

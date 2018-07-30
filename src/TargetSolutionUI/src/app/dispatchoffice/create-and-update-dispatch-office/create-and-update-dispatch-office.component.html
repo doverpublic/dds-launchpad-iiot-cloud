@@ -49,7 +49,7 @@
     </li>
     <li class="CV-breadcrumb-item">
             <a class="active">
-                    ADD BRANCH OFFICE
+                    Add Branch Office
                 </a>
 </li>
   </ol>
@@ -106,7 +106,7 @@
 
                     <div class="form-group col-sm-12 inputstyle">
                         <textarea style="height:150px" id="textdescription" formControlName="description" placeholder="Branch Office Description"></textarea>
-                        <label class="inputlabel" for="textdescription">Branch Office Description</label>
+                        <label class="inputlabel" for="textdescription" [ngClass]="{ 'lableFocused' : dispatch.controls['description'].value.length != 0 }">Branch Office Description</label>
 
                     </div>
 
@@ -114,22 +114,29 @@
 
                 </div>
                 <div class="form-group col-sm-3 trailerlogoupload ">
-                    <label>Upload company logo</label>
-                    <div class="btn-file">
-                        BROWSE & UPLOAD
-                        <input type="file" accept="image/*"  (change)="onSelectFile($event)">
-                    </div>
-                    <label>
-                        File size: 25kb jpg,png dimensions:250 * 70
-                    </label>
+                    <ng-template #popTemplate>
+                            File size: 25kb jpg,png <br>
+                            Dimensions:250 * 70
+                       </ng-template>
+                        <label [ngClass]="{ 'lableFocused' :url.length != 0 }">Upload Company Logo</label>
+                        <svg  (click)="pop.toggle()" height="25" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="25" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="layer1" transform="translate(0,-284.29998)"><circle cx="6.3500376" cy="290.64993" id="path4504" r="3.8805983" style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.58506224;stroke:#003664;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/><path d="m 5.2916669,289.94443 c 0,-0.70557 0.3527779,-1.05835 1.0583334,-1.05835 0.7055555,0 1.0583337,0.35278 1.0583334,1.05835 3e-7,0.70555 -1.0583334,0 -1.0583334,1.41109" id="path4506" style="fill:none;fill-rule:evenodd;stroke:#003664;stroke-width:0.70555556px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/><rect height="0.70555556" id="rect4508" style="opacity:1;vector-effect:none;fill:#003664;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" width="0.70555556" x="5.9972234" y="292.06107"/></g></svg>
+                        <span [popover]="popTemplate" 
+                        triggers="" #pop="bs-popover" 
+                        placement="top" [outsideClick]="true">
+                  </span>
+                        <div class="btn-file">
+                            Browse & Upload
+                            <input type="file" accept="image/*"  (change)="onSelectFile($event)">
+                        </div>
+           
                    <div *ngIf="error.isError" class="alert alert-danger">
                                 {{ error.errorMessage }}
                              </div>
                                        
             </div>
-                <div class="col-sm-2" style="background-color: azure;height: 200px;">
+                <div class="col-sm-2 FilePlaceHolder">
             
-                    <img *ngIf="url" [src]="url" style="height: 13%;width: 100%;">
+                    <img *ngIf="url" [src]="url" >
                     <section   *ngFor="let image of this.imagefile">
                             <p>{{image.name}}</p>  
                             <p> {{image.filesize}}</p>
@@ -221,16 +228,7 @@
                                             
             
                                     </div>
-                            <div class=" col-sm-4 form-group inputstyle">
-                                <input id="textlatitude" formControlName="latitude" placeholder="latitude" (keyup)="onKey($event,'lat')">
-                                <label class="inputlabel" for="textlatitude">Latitude</label>
-                            
-                            </div>
-                            <div class=" col-sm-4 form-group inputstyle">
-                                <input id="textlongitude" formControlName="longitude" placeholder="longitude" (keyup)="onKey($event,'lng')">
-                                <label class="inputlabel" for="textlongitude">Longitude</label>
-                       
-                            </div>
+                           
 
 
                         </div>
@@ -254,6 +252,17 @@
                                 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
                                     <agm-marker (markerClick)="clickedMarker(m.label, i)" [latitude]="lat" [longitude]="lng" [markerDraggable]=true (dragEnd)="markerDragEnd(m, $event)"></agm-marker>
                                 </agm-map>
+                                <div class="row">
+                                        <div class=" col-sm-4 form-group inputstyle">
+                                                <input id="textlatitude" formControlName="latitude" placeholder="latitude" readonly="readonly" >
+                                                <label class="inputlabel" for="textlatitude">Latitude</label>
+                                            
+                                            </div>
+                                            <div class=" col-sm-4 form-group inputstyle">
+                                                <input id="textlongitude" formControlName="longitude" placeholder="longitude" readonly="readonly" >
+                                                <label class="inputlabel" for="textlongitude">Longitude</label>
+                                       
+                                            </div> </div>
                             </div>
                         </div>
                     </div>
@@ -323,13 +332,13 @@
 
                             <div class="col-sm-3 form-group inputstyle">
                                 <input id="textShiftName{{i}}" formControlName="shiftname" type="text" placeholder="Shift name">
-                                <label class="inputlabel" for="textShiftName{{i}}">Shift name</label>
+                                <label class="inputlabel" for="textShiftName{{i}}">Shift Name</label>
                               
                             </div>
                             <div class="col-sm-2 form-group inputstyle">
                                 <input id="textShiftStartTime{{i}}" [outsideClick]="true" [popover]="startTimeTemplate" [value]="dispatch.controls.ShiftItems.controls[i].controls.shiftStartTime.value | date:'h:mm a'" 
                                 readonly="readonly" placeholder="Shift start time">
-                                <label class="inputlabel" for="textShiftStartTime{{i}}">Shift start time </label>
+                                <label class="inputlabel" for="textShiftStartTime{{i}}">Shift Start Time </label>
                                 <ng-template #startTimeTemplate>
                                     <timepicker formControlName="shiftStartTime">
                                     </timepicker>
@@ -338,7 +347,7 @@
                             <div class="col-sm-2 form-group inputstyle">
                                 <input id="textShiftEndTime{{i}}" [outsideClick]="true" [popover]="endTimeTemplate" [value]="dispatch.controls.ShiftItems.controls[i].controls.shiftEndTime.value | date:'h:mm a'" 
                                 readonly="readonly"   placeholder="Shift end time">
-                                <label class="inputlabel" for="textShiftEndTime{{i}}">Shift end time</label>
+                                <label class="inputlabel" for="textShiftEndTime{{i}}">Shift End Time</label>
                                 <ng-template #endTimeTemplate>
                                         <timepicker formControlName="shiftEndTime">
                                         </timepicker>

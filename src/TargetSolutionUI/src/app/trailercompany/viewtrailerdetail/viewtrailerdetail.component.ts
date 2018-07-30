@@ -23,7 +23,7 @@ export class ViewtrailerdetailComponent implements OnInit {
   parentMessage = "message from parent";
   public EditTrailer;
   message:string;
-  functionalitychecklist=[{"name":"Trailer Company","associate":false,"edit":true,"delete":true}];
+  functionalitychecklist=[{"name":"Customer Company","associate":false,"edit":true,"delete":true}];
 
 
 

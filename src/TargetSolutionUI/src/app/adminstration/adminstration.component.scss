@@ -1,0 +1,53 @@
+.civaconSecondTab
+{
+    background-color: white;
+    color: #143fa1;
+    border-bottom: 1px solid #bebebe;
+    
+    .nav-item
+    {
+        border-right: 1px solid #bebebe;
+        }
+    svg
+    {
+        width:25px;
+        margin-right: 10px;
+    }
+    
+    .nav-link
+    {
+        padding: 5px 20px;
+        display: block;
+        color: #143fa1;
+        border: none;
+    }
+    .nav-link.active  {
+        color: #143fa1;
+        font-weight: bold;
+        background-color: #fff;
+        position: relative;
+        background: trnasperent;
+        border-bottom: 2px solid #004898;
+        z-index: 1;
+
+    }
+
+    .nav-link:hover {
+        color: #495057;
+        position: relative;
+        background: trnasperent;
+        svg
+        {
+            fill:black;
+        }
+    }
+
+ 
+
+}
+svg
+{
+    width: 24px;
+    fill: #004898;
+
+}

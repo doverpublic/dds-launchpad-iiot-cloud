@@ -7,31 +7,29 @@ import { HttpClient,HttpResponse,HttpHeaders,HttpRequest,HttpHeaderResponse } fr
 
 @Injectable()
 export class TrailercompanyService {
-    public mySpaceBackendUrl: string;
-    public themeCommonPath: string;
+    public BackendUrl: string;
     public token: string;
     constructor(private httpService: HttpService, private appConstants: AppConstants,private http: HttpClient) { }
     setUrl() {
-        this.mySpaceBackendUrl = this.appConstants.getConstants().mySpaceBackendUrl;
-        this.themeCommonPath = this.appConstants.getConstants().themeCommonPath;
+        this.BackendUrl = this.appConstants.getConstants().BackendUrl;
         this.token = this.appConstants.getConstants().token;
       }
      
       getData = () => {
         this.setUrl();
         var self = this, header = { 'Content-Type': 'application/json; charset=utf-8' };
-        return self.httpService.send(this.mySpaceBackendUrl+"/posts" , 'get', null, header);
+        return self.httpService.send(this.BackendUrl+"/posts" , 'get', null, header);
     }
       createTrailerData=(formdata)=>{
         this.setUrl();
         var self = this, header = { 'Content-Type': 'application/json' };
-        return self.httpService.send(this.mySpaceBackendUrl+"/posts" , 'post', formdata, header);
+        return self.httpService.send(this.BackendUrl+"/posts" , 'post', formdata, header);
 
       }
       getCommentsData = (id:any) => {
         this.setUrl();
         var self = this, header = { 'Content-Type': 'application/json; charset=utf-8' };
-        return self.httpService.send(this.mySpaceBackendUrl+"/comments?postId="+id , 'get', null, header);
+        return self.httpService.send(this.BackendUrl+"/comments?postId="+id , 'get', null, header);
     }
 
 }

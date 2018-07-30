@@ -36,8 +36,10 @@ export class CreateAndUpdateUsersComponent implements OnInit {
   public states;
   public cities;
   public usergroups;
+  public UserGroupRoles;
   public lng: number;
   public lat: number;
+  public roleValue;
   pager: any = {};
 public country:null;
 public state:null;
@@ -48,9 +50,16 @@ public city:null;
   pagedItems: any[];
   public TimeZoneData:any[];
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
+  mobnumPattern = "^((\\+-?))?[0-9]{5,10}$"; 
   usernamePattern = "^[a-z0-9_-]{8,15}$";
 
+  myForm:FormGroup;
+  disabled = false;
+  ShowFilter = false;
+  limitSelection = false;
+  Roles: any[];
+  selectedItems: any[];
+  dropdownSettings: any = {};
   constructor(private router: Router, private fb: FormBuilder, private data: CreateUsersService,
     private httpService: HttpClient,private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
@@ -63,33 +72,68 @@ public city:null;
       this.states=state;
       this.cities=cities;
       this.TimeZoneData=Timezone;
-      this.usergroups=[{
+            this.usergroups=[{
 
-        "name":"admin",
-        
-      },
-      {
+              "name":"admin"
+              
+            },
+            {
 
-        "name":"admin1",
-        
-      }]
+              "name":"admin1",
+              
+            }]
+                  this.UserGroupRoles=[{
+            "name":"System Admin"
+
+                  },
+                {
+                  "name":"Branch Manger"
+                },
+              
+              {
+                "name":"Buisness Clerk"
+              },
+            {
+              "name":"Maintenance Technician"
+            }
+]
+
+
      }
-
+    
   ngOnInit() {
     // initial center position for the map
     this.lat = 12.9783;
     this.lng= 77.6647;
     this.createUsersForm();
-
+    this.Roles = [
+      { item_id: 1, item_text: 'System Admin' },
+      { item_id: 2, item_text: 'Branch Manger' },
+      { item_id: 3, item_text: 'Buisness Clerk' },
+      { item_id: 4, item_text: 'Maintenance Technician' }
+  ];
+  this.selectedItems = [{ item_id: 1, item_text: 'System Admin' }];
+  this.dropdownSettings = {
+      singleSelection: true,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 2,
+      allowSearchFilter: this.ShowFilter
+  };
+  this.myForm = this.fb.group({
+      role: [this.selectedItems]
+  });
   }
   groups = [
 
     {
-      title: 'USER INFO',
+      title: 'User Information',
       content: 'Users'
     },
     {
-      title: 'ADDRESS & CONTACT INFO',
+      title: 'Address & Contact Information',
       content: 'Address'
     }
   ];
@@ -108,7 +152,10 @@ public city:null;
   citiesList = [];
   contactdeails=[{value:''}]
   selectedCountry=0;
-
+  onRoleSelect(event)
+  {
+    console.log(event);
+  }
   onCountrySelect(n) {
     this.statesList = [];
     this.citiesList = [];
@@ -175,8 +222,7 @@ public city:null;
   createUsersForm()
   {
     this.users = this.fb.group({
-      
-      RoleType:'System Admin',
+      role:[],
       firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
       ToggleActive:'Active',     
@@ -189,14 +235,14 @@ public city:null;
       state: ['',Validators.required],
       city: ['',Validators.required],
       zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
-      phonenumber: [''],
+      phonenumber: ['',Validators.pattern(this.mobnumPattern)],
       fax: ['']
       
     });
     if (this.isEmpty(this.data.UsersData)) {
 
       this.users = this.fb.group({
-        RoleType:'System Admin',
+        role:[],
         firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
         lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
         ToggleActive:'Active',     
@@ -209,15 +255,16 @@ public city:null;
         country: ['',Validators.required],
         state: ['',Validators.required],
         city: ['',Validators.required],
-        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
-        phonenumber: [''],
+        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
+        phonenumber: ['',Validators.pattern(this.mobnumPattern)],
         fax: ['']
          });
 
     }else{
             console.log("Eited condition");
-      this.users = this.fb.group({
-        RoleType:this.data.UsersData.RoleType,
+        this.users = this.fb.group({
+        role:[this.data.UsersData.role],
+
       firstname: [this.data.UsersData.firstname, Validators.compose([Validators.required, Validators.minLength(2)])],
       lastname: [this.data.UsersData.lastname,Validators.compose([ Validators.required, Validators.minLength(2)])],
       ToggleActive:this.data.UsersData.ToggleActive,     
@@ -230,7 +277,7 @@ public city:null;
       country:  [this.data.UsersData.country, Validators.required],
       state: [this.data.UsersData.state, Validators.required],
       city: [this.data.UsersData.city, Validators.required],
-      zipcode: [this.data.UsersData.zipcode, Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
+      zipcode: [this.data.UsersData.zipcode, Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
       phonenumber: [this.data.UsersData.phonenumber],
       fax: [this.data.UsersData.fax]
   
@@ -246,7 +293,7 @@ public city:null;
      this.users.controls['state'].setValue(this.states[this.indextestsate], {onlySelf: true});
     this.url = this.data.UsersData.file;
      this.users.controls['city'].setValue(this.cities[this.indextestcity], {onlySelf: true});  
-     this.users.controls['userGroup'].setValue(this.usergroups[this.indextestUsergroup], {onlySelf: true});  
+     this.users.controls['userGroup'].setValue("admin", {onlySelf: true});  
 
     }
 

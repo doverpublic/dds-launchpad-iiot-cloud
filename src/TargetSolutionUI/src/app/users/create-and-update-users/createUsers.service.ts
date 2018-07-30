@@ -5,7 +5,6 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class CreateUsersService {
   constructor() { }
-  RoleType:string;
   firstname:string;
   lastname:string;
   ToggleActive:string;
@@ -21,7 +20,7 @@ export class CreateUsersService {
   fax:number;
   search:string;
   userGroup:string;
-  
+  role:string;
 
   public UsersData:any;
   

@@ -106,7 +106,6 @@ i{
   a.active{
     color: #323232;
     text-decoration: none;
-    font-weight: bold;
 
   }
 svg
@@ -350,7 +349,7 @@ input:focus + label {
   margin-bottom: 1.2rem !important;
 
   color: #003664;
-font-size:12px
+font-size:14px
 
 }
 
@@ -384,7 +383,8 @@ display: flex;
 {
   label
   {
- font-size: 0.8rem;;
+ font-size: 14px;
+ opacity: 0.5;
   }
 }
 .btn-file {
@@ -417,6 +417,35 @@ display: flex;
   cursor: inherit;
   display: block;
 }
+
+.FilePlaceHolder
+{
+  background-color: #eaf5ff !important;
+  height: 130px;
+  img
+  {
+    height: 80%;
+    width: 100%;
+    margin:10px auto
+
+  }
+}
+/** Text Area styles*/
+
+textarea:focus+label
+{
+  
+  color:#003664;
+  font-size: 14px;
+  opacity: 1 !important;
+}
+
+textarea + label
+{
+    opacity: 0.5;
+    font-size: 14px;
+}
+
 /*---------------------- Drodwon style for country state city---------------------------*/
 
 .dropdownaddress:focus + label
@@ -424,17 +453,18 @@ display: flex;
 
 
     color:#003664;
-    font-size: 12px;
+    font-size: 14px;
     opacity: 1 !important;
 
 
 }
+
 .lableFocused
 {
     opacity: 1 !important;
 
     color:#003664;
-    font-size: 12px !important;
+    font-size: 14px !important;
 
 }
 .dropdownaddress + label

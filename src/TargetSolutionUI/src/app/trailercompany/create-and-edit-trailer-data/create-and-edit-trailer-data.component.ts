@@ -58,7 +58,7 @@ public city:null;
   // paged items
   pagedItems: any[];
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
+  mobnumPattern = "^((\\+-?))?[0-9]{5,10}$"; 
 
   constructor(private router: Router, private fb: FormBuilder, private data: CreateTrailerService,
      private httpService: HttpClient,private mapsAPILoader: MapsAPILoader,
@@ -94,15 +94,15 @@ public city:null;
   groups = [
 
     {
-      title: 'COMPANY DETAILS',
+      title: 'Company Details',
       content: 'Trailer'
     },
     {
-      title: 'ADDRESS INFO',
+      title: 'Address Information',
       content: 'Address'
     },
     {
-      title: 'CONTACT INFO',
+      title: 'Contact Information',
       content: 'Contact'
     }
   ];
@@ -215,7 +215,7 @@ onSateSelect(stateId) {
       country: ['',Validators.required],
       state: ['',Validators.required],
       city: ['',Validators.required],
-      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
+      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
       longitude: [''],
       latitude: [''],
       search: [''],
@@ -240,7 +240,7 @@ onSateSelect(stateId) {
         country: ['',Validators.required],
         state: ['',Validators.required],
         city: ['',Validators.required],
-        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
+        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
    
         longitude: [''],
         latitude: [''],

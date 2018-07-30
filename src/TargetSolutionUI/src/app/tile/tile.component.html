@@ -4,62 +4,62 @@
       <!-- Game List -->
 
   <div class="row gridOperationDiv"  >
-    <div class="col-sm-2 gridOperationchild">
-      <label>{{this.flagItems[0].name}}
-        <span>({{games.length}})</span>
-      </label>
-    </div>
-    
-    <div class="col-sm-1 gridOperationchild">
-      <label>
-          <span><i class="fa fa-filter"></i></span>
-          FILTER
-      </label>
-    
-      </div>
-      <div class="col-sm-2 gridOperationchild">
-          <input [(ngModel)]="searchText" placeholder="SEARCH" class="filter-input form-control">
-          <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
-      </div>
-    <div class="col-sm-2 gridOperationchild">
-    
-     <select class="form-control"  [(ngModel)]="sortBy" >
-          <option [ngValue]="undefined" disabled  selected> SORT BY </option>
-
-        <option value="name">Name</option>
-        <option value="address">Address</option>
-
-      </select> 
-    </div>
- 
-    <div class="col-sm-1 gridOperationchild">
-      <!-- Clear Link -->
-      <label for="selectall">
-        <span>
-            <input type="checkbox" (change)="selectAll()" id="selectall" value="{{g?.id}}" [(ngModel)]="selectedAll">
-        </span>
+        <div class="col-sm-2 gridOperationchild">
+          <label>{{this.flagItems[0].name}}
+            <span>({{games.length}})</span>
+          </label>
+        </div>
         
-          select all
-      </label>
-     
+        <div class="col-sm-1 gridOperationchild">
+          <label>
+              <span><i class="fa fa-filter"></i></span>
+              Filter
+          </label>
+        
+          </div>
+          <div class="col-sm-2 gridOperationchild">
+              <input [(ngModel)]="searchText" placeholder="Search" class="filter-input form-control">
+              <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
+          </div>
+        <div class="col-sm-2 gridOperationchild">
+        
+        <select class="form-control"  [(ngModel)]="sortBy" >
+              <option [ngValue]="undefined" disabled  selected> Sort By </option>
 
-    </div>
-    <div class="col-sm-2 gridOperationchild">
-         <select class="form-control" (change)="onExportChange($event)" id="exportselect" [(ngModel)]="exportBy">
-          <option [ngValue]="undefined" disabled  selected> EXPORT BY </option>
+            <option value="name">Name</option>
+            <option value="address">Address</option>
 
-        <option value="excel">Excel</option>
+          </select> 
+        </div>
+    
+        <div class="col-sm-1 gridOperationchild">
+          <!-- Clear Link -->
+          <label for="selectall">
+            <span>
+                <input type="checkbox" (change)="selectAll()" id="selectall" value="{{g?.id}}" [(ngModel)]="selectedAll">
+            </span>
+            
+              Select All
+          </label>
+        
 
-      </select> 
+        </div>
+        <div class="col-sm-2 gridOperationchild">
+            <select class="form-control" (change)="onExportChange($event)" id="exportselect" [(ngModel)]="exportBy">
+              <option [ngValue]="undefined" disabled  selected> Export By </option>
 
-      
-    </div>
+            <option value="excel">Excel</option>
 
-    <div class="col-sm-2 gridOperationchild">
-      <button type="button" class="btn createButton" (click)="createNewDetails()">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-        create new {{this.flagItems[0].name}}</button>
-    </div>
+          </select> 
+
+          
+        </div>
+
+        <div class="col-sm-2 gridOperationchild">
+          <button type="button" class="btn createButton" (click)="createNewDetails()">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Add {{this.flagItems[0].name}}</button>
+        </div>
   </div>
   
   <div class="row " *ngIf="this.flagItems[0].name=='Users'">
@@ -93,11 +93,14 @@
             </ng-template>
       
             <div class="col-sm-6">
-              {{g.firstname}} 
-              {{g.lastname}}
+              <b>{{g.firstname}} </b>
+              <b>{{g.lastname}}</b>
               <i class="fa fa-user-cog"></i>
 
-              {{g.RoleType}}
+              <b *ngFor="let i of g.role">
+                  {{i.item_text}}
+
+              </b>
 
 
               {{g.username}}
@@ -304,7 +307,7 @@
       </div>
     </div>
   </div>
-  <div class="row " *ngIf="this.flagItems[0].name=='Trailer Company'">
+  <div class="row " *ngIf="this.flagItems[0].name=='Customer Company'">
    
       <div class="col-sm-3 " *ngFor="let g of pagedItems| orderBy :sortBy | filter : searchText ">
         <ng-template #template>
@@ -555,7 +558,7 @@
        </svg>
        
        
-        Dispatch office:0
+        Branch office:0
       </div>
   </div>
          
@@ -734,7 +737,7 @@
       </div>
    
   </div>
-  <div class="row " *ngIf="this.flagItems[0].name=='Dispatch Office'">
+  <div class="row " *ngIf="this.flagItems[0].name=='Branch Office'">
    
       <div class="col-sm-3 " *ngFor="let g of pagedItems| orderBy :sortBy | filter : searchText ">
         <ng-template #template>
@@ -987,7 +990,7 @@
        </svg>
        
        
-        Dispatch office:0
+        Branch office:0
       </div>
   </div>
          

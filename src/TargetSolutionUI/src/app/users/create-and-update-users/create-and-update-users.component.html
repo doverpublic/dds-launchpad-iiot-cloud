@@ -49,17 +49,61 @@
     </li>
     <li class="CV-breadcrumb-item">
             <a class="active">
-                    ADD USER
+                    Add User
                 </a>
 </li>
   </ol>
 
+ <!--  <form [formGroup]="myForm">
+        <ng-multiselect-dropdown
+            name="role"
+            [placeholder]="'Select City'"
+            [data]="Roles"
+            formControlName="role"
+            [disabled]="disabled"
+            [settings]="dropdownSettings"
+            (onSelect)="onItemSelect($event)">
+        </ng-multiselect-dropdown>
+   </form>
+ -->
   <form [formGroup]="users" class="editorForm">
+  
+    
+<div  class=" form-group row col-sm-12">
+        <div class="col-sm-2" style="    margin-right: -60px;
+        margin-left: 9px;">
+          
+                <label style="margin:10px auto"> User Persona :</label>
+    
+        </div>
+        <div class="col-sm-3">  
+                <ng-multiselect-dropdown
+                name="role"
+                [placeholder]="'Select Role'"
+                [data]="Roles"
+                formControlName="role"
+                [disabled]="disabled"
+                [settings]="dropdownSettings"
+                (onSelect)="onRoleSelect($event)">
+            </ng-multiselect-dropdown>
+        </div>
+      
+</div> 
 
-<div class="form-group">
-        <label style="margin-bottom: 0rem">SELECT USER PERSONA</label>
+<!-- <div class="form-group row col-sm-12">
+    
+    <div class="col-sm-2">
+            <label style="margin-bottom: 0rem"> User Persona</label>
 
-        <div class="btn-group userRole" btnRadioGroup formControlName="RoleType">
+    </div>
+    <div class="col-sm-2">
+            <select  class="editorinput dropdownaddress" (change)="onRoleSelect(users.controls['RoleType'].value)" formControlName="RoleType" required>
+ 
+                 <option *ngFor=" let n of UserGroupRoles;let i=index" [ngValue]="n">{{n.name}}</option>
+             </select>
+        </div>
+       
+      <!--   <div class="btn-group userRole" btnRadioGroup formControlName="RoleType">
           <label btnRadio="System Admin" class="btn"
                  tabindex="0" role="button">SYSTEM ADMIN</label>
           <label btnRadio="Terminal Manager" class="btn "
@@ -68,14 +112,14 @@
                  tabindex="0" role="button">BUISNESS CLERK</label>
                  <label btnRadio="Maintenance Technician" class="btn "
                  tabindex="0" role="button"> MAINTENANCE TECHNICIAN </label>       
-        </div>
-      </div>
+        </div> 
+      </div> -->
       <accordion class="civaconAccordion" [closeOthers]="oneAtATime">
       
           <accordion-group [isDisabled]="true" [panelClass]="customClass" *ngFor="let group of groups;let i = index;" [isOpen]="group.isFirstOpen">
       
               <div accordion-heading class="clearfix">
-                  <a class="Accordionheader" (click)="open(group,i)" [ngClass]="group.isFirstOpen?'activeheader':'inactiveHeader'"> {{group.title | uppercase}}
+                  <a class="Accordionheader" (click)="open(group,i)" [ngClass]="group.isFirstOpen?'activeheader':'inactiveHeader'"> {{group.title}}
                       <i id="icon" [ngClass]="group.isFirstOpen? 'fa fa-chevron-right open':'fa fa-chevron-right' "></i>
                       <i class="fa fa-pencil pencil" [ngClass]="group.isFirstOpen? 'pencilHide':'pencilpen'" aria-hidden="true"></i>
                   </a>
@@ -87,41 +131,43 @@
                      
                         <div class="col-sm-12 row">
                           <div class="form-group col-sm-3 inputstyle">
+                              
+                              
+                                  
                               <input id="textFirstName" type="text" formControlName="firstname" placeholder="first Name" required/>
                               <label class="inputlabel" for="textFirstName">First Name        
                                   <span class="star" >*</span>
                               </label>
-      
                               <div class="error" *ngIf="users.get('firstname').touched && users.get('firstname').hasError('required')">
                                     First Name is required
                               </div>
                               <div class="error" *ngIf="users.get('firstname').touched && users.get('firstname').hasError('minlength')">
                                   Minimum of 2 characters
                               </div>
-                              
                             
                           </div>
       
                           <div class="form-group col-sm-3 inputstyle">
+                                
                               <input id="textLastName" formControlName="lastname" placeholder="Last Name" required/>
                               <label class="inputlabel" for="textLastName">Last Name
                                       <span class="star" >*</span>
       
                               </label>
-      
                               <div class="error" *ngIf="users.get('lastname').touched && users.get('lastname').hasError('required')">
                                     Last Name is required
                               </div>
                               <div class="error" *ngIf="users.get('lastname').touched && users.get('lastname').hasError('minlength')">
                                   Minimum of 2 characters
                               </div>
+                            
                           </div>
                           <div class="form-group col-sm-2">
                                         <div class="btn-group ToggleActive"  btnRadioGroup formControlName="ToggleActive">
                                           <label btnRadio="Active" class="btn" 
-                                                 tabindex="0" role="button" style="font-size:14px">ACTIVE</label>
+                                                 tabindex="0" role="button" style="font-size:14px">Active</label>
                                           <label btnRadio="InActive" class="btn" 
-                                                 tabindex="0" role="button" style="font-size:14px">INACTIVE</label>
+                                                 tabindex="0" role="button" style="font-size:14px">Inactive</label>
                                          
                                         </div>
                               </div>
@@ -131,54 +177,20 @@
       
                       </div>
 
-                      <div class="col-sm-12 row">
-                            <div class="form-group col-sm-3 trailerlogoupload ">
-                                    <label>Upload Photo</label>
-                                    <div class="btn-file">
-                                        BROWSE & UPLOAD
-                                        <input type="file" accept="image/*"  (change)="onSelectFile($event)">
-                                    </div>
-                                    <label>
-                                        File size: 25kb jpg,png dimensions:250 * 70
-                                    </label>                              
-                                        <div *ngIf="error.isError" class="alert alert-danger">
-                                                {{ error.errorMessage }}
-                                             </div>
-                                                       
-                            </div>
-                            <div class="col-sm-3" style="background-color: azure;height: 150px;">
-                                   
-                                            <img *ngIf="url" [src]="url" border="0" style="height: 100%;width: 100%; box-shadow: none;border:none;background:none;">
-                                            <section   *ngFor="let image of this.imagefile">
-                                                    <p>{{image.name}} {{image.filesize}}</p>  
-                                
-                                              </section>
-                                                          
-                                        </div>
-                                        <div class="col-sm-3 form-group inputstyle">
-                                                <select class="editorinput dropdownaddress" (change)="onCountrySelect(users.controls['userGroups'].value)" formControlName="userGroup" required>
-                                                       <option [ngValue]="null" disabled selected> Assign User Group </option>
-                                              
-                                               <!--  <option value="null" disabled="true" [selected]="true"> Country
-                                                    <span class="star" >*</span>
-                                                                </option> -->
-                                                    <option *ngFor=" let n of usergroups;let i=index" [ngValue]="n">{{n.name}}</option>
-                                                </select>
-                                                <label [ngClass]="{ 'lableFocused' : users.controls['userGroup'].value.length != 0 }">Assign User Group</label>
-          
-                                            
-          
-                                            </div>
-                      </div>
+                   
                     
-                      <div class="row">
                             <div class="col-sm-12">
                                     <label>Create Login Information</label>
                     
                                 </div>
-                 <div class="col-sm-12">
+                     <div class="row col-sm-12">
+
                             <div class="form-group col-sm-3 inputstyle">
-                                    <input id="textUsername" formControlName="username" placeholder="User Name" required/>
+                                    <span style="z-index:1"> <i style="font-size: 1.5rem;float: right;
+                                        margin-top: -39px;
+                                        margin-right: -25px;" class="fa fa-check-circle-o" [ngClass]="{ 'heightlightIcon' : users.controls['username'].valid}" aria-hidden="true"></i ></span>
+                             
+                                <input id="textUsername" formControlName="username" placeholder="User Name" required/>
                                     <label class="inputlabel" for="textUsername">User Name
                                             <span class="star" >*</span>
                     
@@ -198,35 +210,84 @@
                                         </div> 
                                         
                             </div>
-                            <div class="form-group  col-sm-3">
-                                    <label>
-                                        <i style="font-size: 1.5rem;" class="fa fa-check-circle-o" [ngClass]="{ 'heightlightIcon' : users.controls['username'].valid}" aria-hidden="true"></i > &nbsp; An Email will be be sent to the user for reset password</label>
-                            </div>
-                </div>
-                <div class="col-sm-12">
-                        <div class="form-group col-sm-3 inputstyle">
-                                <input id="textEmailId"  formControlName="email" placeholder="EmailId for Notification" required/>
-                                <label class="inputlabel" for="textEmailId">Email ID for notification
-                                        <span class="star" >*</span>
-            
-                                </label>
-                                <div class="error" *ngIf="users.get('email').touched && users.get('email').hasError('required')">
-                                        Email ID is required
-                                    </div>
-                                   
-                                    <div class="error" *ngIf="users.get('email').touched && users.get('email').hasError('pattern')">
-                                            Email  ID is not valid   
-                                     </div> 
-                            </div>
-            
-                   </div>
+                            <div class="form-group col-sm-3 inputstyle">
+                                    <input id="textEmailId"  formControlName="email" placeholder="Email Id" required/>
+                                    <label class="inputlabel" for="textEmailId">Email Id
+                                            <span class="star" >*</span>
                 
+                                    </label>
+                                    <span class="error" *ngIf="users.get('email').touched && users.get('email').hasError('required')">
+                                            Email Id is required
+                                    </span>
+                                       
+                                        <span class="error" *ngIf="users.get('email').touched && users.get('email').hasError('pattern')">
+                                                Email  Id is not valid   
+                                        </span> 
+                                </div>
+                
+                            <div class="col-sm-3 form-group inputstyle">
+                                    <select class="editorinput dropdownaddress"  formControlName="userGroup">
+                                           <option [ngValue]="null" disabled selected> Assign User Group </option>
+                                  
+                                   <!--  <option value="null" disabled="true" [selected]="true"> Country
+                                        <span class="star" >*</span>
+                                                    </option> -->
+                                        <option *ngFor=" let n of usergroups;let i=index" [ngValue]="n">{{n.name}}</option>
+                                    </select>
+                                    <label [ngClass]="{ 'lableFocused' : users.controls['userGroup'].value.length != 0 }">Assign User Group</label>
+
+                                
+
+                                </div>
+             
                           </div>
+                  
+                     <div class="col-sm-12 row">
+                           
+                            <div class="form-group col-sm-3 trailerlogoupload ">
+                                   <ng-template #popTemplate>
+                                        File size: 25kb jpg,png <br>
+                                        Dimensions:250 * 70
+                                   </ng-template>
+                                    <label [ngClass]="{ 'lableFocused' :url.length != 0 }">Upload Photo</label>
+                                    <svg  (click)="pop.toggle()" height="25" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="25" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="layer1" transform="translate(0,-284.29998)"><circle cx="6.3500376" cy="290.64993" id="path4504" r="3.8805983" style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.58506224;stroke:#003664;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/><path d="m 5.2916669,289.94443 c 0,-0.70557 0.3527779,-1.05835 1.0583334,-1.05835 0.7055555,0 1.0583337,0.35278 1.0583334,1.05835 3e-7,0.70555 -1.0583334,0 -1.0583334,1.41109" id="path4506" style="fill:none;fill-rule:evenodd;stroke:#003664;stroke-width:0.70555556px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/><rect height="0.70555556" id="rect4508" style="opacity:1;vector-effect:none;fill:#003664;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" width="0.70555556" x="5.9972234" y="292.06107"/></g></svg>
+                                    <span [popover]="popTemplate" 
+                                    triggers="" #pop="bs-popover" 
+                                    placement="top" [outsideClick]="true">
+                              </span>
+                                    <div class="btn-file">
+                                        Browse & Upload
+                                        <input type="file" accept="image/*"  (change)="onSelectFile($event)">
+                                    </div>
+                                                                <div *ngIf="error.isError" class="alert alert-danger">
+                                                {{ error.errorMessage }}
+                                             </div>
+                                                       
+                            </div>
+                            <div class="col-sm-2 FilePlaceHolder" style="background-color: #eaf5ff;height: 130px;">
+                                   
+                                            <img *ngIf="url" [src]="url" border="0" style="height: 100%;width: 100%; box-shadow: none;border:none;background:none;">
+                                            <section   *ngFor="let image of this.imagefile">
+                                                    <p>{{image.name}} {{image.filesize}}</p>  
+                                
+                                              </section>
+                                                          
+                                        </div>
+                                      
+                      </div>
                   </div>
                   <div *ngSwitchCase="'Address'" class="row col-sm-12 ">
+
                       <div class="row col-sm-12">                         
                           <div class=" col-sm-12 ">
                               <div class="row">
+                                    <div class=" form-group row col-sm-12" *ngIf="users.controls['username'].value.length!=0">
+                                        <div class="col-sm-4">
+                                                <label style="margin:10px auto"> User Name : {{users.controls['username'].value}}
+                                                    </label>
+                                        </div>   
+                                      
+                                    </div>
                                   <div class="col-sm-12 form-group inputstyle">
                                       <input id="textaddress" formControlName="address" placeholder="address" required>
                                       <label class="inputlabel" for="textaddress">Address
