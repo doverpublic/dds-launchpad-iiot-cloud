@@ -12,7 +12,6 @@ var deleteOne = function(entityType, entityId) {
 
     collection.remove(JSON.parse(entityQuery), { w: 1 }, function(err, result) {
         assert.equal(null, err);
-        assert.equal(1, result);
     });
 };
 
