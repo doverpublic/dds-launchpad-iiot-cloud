@@ -12,6 +12,7 @@ import { state } from '../../state';
 import { log } from 'util';
 import { cities } from '../../cities';
 import { Timezone } from '../../Timezone';
+import { UsersService } from '../Users.service';
 
 import { ToastrService } from 'ngx-toastr';
 @Component({
@@ -22,6 +23,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CreateAndUpdateUsersComponent implements OnInit {
   users: FormGroup;
   public indextest;
+  public sampleData;
   public indextestUsergroup;
   public isvalid;
   error: any = { isError: false, errorMessage: '' };
@@ -60,7 +62,7 @@ public city:null;
   Roles: any[];
   selectedItems: any[];
   dropdownSettings: any = {};
-  constructor(private router: Router, private fb: FormBuilder, private data: CreateUsersService,
+  constructor(private userService:UsersService,private router: Router, private fb: FormBuilder, private data: CreateUsersService,
     private httpService: HttpClient,private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private activatedRoute: ActivatedRoute
@@ -225,7 +227,7 @@ public city:null;
       role:[],
       firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
-      ToggleActive:'Active',     
+      ToggleActive:'true',     
       file:[''],
       userGroup:[''],
       username:['',Validators.compose([Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
@@ -245,7 +247,7 @@ public city:null;
         role:[],
         firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
         lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
-        ToggleActive:'Active',     
+        ToggleActive:'true',     
         file:[''],
         userGroup:[''],
 
@@ -262,28 +264,29 @@ public city:null;
 
     }else{
             console.log("Eited condition");
+            console.log(JSON.stringify(this.data.UsersData));
         this.users = this.fb.group({
-        role:[this.data.UsersData.role],
+        role:[],
 
-      firstname: [this.data.UsersData.firstname, Validators.compose([Validators.required, Validators.minLength(2)])],
-      lastname: [this.data.UsersData.lastname,Validators.compose([ Validators.required, Validators.minLength(2)])],
-      ToggleActive:this.data.UsersData.ToggleActive,     
-      file:[this.data.UsersData.file],
-      userGroup:[this.data.UsersData.userGroup],
+      firstname: [this.data.UsersData.firstName, Validators.compose([Validators.required, Validators.minLength(2)])],
+      lastname: [this.data.UsersData.lastName,Validators.compose([ Validators.required, Validators.minLength(2)])],
+      ToggleActive:this.data.UsersData.activeFlag,     
+      file:[],
+      userGroup:[],
 
-      username:[this.data.UsersData.username,Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
+      username:[this.data.UsersData.userName,Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
       email:[this.data.UsersData.email,Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
-      address: [this.data.UsersData.address, Validators.required],
-      country:  [this.data.UsersData.country, Validators.required],
-      state: [this.data.UsersData.state, Validators.required],
-      city: [this.data.UsersData.city, Validators.required],
-      zipcode: [this.data.UsersData.zipcode, Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
-      phonenumber: [this.data.UsersData.phonenumber],
-      fax: [this.data.UsersData.fax]
+      address: ['', Validators.required],
+      country:  ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
+      phonenumber: [this.data.UsersData.phone],
+      fax: []
   
       
       });
-      this.indextest = _.findIndex(this.countries,this.data.UsersData.country);
+/*       this.indextest = _.findIndex(this.countries,this.data.UsersData.country);
       this.indextestsate = _.findIndex(this.states,this.data.UsersData.state);
       this.indextestcity = _.findIndex(this.cities,this.data.UsersData.city);
       this.indextestUsergroup=_.findIndex(this.cities,this.data.UsersData.userGroup);
@@ -293,7 +296,7 @@ public city:null;
      this.users.controls['state'].setValue(this.states[this.indextestsate], {onlySelf: true});
     this.url = this.data.UsersData.file;
      this.users.controls['city'].setValue(this.cities[this.indextestcity], {onlySelf: true});  
-     this.users.controls['userGroup'].setValue("admin", {onlySelf: true});  
+     this.users.controls['userGroup'].setValue("admin", {onlySelf: true});   */
 
     }
 
@@ -383,16 +386,108 @@ public city:null;
     }
     return true;
   }
+  getSampleData()
+  {
+    this.userService.getNewSample().subscribe(data => {
+      this.sampleData=data;
+      console.log(JSON.stringify(data));
+        }, (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log("Client-side error occured.");
+          } else {
+            console.log("Server-side error occured.");
+          }
+        });
+  }
 
-
+  createUserFunction(obj)
+  {
+    this.userService.createUserData(obj)
+    .subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/admin/users/viewUsers']); 
+      
+    }, (err: HttpErrorResponse) => {
+      console.log(err);
+      if (err.error instanceof Error) {
+        console.log("Client-side error occured.");
+      } else {
+        console.log("Server-side error occured.");
+      }
+    });
+  }
   Submit({ value, valid }: { value: CreateUsersService, valid: boolean }) {
+    if (this.isEmpty(this.data.UsersData)) {
+      console.log("create User data");
+      this.data.UsersData=value;
 
-    this.data.UsersData=value;
+      this.getSampleData();
+      this.userService.getNewSample().subscribe(data => {
+        this.sampleData=data;
+        this.sampleData["firstName"]=this.data.UsersData.firstname;
+        this.sampleData["lastName"]=this.data.UsersData.lastname;
+        
+        this.sampleData["userName"]=this.data.UsersData.username;
+        
+        this.sampleData["email"]=this.data.UsersData.email;
+        
+        this.sampleData["phone"]=this.data.UsersData.phonenumber;
+        this.sampleData["activeFlag"]=this.data.UsersData.ToggleActive;
+        console.log(this.sampleData);
+
+        this.createUserFunction(this.sampleData);
+
+
+          }, (err: HttpErrorResponse) => {
+            if (err.error instanceof Error) {
+              console.log("Client-side error occured.");
+            } else {
+              console.log("Server-side error occured.");
+            }
+          });
+
+
+      
+
+    }else
+    {
+      console.log("Edit User data");
+      console.log(this.data.UsersData);
+      var obj={};
+      obj["firstName"]=value.firstname;
+      obj["lastName"]=value.lastname;
+      
+      obj["userName"]=value.username;
+      
+      obj["email"]=value.email;
+      
+      obj["phone"]=value.phonenumber;
+      obj["activeFlag"]=value.ToggleActive;
+      obj["id"]=this.data.UsersData.id;
+      obj["_id"]=this.data.UsersData._id;
+
+      console.log(obj);
+      this.userService.EditUser(obj)
+      .subscribe(res => {
+        console.log(res);
+        this.router.navigate(['/admin/users/viewUsers']); 
+        
+      }, (err: HttpErrorResponse) => {
+        console.log(err);
+        if (err.error instanceof Error) {
+          console.log("Client-side error occured.");
+        } else {
+          console.log("Server-side error occured.");
+        }
+      });
+
+    }
+    /* this.data.UsersData=value;
     console.log(this.data.UsersData);
     this.toastr.info('Successfully created');
     this.users.reset();
 
-    this.router.navigate(['/admin/users/viewUsers']);
+    this.router.navigate(['/admin/users/viewUsers']); */
 
   }
   // google maps zoom level

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }else {
     console.log("login");
       this.service.login();
-  } 
+  }  
    
   }
 

@@ -18,18 +18,33 @@ export class UsersService {
       getData = () => {
         this.setUrl();
         var self = this, header = { 'Content-Type': 'application/json; charset=utf-8' };
-        return self.httpService.send(this.BackendUrl+"/posts" , 'get', null, header);
+        return self.httpService.send(this.BackendUrl+"/entity/User/all" , 'get', null, header);
     }
-      createTrailerData=(formdata)=>{
+    getNewSample = () => {
+      this.setUrl();
+      var self = this, header = { 'Content-Type': 'application/json; charset=utf-8' };
+      return self.httpService.send(this.BackendUrl+"/entity/User/new" , 'get', null, header);
+  }
+      createUserData=(formdata)=>{
         this.setUrl();
         var self = this, header = { 'Content-Type': 'application/json' };
-        return self.httpService.send(this.BackendUrl+"/posts" , 'post', formdata, header);
+        return self.httpService.send(this.BackendUrl+"/entity/User" , 'post', formdata, header);
 
       }
-      getCommentsData = (id:any) => {
+      getUserById = (id:any) => {
         this.setUrl();
         var self = this, header = { 'Content-Type': 'application/json; charset=utf-8' };
-        return self.httpService.send(this.BackendUrl+"/comments?postId="+id , 'get', null, header);
+        return self.httpService.send(this.BackendUrl+"/entity/User/"+id , 'get', null, header);
     }
+     deleteUser=(id:any)=> {
+      this.setUrl();
+      var self = this, header = { 'Content-Type': 'application/json; charset=utf-8' };
+      return self.httpService.send(this.BackendUrl+"/entity/User/"+id , 'delete', null, header);
+  }
+  EditUser=(formdata)=>{
+    this.setUrl();
+    var self = this, header = { 'Content-Type': 'application/json' };
+    return self.httpService.send(this.BackendUrl+"/entity/User" , 'put', formdata, header);
 
+  }
 }

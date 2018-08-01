@@ -26,8 +26,8 @@
         <select class="form-control"  [(ngModel)]="sortBy" >
               <option [ngValue]="undefined" disabled  selected> Sort By </option>
 
-            <option value="name">Name</option>
-            <option value="address">Address</option>
+            <option [ngValue]="firstName">firstName</option>
+            <option [ngValue]="lastName">lastName</option>
 
           </select> 
         </div>
@@ -93,8 +93,8 @@
             </ng-template>
       
             <div class="col-sm-6">
-              <b>{{g.firstname}} </b>
-              <b>{{g.lastname}}</b>
+              <b>{{g.firstName}} </b>
+              <b>{{g.lastName}}</b>
               <i class="fa fa-user-cog"></i>
 
               <b *ngFor="let i of g.role">
@@ -103,19 +103,15 @@
               </b>
 
 
-              {{g.username}}
+              {{g.userName}}
 
             </div>
            
           </div>
           </div>
     <div class="row tileUsersDetail">
-    <div class="col-sm-12">
-      {{g.country.name}} {{g.state.name}}
-
-    </div>
-    <div class="col-sm-12">
-      {{g.zipcode}} 
+      <div class="col-sm-12">
+      {{g.phone}} 
 
     </div>
     <div class="col-sm-12">

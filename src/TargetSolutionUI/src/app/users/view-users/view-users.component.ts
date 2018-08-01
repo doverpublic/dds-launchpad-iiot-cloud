@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreateUsersService } from '../create-and-update-users/createUsers.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { UsersService } from '../Users.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {
   trigger,
   state,
@@ -19,12 +20,12 @@ import  * as _  from  "lodash";
 })
 export class ViewUsersComponent implements OnInit {
 
-  gridUsersData: any[];
+  gridUsersData: any;
   public createEditUusers;
   functionalitychecklist = [{ "name": "Users", "associate": false, "edit": true, "delete": true }];
 
 
-  constructor(private usersServiceData: CreateUsersService, private router: Router, private toastr: ToastrService) {
+  constructor(private data:UsersService,private usersServiceData: CreateUsersService, private router: Router, private toastr: ToastrService) {
     this.gridUsersData = [];
    /*  [
       {
@@ -302,16 +303,36 @@ export class ViewUsersComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    if (!this.isEmpty(this.usersServiceData.UsersData)) {
-
-      this.gridUsersData = [];
-      this.gridUsersData.push(this.usersServiceData.UsersData);
-
-    }
-
+     this.getUserList();
+  }
+  getUserList()
+  {
+    this.data.getData().subscribe(data => {
+      this.gridUsersData=data;
+      console.log(JSON.stringify(data));
+        }, (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log("Client-side error occured.");
+          } else {
+            console.log("Server-side error occured.");
+          }
+        });
   }
 
+  deleteUserFunction(id)
+  {
+    
+    this.data.deleteUser(id).subscribe(data => {
+      this.gridUsersData=data;
+      console.log(JSON.stringify(data));
+        }, (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log("Client-side error occured.");
+          } else {
+            console.log("Server-side error occured.");
+          }
+        });
+  }
 
   createNewUsersdeatil() {
     this.usersServiceData.UsersData = [];
@@ -325,13 +346,11 @@ export class ViewUsersComponent implements OnInit {
   }
   deleteUser(event) {
     var index = _.findIndex(this.gridUsersData, event)
-    if (index !== -1) {
-
-      this.gridUsersData.splice(index, 1);
-      this.usersServiceData.UsersData = [];
+    console.log(event);
+   this.deleteUserFunction(event.id);
       this.toastr.info('User Deleted');
+      this.getUserList();
 
-    }
   }
   createUsersData() {
     this.usersServiceData.UsersData = [];

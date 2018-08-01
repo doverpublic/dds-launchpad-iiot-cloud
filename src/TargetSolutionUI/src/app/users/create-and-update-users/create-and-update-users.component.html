@@ -164,9 +164,9 @@
                           </div>
                           <div class="form-group col-sm-2">
                                         <div class="btn-group ToggleActive"  btnRadioGroup formControlName="ToggleActive">
-                                          <label btnRadio="Active" class="btn" 
+                                          <label btnRadio="true" class="btn" 
                                                  tabindex="0" role="button" style="font-size:14px">Active</label>
-                                          <label btnRadio="InActive" class="btn" 
+                                          <label btnRadio="false" class="btn" 
                                                  tabindex="0" role="button" style="font-size:14px">Inactive</label>
                                          
                                         </div>
@@ -234,8 +234,8 @@
                                                     </option> -->
                                         <option *ngFor=" let n of usergroups;let i=index" [ngValue]="n">{{n.name}}</option>
                                     </select>
-                                    <label [ngClass]="{ 'lableFocused' : users.controls['userGroup'].value.length != 0 }">Assign User Group</label>
-
+<!--                                     <label [ngClass]="{ 'lableFocused' : users.controls['userGroup'].value.length != 0 }">Assign User Group</label>
+ -->
                                 
 
                                 </div>
@@ -313,8 +313,8 @@
                                                       </option> -->
                                           <option *ngFor=" let n of countries;let i=index" [ngValue]="n">{{n.name}}</option>
                                       </select>
-                                      <label [ngClass]="{ 'lableFocused' : users.controls['country'].value.length != 0 }">Country <span class="star" >*</span></label>
-
+<!--                                       <label [ngClass]="{ 'lableFocused' : users.controls['country'].value.length != 0 }">Country <span class="star" >*</span></label>
+ -->
                                       <div class="error" *ngIf="users.get('country').touched && users.get('country').hasError('required')">
                                                   Country is required
                                               </div>
@@ -329,8 +329,8 @@
       
                                           <option [disabled]="statesList.length == 0" [ngValue]="s" *ngFor=" let s of statesList">{{s.name}}</option>
                                       </select>
-                                      <label [ngClass]="{ 'lableFocused' : users.controls['state'].value.length != 0 }">State <span class="star" >*</span></label>
-                                      <div class="error" *ngIf="users.get('state').touched && users.get('state').hasError('required')">
+<!--                                       <label [ngClass]="{ 'lableFocused' : users.controls['state'].value.length != 0 }">State <span class="star" >*</span></label>
+ -->                                      <div class="error" *ngIf="users.get('state').touched && users.get('state').hasError('required')">
                                               State is required
                                           </div>
                                   </div>
@@ -343,8 +343,8 @@
       
                                           <option [disabled]="citiesList.length == 0" [ngValue]="c" *ngFor=" let c of citiesList">{{c.name}}</option>
                                       </select>
-                                      <label [ngClass]="{ 'lableFocused' : users.controls['city'].value.length != 0 }">City <span class="star" >*</span></label>
-
+<!--                                       <label [ngClass]="{ 'lableFocused' : users.controls['city'].value.length != 0 }">City <span class="star" >*</span></label>
+ -->
                                     
 
                                       <div class="error" *ngIf="users.get('city').touched && users.get('city').hasError('required')">

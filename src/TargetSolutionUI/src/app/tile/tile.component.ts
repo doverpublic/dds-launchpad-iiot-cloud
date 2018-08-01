@@ -5,6 +5,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 /* import { ExcelService } from '../shared/services/excel.service';
  */import { PagerService } from './pager.service';
+ import { FilterPipe} from '../shared/pipes/filter.pipe';
+
 import {
   trigger,
   state,
@@ -94,6 +96,9 @@ public contentarray;
 
     // get current page of items
     this.pagedItems = this.games.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    console.log("Page Items");
+
+    console.log(JSON.stringify(this.pagedItems));
 }
 
   exportToExcel() {

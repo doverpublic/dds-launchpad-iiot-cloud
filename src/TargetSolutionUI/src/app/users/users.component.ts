@@ -12,21 +12,9 @@ export class UsersComponent implements OnInit {
   constructor(private data:UsersService) { }
 
   ngOnInit() {
-/*     this.CreateNewData();
- */  }
-
-  CreateNewData()
-  {
-    this.data.getData().subscribe(data => {
-      console.log(JSON.stringify(data));
-        }, (err: HttpErrorResponse) => {
-          if (err.error instanceof Error) {
-            console.log("Client-side error occured.");
-          } else {
-            console.log("Server-side error occured.");
-          }
-        });
   }
+
+  
 
 
 }
