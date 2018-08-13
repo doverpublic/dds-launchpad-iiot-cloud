@@ -4,6 +4,7 @@ import * as _ from "lodash";
 import { MSALService} from './shared/services/msal.service';
 import { Router } from '@angular/router';
 import { setTheme } from 'ngx-bootstrap/utils';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +13,28 @@ import { setTheme } from 'ngx-bootstrap/utils';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private router: Router, public service: MSALService){
+  constructor(private router: Router, public service: MSALService,private spinner: NgxSpinnerService){
         setTheme('bs4'); // or 'bs4'
+      
   }
-  /* ngOnInit() {
+  /** spinner starts on init */
+ngOnInit() {
+  /** spinner starts on init */
+this.spinner.show();
+setTimeout(() => {
+  this.spinner.hide(); // To hide the spinner
+}, 1000);
+}
+/*   ngOnInit()
+  {
     if(this.service.isOnline()) {
-      console.log("true");
-
-      this.router.navigate(['/admin']);
+      this.router.navigate(['']);
   }else {
     console.log("login");
       this.service.login();
-  } 
-   
   }
- */
+   
+    
+  } */
 
 }

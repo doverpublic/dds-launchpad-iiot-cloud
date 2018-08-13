@@ -4,14 +4,15 @@ import { MouseEvent } from '@agm/core';
 import { FormBuilder, FormGroup, Validators, FormControl, ValidatorFn, AbstractControl ,FormArray} from '@angular/forms';
 import { CreateUsersService } from "./createUsers.service";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import {  } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
+/* import {  } from 'googlemaps';
+ */import { MapsAPILoader } from '@agm/core';
 import * as _ from "lodash";
 import { country } from '../../country';
 import { state } from '../../state';
 import { log } from 'util';
 import { cities } from '../../cities';
 import { Timezone } from '../../Timezone';
+import { TabsetComponent } from 'ngx-bootstrap';
 import { UsersService } from '../Users.service';
 
 import { ToastrService } from 'ngx-toastr';
@@ -21,9 +22,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./create-and-update-users.component.scss']
 })
 export class CreateAndUpdateUsersComponent implements OnInit {
+  @ViewChild('staticTabs') staticTabs: TabsetComponent;
+  public indexvalue;
+  public currentIndex:number=0;
   users: FormGroup;
   public indextest;
   public sampleData;
+
   public indextestUsergroup;
   public isvalid;
   error: any = { isError: false, errorMessage: '' };
@@ -62,6 +67,35 @@ public city:null;
   Roles: any[];
   selectedItems: any[];
   dropdownSettings: any = {};
+  tabs: any[] = [
+    {
+      title: 'User Details',
+      content: 'User Details',
+      customClass: 'customClass'
+    },
+    {
+      title: 'Address',
+      content: 'Address',
+      customClass: 'customClass'
+    },
+    {
+      title: 'Contact Info',
+      content: 'Contact Info',
+      customClass: 'customClass'
+    },
+  ];
+  previous(i)
+{
+
+  console.log(this.staticTabs.tabs[i].active);
+  this.staticTabs.tabs[i-1].active = true;
+
+}
+nextTab(i)
+{
+  this.staticTabs.tabs[i+1].active = true;
+
+}
   constructor(private userService:UsersService,private router: Router, private fb: FormBuilder, private data: CreateUsersService,
     private httpService: HttpClient,private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
@@ -129,14 +163,20 @@ public city:null;
   });
   }
   groups = [
-
     {
-      title: 'User Information',
-      content: 'Users'
+      title: 'User Details',
+      content: 'Users',
+      customClass: 'customClass'
     },
     {
-      title: 'Address & Contact Information',
-      content: 'Address'
+      title: 'Address',
+      content: 'Address',
+      customClass: 'customClass'
+    },
+    {
+      title: 'Contact',
+      content: 'Contact',
+      customClass: 'customClass'
     }
   ];
   add()
@@ -224,10 +264,11 @@ public city:null;
   createUsersForm()
   {
     this.users = this.fb.group({
+      title:[],
       role:[],
       firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
-      ToggleActive:'true',     
+      ToggleActive:'Active',     
       file:[''],
       userGroup:[''],
       username:['',Validators.compose([Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
@@ -238,16 +279,26 @@ public city:null;
       city: ['',Validators.required],
       zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
       phonenumber: ['',Validators.pattern(this.mobnumPattern)],
-      fax: ['']
+      fax: [''],
+         
+      EmergencyContact: this.fb.array([    
+        this.fb.group({
+          'firstname': [''],
+          'lastname': [''],
+          'email': ['', [Validators.pattern(this.emailPattern)]],
+          'phone':['', [Validators.pattern(this.mobnumPattern)]]
+        })
+       ])
       
     });
     if (this.isEmpty(this.data.UsersData)) {
 
       this.users = this.fb.group({
+        title:[],
         role:[],
         firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
         lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
-        ToggleActive:'true',     
+        ToggleActive:'Active',     
         file:[''],
         userGroup:[''],
 
@@ -259,34 +310,51 @@ public city:null;
         city: ['',Validators.required],
         zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
         phonenumber: ['',Validators.pattern(this.mobnumPattern)],
-        fax: ['']
+        fax: [''],
+         
+        EmergencyContact: this.fb.array([    
+          this.fb.group({
+            'firstname': [''],
+            'lastname': [''],
+            'email': ['', [Validators.pattern(this.emailPattern)]],
+            'phone':['', [Validators.pattern(this.mobnumPattern)]]
+          })
+         ])
          });
 
     }else{
             console.log("Eited condition");
-            console.log(JSON.stringify(this.data.UsersData));
         this.users = this.fb.group({
-        role:[],
-
-      firstname: [this.data.UsersData.firstName, Validators.compose([Validators.required, Validators.minLength(2)])],
-      lastname: [this.data.UsersData.lastName,Validators.compose([ Validators.required, Validators.minLength(2)])],
-      ToggleActive:this.data.UsersData.activeFlag,     
-      file:[],
-      userGroup:[],
-
-      username:[this.data.UsersData.userName,Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
-      email:[this.data.UsersData.email,Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
-      address: ['', Validators.required],
-      country:  ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
-      phonenumber: [this.data.UsersData.phone],
-      fax: []
-  
+          role:[],
+title:[],
+          firstname: [this.data.UsersData.firstName, Validators.compose([Validators.required, Validators.minLength(2)])],
+          lastname: [this.data.UsersData.lastName,Validators.compose([ Validators.required, Validators.minLength(2)])],
+          ToggleActive:this.data.UsersData.activeFlag,     
+          file:[],
+          userGroup:[],
+    
+          username:[this.data.UsersData.userName,Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
+          email:[this.data.UsersData.email,Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
+          address: ['', Validators.required],
+          country:  ['', Validators.required],
+          state: ['', Validators.required],
+          city: ['', Validators.required],
+          zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
+          phonenumber: [this.data.UsersData.phone],
+          fax: [],
+         
+          EmergencyContact: this.fb.array([    
+            this.fb.group({
+              'firstname': [''],
+              'lastname': [''],
+              'email': ['', [Validators.pattern(this.emailPattern)]],
+              'phone':['', [Validators.pattern(this.mobnumPattern)]]
+            })
+           ])
+      
       
       });
-/*       this.indextest = _.findIndex(this.countries,this.data.UsersData.country);
+      /* this.indextest = _.findIndex(this.countries,this.data.UsersData.country);
       this.indextestsate = _.findIndex(this.states,this.data.UsersData.state);
       this.indextestcity = _.findIndex(this.cities,this.data.UsersData.city);
       this.indextestUsergroup=_.findIndex(this.cities,this.data.UsersData.userGroup);
@@ -371,6 +439,54 @@ public city:null;
      }
     }
   }
+  public attributValue='';
+  public countryAttrValue='';
+  public stateAttrValue='';
+  public cityAttrValue='';
+setAttribute(event,type)
+{
+  
+  if(type=='country')
+  {
+    this.countryAttrValue=event.target.value;
+
+  }else if(type=='state')
+{
+  this.stateAttrValue=event.target.value;
+
+}
+else if(type=='city')
+{
+  this.cityAttrValue=event.target.value;
+
+
+}else
+{
+  this.attributValue=event.target.value;
+
+}
+}
+
+
+initEmergencyContacts() {
+     
+  return  this.fb.group({
+      'firstname': [''],
+      'lastname': [''],
+      'email': ['', [Validators.pattern(this.emailPattern)]],
+      'phone':['', [Validators.pattern(this.mobnumPattern)]]
+   })
+}
+
+addNewRow() {
+  const control = <FormArray>this.users.controls['EmergencyContact'];
+  control.push(this.initEmergencyContacts());
+}
+
+deleteRow(index: number) {
+  const control = <FormArray>this.users.controls['EmergencyContact'];
+  control.removeAt(index);
+}
 
   cancelEdit() {
     this.data.UsersData = [];

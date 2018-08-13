@@ -19,7 +19,7 @@ import * as _ from "lodash";
 export class ViewDispatchOfficeComponent implements OnInit {
   gridDispatchData:any[];
   public createEditDispatch;
-  functionalitychecklist=[{"name":"Branch Office","associate":true,"edit":true,"delete":true}];
+  functionalitychecklist=[{"name":"Dispatch Office","associate":true,"edit":true,"delete":true}];
   constructor(private dispatchserviceData:CreateDispatchOfficeService,private router:Router, private toastr: ToastrService) {
     this.gridDispatchData=[];
     /* [

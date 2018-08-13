@@ -13,32 +13,35 @@ label
 }
 .ToggleActive
 {
-    border: 2px solid #003664;
-    border-radius: 32px;
-    color:black;
-
+  color: #000000;
+  width: 145px;
+  height: 33px;
+  border-radius: 16px;
+  box-shadow: 0px 2px 2px 0 rgba(25, 196, 172, 0.44);
+  border: 2px solid #19c4ac;
     .active
 
     {
         color:white;
-        background-color: #003664;
+        background-color: #19c4ac;
         border-radius: 63px 64px 64px 63px;
         padding: 0.01rem 0.25rem;
+        width: 71px;
+        border: 1px solid honeydew;
+
     }
 
     label
     {
-        opacity: 0.8;
-
         padding: 0.01rem 0.25rem;
         margin-bottom: 0px;
     border-radius: 63px 64px 64px 63px;
+    width: 71px;
     }
 }
 .heightlightIcon
 {
-
-    color:green;
+    fill:#19c4ac;
 
 }
 .pencilHide
@@ -46,3 +49,62 @@ label
 
     display: none;
   }
+
+  .widgets_div {
+    padding: 22.85px 0;
+  }
+  
+  .widgets_div .icon_div {
+    display: inline-block;
+    vertical-align:middle;
+  }
+  
+  
+  .widgets_div .text_div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .widgets_div .text_div span {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 0.83;
+    text-align: left;
+    color: #3e3d47;
+  }
+  
+  .widgets_div .text_div span + span {
+    color: #8d949c !important;
+        font-size: 10px !important;
+        line-height: 1;
+
+  }  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

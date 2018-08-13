@@ -1,24 +1,159 @@
 /* The container */
 .gridContainer {
+    display: inline;
+
+position: relative;
+
+margin-left: 0px;
+
+cursor: pointer;
+
+font-size: 22px;
+
+-webkit-user-select: none;
+
+-moz-user-select: none;
+
+-ms-user-select: none;
+
+user-select: none;
+}
+.sortbyLabel
+{
+    font-size: 10px;
+
+    font-weight: 500;
+  
+    font-style: normal;
+  
+    font-stretch: normal;
+  
+    line-height: 4.8;
+  
+    letter-spacing: normal;
+  
+    text-align: left;
+  
+    color: #686868;
     display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-/*     font-size: 22px;
- */    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+margin-bottom: -10px;
+}
+.advanceFeatures
+{
+    font-size: 12px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: 4;
+letter-spacing: normal;
+text-align: left;
+color: #19c4ac !important;
+display: inline;
+text-decoration: underline !important;
+}
+.searchlabel
+{
+    font-size: 12px;
+
+    font-weight: normal;
+  
+    font-style: normal;
+  
+    font-stretch: normal;
+  
+    line-height: 4;
+  
+    letter-spacing: normal;
+  
+    text-align: left;
+  
+    color: #707070;
+    display:inline
+}
+.sortbydropdown
+{
+    border-radius: 3px;
+display:inline;
+box-shadow: 0px 2px 2px 0 rgba(180, 184, 190, 0.44);
+
+background-color: #ffffff;
+
+border: solid 1px #dadde0;
+
+width: 118px;
+
+height: 30px;
+
+font-size: 13px;
+
+font-weight: 300;
+
+font-style: normal;
+
+font-stretch: normal;
+
+line-height: 3.69;
+
+letter-spacing: normal;
+
+text-align: left;
+
+color: #000003;
+}
+.labelLinks
+{
+    font-size: 10px;
+
+  font-weight: bold;
+
+  font-style: normal;
+
+  font-stretch: normal;
+
+  line-height: 0.8;
+
+  letter-spacing: normal;
+
+  text-align: left;
+
+  color: #a2a1a1;
+}
+.labelLinksList
+{
+    font-size: 12px;
+
+  font-weight: normal;
+
+  font-style: normal;
+
+  font-stretch: normal;
+
+  line-height: 0.67;
+
+  letter-spacing: normal;
+
+  text-align: left;
+
+  color: #808080;
 }
 .createButton
 {
-    background-color: #003664;
-    border: none;
-    color: white;
+    color: #17bdde;
+border-radius: 3px;
+box-shadow: 0px 2px 2px 0 rgba(7, 176, 209, 0.44);
+background-color: #ffffff;
+border: solid 1px #17bdde;
+width: 140px;
+height: 40px;
     text-decoration: none;
     cursor: pointer;
 }
+.TileOperationDiv > li
+{
+    display: inline;
+    padding-right: 8px;
+    margin-right: 4px;}
+
 .tileIconclass 
 {
     border-bottom: 1px solid lightgrey;
@@ -26,7 +161,7 @@
     margin-right: 0px;
      svg
     {
-        width: 25px;
+        width: 36px;
         margin: 0px auto;
         display: block;
         fill:#a9dff5;
@@ -62,8 +197,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     background-color: #eee;
 }
 
@@ -85,12 +220,9 @@
 }
 .civaconGridTile
 {
-    border-top: 4px solid orange;
+    width: 290px;
+    height: 200px;
     margin-bottom: 10px;
-    border-left: 2px solid rgba(0,0,0,.125);
-    border-right: 2px solid rgba(0,0,0,.125);
-    border-bottom: 2px solid rgba(0,0,0,.125);
-
 }
 
 /* Show the checkmark when checked */
@@ -128,8 +260,148 @@
 }
 .cardHeader
 {
-    border-bottom: 1px solid lightgrey;
+   
+    position: relative;
+    text-align: center;
+    color: white;
 }
+.top-left
+{
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    label
+    {
+        display: block;
+    }
+    .name
+    {
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;      
+        letter-spacing: normal;
+        text-align: left;
+        color: #18bae2;
+        display: block;
+    }
+    .role
+    {
+        font-size: 12px;
+        font-weight: bold;
+        font-style: normal;      
+        font-stretch: normal;           
+        letter-spacing: normal;
+        text-align: left;
+       color: #343537;
+       display: block;
+
+    }
+}
+.bottom-left {
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    .name
+    {
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;      
+        letter-spacing: normal;
+        text-align: left;
+        color: #18bae2;
+        display: block;
+    }
+    .role
+    {
+        font-size: 12px;
+        font-weight: bold;
+        font-style: normal;      
+        font-stretch: normal;           
+        letter-spacing: normal;
+        text-align: left;
+       color: #343537;
+       display: block;
+
+    }
+    .email
+    {
+        font-size: 12px;
+        font-weight: normal; 
+        font-style: normal; 
+        font-stretch: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #343537;
+        display: block;
+
+    }
+}
+
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+.overlay {
+    position: absolute;
+    left: 100%;
+    right: 0;
+    top:0;
+    opacity:1;
+    overflow: hidden;
+    width: 0;
+    height: 44px;
+    transition: .5s ease;
+    opacity: 0.8;
+
+    background-color: #19c4ac;
+  
+    box-shadow: 0px 4px 6.3px 0.7px rgba(0, 0, 0, 0.18);
+  }
+  
+  .cardHeader:hover
+  { .overlay {
+    left: 0;
+    width: 60%;
+
+    margin-left: 40%;
+  
+  }
+   img
+  {
+    opacity: 1 !important;
+  }
+}
+  
+  .icons {
+    color: white;
+
+font-size: 20px;
+
+position: absolute;
+
+top: 50%;
+
+left: 10%;
+
+-webkit-transform: translate(10%, -50%);
+
+transform: translate(10%, -50%);
+
+text-align: center;
+
+width: auto;
+ label
+ {
+     padding-left:0px;
+ }
+ span
+ {
+     padding:10px;
+ }
+  }
+
 .cardFooter
 {
     border-bottom: 1px solid lightgrey;
@@ -149,26 +421,156 @@
 .gridOperationDiv
 {
     text-align: center;
-    background-color: #ffffff;
-    border: 1px solid #bebebe;
-    margin-bottom: 20px;
-    font-size:14px;
-    label
-    {
-        margin: 10px auto;
-    }
+    background-color: #eaf9ff;
+    border: 1px solid #8ee8ff;
+    font-size: 0.9rem;
 
 }
 .gridOperationDiv > *
 {
-    border-right: 1px solid #bebebe;
-    display: flex;
+    border-right: 1px solid #8ee8ff;
+font-size: 0.9rem;
+display: flex;
     align-items: center;
     justify-content: center;
     line-height: 2.5rem;
 }
- .gridOperationchild > * 
+.gridOperationchild > * 
 {
-    font-size:14px;
+    font-size: 0.9rem;
 
-} 
+}
+
+
+
+.dropdown .dropdown-menu {
+    /* -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; */
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+     -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+         transition: all .3s ease;
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    
+}
+
+.dropdown:hover .dropdown-menu{
+    
+    max-height: 400px;
+    color: white;
+
+    opacity: 0.8;
+    width: 362px;
+    box-shadow: 0px 2px 2px 0 rgba(25, 196, 172, 0.44);
+
+    background-color: #65c6d6;
+    
+    border: solid 1px #18c0db;svg
+{
+    width: 19px;
+  height: 19px;
+  margin: 0px 10px -5px 0px;
+
+}
+}
+
+.dropdown-item
+{
+    transition: all .3s ease;
+    color: #212529;
+    font-size:14px;
+}
+.dropdown-item.active, .dropdown-item:active {
+   
+    text-decoration: none;
+   background-color: rgba(0,157,188,0.4);
+
+.advanceFeatures
+{
+    opacity: 0.8;
+    box-shadow: 0px 2px 2px 0 rgba(25, 196, 172, 0.44);
+
+    background-color: #65c6d6;
+    
+    border: solid 1px #18c0db;
+}
+}
+.dropdown-item:hover {
+    font-size: 14px;
+
+    font-weight: normal;
+  
+    font-style: normal;
+  
+    font-stretch: normal;
+  
+    line-height: normal;
+  
+    letter-spacing: normal;
+  
+    text-align: left;
+  
+    color: #000000;    
+    text-decoration: none;
+    background-color: rgba(0,157,188,0.4);
+    .advanceFeatures
+{
+    opacity: 0.8;
+
+box-shadow: 0px 2px 2px 0 rgba(25, 196, 172, 0.44);
+
+background-color: #65c6d6;
+
+border: solid 1px #18c0db;
+}
+    svg
+{
+    fill:white
+}
+}
+
+
+.ToggleActive
+{
+   
+    border: 2px solid #19c4ac;
+
+border-radius: 32px;
+
+color: #000000;
+margin-left:10px;
+
+background-color: white;
+    .active
+
+    {
+       
+        color: white;
+
+background-color: #19c4ac;
+
+border-radius: 63px 64px 64px 63px !important;
+
+padding: 0.01rem 0.25rem;
+
+border-radius: 14px;
+
+background-color: #00c0dd;
+    }
+
+    label
+    {
+        opacity: 0.8;
+
+        padding: 0.01rem 0.25rem;
+        margin-bottom: 0px;
+    border-radius: 63px 64px 64px 63px;
+    }
+}

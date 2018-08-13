@@ -1,55 +1,12 @@
 <ol class="CV-breadcrumb">
     <li class="CV-breadcrumb-item">
         <a [routerLink]="['../viewDispatchOffice']">
-            View Branch Office Details
+            View DispatchOffice Detail
           </a>
     </li>
     <li class="CV-breadcrumb-item">
-            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            width="14px"  viewBox="0 0 444.819 444.819" style="enable-background:new 0 0 444.819 444.819;"
-            xml:space="preserve">
-       <g>
-           <path d="M352.025,196.712L165.884,10.848C159.029,3.615,150.469,0,140.187,0c-10.282,0-18.842,3.619-25.697,10.848L92.792,32.264
-               c-7.044,7.043-10.566,15.604-10.566,25.692c0,9.897,3.521,18.56,10.566,25.981l138.753,138.473L92.786,361.168
-               c-7.042,7.043-10.564,15.604-10.564,25.693c0,9.896,3.521,18.562,10.564,25.98l21.7,21.413
-               c7.043,7.043,15.612,10.564,25.697,10.564c10.089,0,18.656-3.521,25.697-10.564l186.145-185.864
-               c7.046-7.423,10.571-16.084,10.571-25.981C362.597,212.321,359.071,203.755,352.025,196.712z"/>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       <g>
-       </g>
-       </svg>
-    </li>
-    <li class="CV-breadcrumb-item">
             <a class="active">
-                    Add Branch Office
+                    Edit
                 </a>
 </li>
   </ol>
@@ -70,12 +27,12 @@
 
 
         <div [ngSwitch]="group?.content">
-            <div *ngSwitchCase="'Dispatch'" class="row col-sm-12 ">
+            <div *ngSwitchCase="'Dispatch'" class="row col-sm-12 AccordionDeatailStyle">
                
                         <div class="col-sm-5 row">
                     <div class="form-group col-sm-6 inputstyle">
                         <input id="textTrailerName" type="text" formControlName="name" placeholder="Trailer Company Name" required/>
-                        <label class="inputlabel" for="textTrailerName">Branch Office Name               
+                        <label class="inputlabel" for="textTrailerName">Dispatch Office Name               
                             <span class="star" >*</span>
                         </label>
 
@@ -105,8 +62,8 @@
                     </div>
 
                     <div class="form-group col-sm-12 inputstyle">
-                        <textarea style="height:150px" id="textdescription" formControlName="description" placeholder="Branch Office Description"></textarea>
-                        <label class="inputlabel" for="textdescription" [ngClass]="{ 'lableFocused' : dispatch.controls['description'].value.length != 0 }">Branch Office Description</label>
+                        <textarea style="height:150px" id="textdescription" formControlName="description" placeholder="Dispatch Office Description"></textarea>
+                        <label class="inputlabel" for="textdescription">Dispatch Office Description</label>
 
                     </div>
 
@@ -114,29 +71,22 @@
 
                 </div>
                 <div class="form-group col-sm-3 trailerlogoupload ">
-                    <ng-template #popTemplate>
-                            File size: 25kb jpg,png <br>
-                            Dimensions:250 * 70
-                       </ng-template>
-                        <label [ngClass]="{ 'lableFocused' :url.length != 0 }">Upload Company Logo</label>
-                        <svg  (click)="pop.toggle()" height="25" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="25" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="layer1" transform="translate(0,-284.29998)"><circle cx="6.3500376" cy="290.64993" id="path4504" r="3.8805983" style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.58506224;stroke:#003664;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/><path d="m 5.2916669,289.94443 c 0,-0.70557 0.3527779,-1.05835 1.0583334,-1.05835 0.7055555,0 1.0583337,0.35278 1.0583334,1.05835 3e-7,0.70555 -1.0583334,0 -1.0583334,1.41109" id="path4506" style="fill:none;fill-rule:evenodd;stroke:#003664;stroke-width:0.70555556px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/><rect height="0.70555556" id="rect4508" style="opacity:1;vector-effect:none;fill:#003664;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" width="0.70555556" x="5.9972234" y="292.06107"/></g></svg>
-                        <span [popover]="popTemplate" 
-                        triggers="" #pop="bs-popover" 
-                        placement="top" [outsideClick]="true">
-                  </span>
-                        <div class="btn-file">
-                            Browse & Upload
-                            <input type="file" accept="image/*"  (change)="onSelectFile($event)">
-                        </div>
-           
+                    <label>Upload company logo</label>
+                    <div class="btn-file">
+                        Browse & Upload
+                        <input type="file" accept="image/*"  (change)="onSelectFile($event)">
+                    </div>
+                    <label>
+                        File size: 25kb jpg,png dimensions:250 * 70
+                    </label>
                    <div *ngIf="error.isError" class="alert alert-danger">
                                 {{ error.errorMessage }}
                              </div>
                                        
             </div>
-                <div class="col-sm-2 FilePlaceHolder">
+                <div class="col-sm-2" style="background-color: azure;height: 200px;">
             
-                    <img *ngIf="url" [src]="url" >
+                    <img *ngIf="url" [src]="url" style="height: 13%;width: 100%;">
                     <section   *ngFor="let image of this.imagefile">
                             <p>{{image.name}}</p>  
                             <p> {{image.filesize}}</p>
@@ -146,12 +96,27 @@
 
                 </div>
             </div>
-            <div *ngSwitchCase="'Address'" class="row col-sm-12 ">
+            <div *ngSwitchCase="'Address'" class="row col-sm-12 AccordionDeatailStyle">
                 <div class="row col-sm-12">
-                   
-                    <div class=" col-sm-12">
+                    <div class=" col-sm-3 form-group" >
+                        <div class="trailerdatapreview" *ngIf="dispatch.value.length!=0">
+                                    
+                            <section *ngIf="dispatch.controls.name.value">
+                                    <label class="previewDataLabel">Dispatch Office</label>
+                                   <p>{{ dispatch.controls.name.value}}</p> 
+                                </section>
+                                <section *ngIf="dispatch.controls.code.value">
+                                   <label class="previewDataLabel"> Code</label>
+                                <p>{{ dispatch.controls.code.value}}</p>
+                                </section>
+
+
+                        </div>
+
+                    </div>
+                    <div class=" col-sm-9 ">
                         <div class="row">
-                            <div class="col-sm-12 form-group inputstyle">
+                            <div class="col-sm-9 form-group inputstyle">
                                 <input id="textaddress" formControlName="address" placeholder="address" required>
                                 <label class="inputlabel" for="textaddress">Address
                                         <span class="star">*</span>
@@ -167,7 +132,7 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-sm-4 form-group inputstyle">
+                            <div class="col-sm-2 form-group inputstyle">
 
                                 <select class="editorinput dropdownaddress"  (change)="onCountrySelect(dispatch.controls['country'].value)" formControlName="country" required>
 <!--                                         <option [ngValue]="null" disabled selected> Country  </option>
@@ -183,9 +148,9 @@
                                             Country is required
                                         </div>
                             </div>
-                            <div class="col-sm-4 form-group inputstyle">
+                            <div class="col-sm-2 form-group inputstyle">
                                 <select class="editorinput dropdownaddress" (change)="onSateSelect(dispatch.controls['state'].value)" formControlName="state" required>
-                                        <option [ngValue]="null" disabled selected> State / Province
+                                        <option [ngValue]="null" disabled selected> State 
                                             <span class="star" >*</span>
 
                                     </option>
@@ -198,7 +163,7 @@
                                         State is required
                                     </div>
                             </div>
-                            <div class=" col-sm-4 form-group inputstyle">
+                            <div class=" col-sm-2 form-group inputstyle">
                                 <select class="editorinput dropdownaddress" (change)="onCitySelect(dispatch.controls['city'].value)" formControlName="city" required>
                                         <option [ngValue]="null" disabled selected> City 
                                             <span class="star" >*</span>
@@ -213,22 +178,30 @@
                                         City is required
                                     </div>
                             </div>
-                         
+                            <div class="col-sm-3 form-group inputstyle">
+                                <input id="textZipcode" formControlName="zipcode" placeholder="Zipcode" required>
+                                <label class="inputlabel" for="textZipcode">Zipcode
+                                        <span class="star">*</span>
+
+                                </label>
+                                <div class="error" *ngIf="dispatch.get('zipcode').touched && dispatch.get('zipcode').hasError('pattern')">
+                                        Zip code is not valid
+                                    </div>
+                                    
+    
+                            </div>
                         </div>
                         <div class="row">
-                                <div class="col-sm-4 form-group inputstyle">
-                                        <input id="textZipcode" formControlName="zipcode" placeholder="Postal Code" required>
-                                        <label class="inputlabel" for="textZipcode">Postal Code
-                                                <span class="star">*</span>
-        
-                                        </label>
-                                        <div class="error" *ngIf="dispatch.get('zipcode').touched && dispatch.get('zipcode').hasError('pattern')">
-                                                Postal Code  is not valid
-                                            </div>
-                                            
-            
-                                    </div>
-                           
+                            <div class=" col-sm-4 form-group inputstyle">
+                                <input id="textlatitude" formControlName="latitude" placeholder="latitude" (keyup)="onKey($event,'lat')">
+                                <label class="inputlabel" for="textlatitude">Latitude</label>
+                            
+                            </div>
+                            <div class=" col-sm-4 form-group inputstyle">
+                                <input id="textlongitude" formControlName="longitude" placeholder="longitude" (keyup)="onKey($event,'lng')">
+                                <label class="inputlabel" for="textlongitude">Longitude</label>
+                       
+                            </div>
 
 
                         </div>
@@ -252,17 +225,6 @@
                                 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
                                     <agm-marker (markerClick)="clickedMarker(m.label, i)" [latitude]="lat" [longitude]="lng" [markerDraggable]=true (dragEnd)="markerDragEnd(m, $event)"></agm-marker>
                                 </agm-map>
-                                <div class="row">
-                                        <div class=" col-sm-4 form-group inputstyle">
-                                                <input id="textlatitude" formControlName="latitude" placeholder="latitude" readonly="readonly" >
-                                                <label class="inputlabel" for="textlatitude">Latitude</label>
-                                            
-                                            </div>
-                                            <div class=" col-sm-4 form-group inputstyle">
-                                                <input id="textlongitude" formControlName="longitude" placeholder="longitude" readonly="readonly" >
-                                                <label class="inputlabel" for="textlongitude">Longitude</label>
-                                       
-                                            </div> </div>
                             </div>
                         </div>
                     </div>
@@ -271,16 +233,40 @@
 
 
             </div>
-            <div *ngSwitchCase="'Contact'" class="row col-sm-12 ">
+            <div *ngSwitchCase="'Contact'" class="row col-sm-12 AccordionDeatailStyle">
 
-              
-                <div class="col-sm-12" formArrayName="itemRows">
-                        <div class="row col-sm-12">
-                                <p> Point of Contact </p>
-                            </div>
+                <div class="col-sm-3">
+                    <div class="trailerdatapreview">
+                                  
+                            <section *ngIf="dispatch.controls.name.value">
+                                    <label class="previewDataLabel">Dispatch Office </label>
+                                   <p>{{ dispatch.controls.name.value}}</p> 
+                                </section>
+                                <section *ngIf="dispatch.controls.code.value">
+                                   <label class="previewDataLabel"> Code</label>
+                                <p>{{ dispatch.controls.code.value}}</p>
+                                </section>
+                                <section *ngIf="dispatch.controls.address.value">
+                                        <label class="previewDataLabel"> address</label>
+                                     <p>{{ dispatch.controls.address.value}}</p>
+                                     </section>
+                                     <section *ngIf="dispatch.controls.country.value">
+                                            <label class="previewDataLabel"> country</label>
+                                         <p>{{ dispatch.controls.country.value.name}}</p>
+                                         </section>
+                       
+                    </div>
+                </div>
+                <div class="col-sm-9" formArrayName="itemRows">
+
                     <div class="row" *ngFor="let contactdeail of dispatch.controls.itemRows.controls; let i=index">
-                        <div class="row col-sm-12" [formGroupName]="i">
-                          <div class="col-sm-3  inputstyle form-group">
+                        <div class="row" [formGroupName]="i">
+                            <div class="col-sm-12">
+                                <p *ngIf="i==0"> Point of Contact </p>
+<!--                                 <p *ngIf="i>0"> Point of Contact {{i}}</p>
+ -->                            </div>
+
+                            <div class="col-sm-3  inputstyle form-group">
 
                                 <input id="textFirstName{{i}}" type="text" formControlName="firstname" placeholder="First name">
                                 <label class="inputlabel" for="textFirstName{{i}}">First name</label>
@@ -305,18 +291,22 @@
                                 <input id="textphone{{i}}" type="text" formControlName="phone" placeholder="Phone number">
                                 <label class="inputlabel" for="textphone{{i}}">Phone number</label>
                                 <div class="error" *ngIf="dispatch.controls.itemRows.controls[i].controls.phone.touched && dispatch.controls.itemRows.controls[i].controls.phone.hasError('pattern')">
-                                        Phone No is not valid   
+                                        Phone Nummber is not valid   
                                  </div> 
                             </div>
 
                             <div class="col-sm-1" *ngIf="dispatch.controls['itemRows'].controls.length > 1 && i!=dispatch.controls['itemRows'].controls.length-1" (click)="deleteRow(i,'contact')">
-                                    <i class="fa fa-minus plusButton iconAsButton" aria-hidden="true">
+                                <button class="plusButton">
+                                    <i class="fa fa-minus " aria-hidden="true">
 
                                     </i>
 
+                                </button>
                                 </div>
                             <div class="col-sm-1" *ngIf="i==dispatch.controls['itemRows'].controls.length-1"  (click)="addNewRow('contact')">
-                                        <i class="fa fa-plus plusButton iconAsButton"></i>
+                                <button class="pull-right plusButton">
+                                        <i class="fa fa-plus"></i>
+                                </button>
                                    
                             </div>
                         </div>
@@ -325,20 +315,25 @@
 
                 </div>
             </div>
-           <div *ngSwitchCase="'Preferences'" class="row col-sm-12 ">
-                <div class="col-sm-12" formArrayName="ShiftItems">
+           <div *ngSwitchCase="'Preferences'" class="row col-sm-12 AccordionDeatailStyle">
+
+                <div class="col-sm-3">
+                       
+                        <div class="trailerdatapreview">
+                        </div>
+                </div>
+                <div class="col-sm-9" formArrayName="ShiftItems">
                         <div class="row" *ngFor="let contactdeail of dispatch.controls.ShiftItems.controls; let i=index">
                         <div class="row" [formGroupName]="i">
-
                             <div class="col-sm-3 form-group inputstyle">
                                 <input id="textShiftName{{i}}" formControlName="shiftname" type="text" placeholder="Shift name">
-                                <label class="inputlabel" for="textShiftName{{i}}">Shift Name</label>
+                                <label class="inputlabel" for="textShiftName{{i}}">Shift name</label>
                               
                             </div>
                             <div class="col-sm-2 form-group inputstyle">
                                 <input id="textShiftStartTime{{i}}" [outsideClick]="true" [popover]="startTimeTemplate" [value]="dispatch.controls.ShiftItems.controls[i].controls.shiftStartTime.value | date:'h:mm a'" 
                                 readonly="readonly" placeholder="Shift start time">
-                                <label class="inputlabel" for="textShiftStartTime{{i}}">Shift Start Time </label>
+                                <label class="inputlabel" for="textShiftStartTime{{i}}">Shift start time </label>
                                 <ng-template #startTimeTemplate>
                                     <timepicker formControlName="shiftStartTime">
                                     </timepicker>
@@ -347,30 +342,31 @@
                             <div class="col-sm-2 form-group inputstyle">
                                 <input id="textShiftEndTime{{i}}" [outsideClick]="true" [popover]="endTimeTemplate" [value]="dispatch.controls.ShiftItems.controls[i].controls.shiftEndTime.value | date:'h:mm a'" 
                                 readonly="readonly"   placeholder="Shift end time">
-                                <label class="inputlabel" for="textShiftEndTime{{i}}">Shift End Time</label>
+                                <label class="inputlabel" for="textShiftEndTime{{i}}">Shift end time</label>
                                 <ng-template #endTimeTemplate>
                                         <timepicker formControlName="shiftEndTime">
                                         </timepicker>
                                         </ng-template>
                             </div>
                             <div class="col-sm-3 form-group inputstyle">
-                                <select class="editorinput dropdownaddress"  formControlName="timezone" >
-                                        <option [ngValue]="null" disabled selected> Time Zone
-                                                            </option>
+                                <select class="editorinput"  formControlName="timezone" >
+                                    <option value="null" disabled="true" [selected]="true"> Time Zone
+                                   </option>
                                     <option *ngFor=" let t of TimeZoneData;let i=index" [ngValue]="t">{{t.text}}
                                     </option>
                                 </select>
-                                <label [ngClass]="{ 'lableFocused' : dispatch.controls.ShiftItems.controls[i].value.timezone.length != 0 }">Time zone
-                                       </label>
-
                             </div>
                             <div class="col-sm-1" *ngIf="dispatch.controls['ShiftItems'].controls.length > 1 && i!=dispatch.controls['ShiftItems'].controls.length-1" (click)="deleteRow(i,'shift')">
-                                    <i class="fa fa-minus plusButton iconAsButton " aria-hidden="true">
+                                <button class="plusButton">
+                                    <i class="fa fa-minus " aria-hidden="true">
                                     </i>
 
+                               </button>
                             </div>
                             <div class="col-sm-1" *ngIf="i==dispatch.controls['ShiftItems'].controls.length-1"  (click)="addNewRow('shift')">
-                                        <i class="fa fa-plus  plusButton iconAsButton"></i>
+                                <button class="pull-right plusButton">
+                                        <i class="fa fa-plus"></i>
+                                </button>
                                    
                             </div>
                          </div>

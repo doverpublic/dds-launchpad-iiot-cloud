@@ -5,41 +5,78 @@
 .civoconTab
 {
     background-color: white;
-    border: 1px solid #bebebe;
-    color:#323232;
-    i
-    {
-        font-size:25px;
-    }
+    border: solid 1px #e4e4e4;
+    color: #2d3132;
+    font-size:16px;
+    font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 3;
+  letter-spacing: normal;
+  text-align: left;
     .nav-link.active  {
-        color: #323232;
-        font-weight: bold;
+        color: #17bdde;
         background-color: #fff;
         position: relative;
         background: trnasperent;
-        border-bottom: 2px solid #004898;
         z-index: 1;
     }
         .nav-link
     {
+        font-weight: normal;
         display: block;
         padding: 0rem 1rem;
-        color: #143fa1;
+        color: black;
         border: none;
-        padding: 0rem 1.5rem;
-    }
-        
+/*         padding: 0rem 1.5rem;
+ */           padding: 0rem 0.4rem;
 
-    .nav-link:hover {
-        color: #495057;
+             transition: font-weight .4s ease-in-out;
+             -webkit-transition:font-weight .4s ease-in-out;
+             -moz-transition: font-weight .4s ease-in-out;
+              -ms-transition: font-weight .4s ease-in-out;
+               -o-transition: font-weight .4s ease-in-out;
+    }
+    .nav-item:hover { 
+        background-image: linear-gradient(to bottom, #17bdde 35%, #2bc3ca),linear-gradient(to top, #0b063d, #a6bbc5);
+
+    .nav-link
+    {
+        color: rgb(0, 0, 0);
+    font-weight:bold;
+        position: relative;
+        background-image: linear-gradient(to bottom, #17bdde 35%, #2bc3ca),linear-gradient(to top, #0b063d, #a6bbc5);
+
     
+    }
+}
+    .nav-link:hover {
+        color: rgb(0, 0, 0);
+        font-weight:bold;
+
     position: relative;
-    background: trnasperent;
-        /* border-color: #dee2e6 #dee2e6 #fff; */
-        svg
-        {
-            fill:black;
-        }
+    background-image: linear-gradient(to bottom, #17bdde 35%, #2bc3ca),linear-gradient(to top, #0b063d, #a6bbc5);
+
+    
+    }
+ #profilesvg
+ {
+     width:30px;
+ }
+
+    #searchsvg
+    {
+        width: 26px;
+    height: 26px;
+    mix-blend-mode: undefined;
+    fill: #b4b8be;
+    }
+    #bellsvg
+    {
+        width: 25px;
+        height: 25px;
+        mix-blend-mode: undefined;
+        fill: #55585d;
     }
 }
  
@@ -70,11 +107,11 @@
     {
         border-right: 1px solid #bebebe;
         }
-    svg
+  /*   svg
     {
         width:25px;
         margin-right: 10px;
-    }
+    } */
     
     .nav-link
     {
@@ -82,6 +119,11 @@
         display: block;
         color: #143fa1;
         border: none;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+         -ms-transition: all .25s ease;
+          -o-transition: all .25s ease;
+             transition: all .25s ease;
     }
     .nav-link.active  {
         color: #143fa1;
@@ -114,15 +156,25 @@
 }
 .civaconNestedTab >li 
 {
-    margin: auto 0.01rem;
+    margin: auto 0.25rem;
     .nav-link
     {
-        padding: 10px 10px;
+        padding: 8px 10px;
         }
+}
+.civaconNestedTab li:first-child 
+{
+border-right: 1px solid #e4e4e4;
+    padding-right: 11px;
 }
 .ml-auto .dropdown-menu {
     left: auto !important;
     right: 0px;
+    position: absolute;
+    will-change: transform;
+    top: 0px;
+    left: 0px;
+    transform: translate3d(0px, 50px, 0px) !important;
   }
   .avatar {
       
@@ -144,11 +196,17 @@ svg .svgimage
     .civaconAssetIcon
     {
 
-        border-right: 1px solid #bebebe;   
+        border-right: 1px solid #aed6e0;
+        width: 14%;
     }
     .civaconAssetIcon a
     {
         margin: 9px auto;
+        img
+        {
+            width:100%;
+            
+        }
 
     }
 
@@ -167,10 +225,9 @@ input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
 	display: none; 
 }
-svg
-{
-    width: 24px;
-    fill: #004898;
+
+svg{
+    width: 30px;
 
 }
 
@@ -225,29 +282,80 @@ input::-webkit-input-placeholder {
 }
 
 
+/*-----------dropdown animation------------*/
+
+/*.dropdown .dropdown-menu{
+    display: block;
+    opacity: 0;
+
+    -moz-transition:    all 1000ms ease;
+    -webkit-transition: all 1000ms ease;
+    -o-transition:      all 1000ms ease;
+    -ms-transition:     all 1000ms ease;
+    transition:         all 1000ms ease;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}*/
+
+.dropdown .dropdown-menu {
+    /* -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; */
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+     -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+         transition: all .3s ease;
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
     
-/* Demo 2 */
-#demo-2 input[type=search] {
-	width: 15px;
-	padding-left: 10px;
-	color: transparent;
-    cursor: pointer;
+}
+
+.dropdown:hover .dropdown-menu{
     
+    max-height: 400px;
+    color: white;
+
+    opacity: 0.8;
+
+    background-image: linear-gradient(to bottom, rgba(#17bdde, 0.8) 35%, rgba(#2bc3ca, 0.8)),linear-gradient(to top, rgba(#0b063d,0.8),rgba(#a6bbc5,0.8));
+svg
+{
+    width: 19px;
+  height: 19px;
+  margin: 0px 10px -5px 0px;
 
 }
-#demo-2 input[type=search]:hover {
-	background-color: #fff;
 }
-#demo-2 input[type=search]:focus {
-	width: 130px;
-	padding-left: 32px;
-	color: #000;
-	background-color: #fff;
-	cursor: auto;
+
+.dropdown-item
+{
+    transition: all .3s ease;
+    color: #212529;
+    font-size:14px;
 }
-#demo-2 input:-moz-placeholder {
-    color: transparent;
+.dropdown-item.active, .dropdown-item:active {
+   
+    color: #ffffff;
+    text-decoration: none;
+   background-color: rgba(0,157,188,0.4);
+svg
+{
+    fill:white
 }
-#demo-2 input::-webkit-input-placeholder {
-	color: transparent;
+}
+.dropdown-item:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: rgba(0,157,188,0.4);
+    svg
+{
+    fill:white
+}
 }

@@ -46,7 +46,7 @@ public city:null;
   pagedItems: any[];
   public TimeZoneData:any[];
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  mobnumPattern = "^((\\+-?))?[0-9]{5,10}$"; 
+  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
 
   @Output()
   click = new EventEmitter();
@@ -76,15 +76,15 @@ public city:null;
   groups = [
 
     {
-      title: 'Branch Office Details',
+      title: 'Dispatch Office details',
       content: 'Dispatch'
     },
     {
-      title: 'Address Information',
+      title: 'Address info',
       content: 'Address'
     },
     {
-      title: 'Contact Information',
+      title: 'Contact details',
       content: 'Contact'
     },
     {
@@ -124,12 +124,6 @@ public city:null;
 
       return i.state_id == stateId.id;
     });
-    console.log(JSON.stringify(this.citiesList));
-
-    /* if(this.citiesList.length===0){
-      console.log("True");
-      this.citiesList.push({"name":stateId.name,"state_id":stateId.id});
-    } */
   }
   onCitySelect(cityid) {
   }
@@ -184,7 +178,7 @@ public city:null;
       country: ['',Validators.required],
       state: ['',Validators.required],
       city: ['',Validators.required],
-      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
+      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
       
       longitude: [''],
       latitude: [''],
@@ -218,7 +212,7 @@ public city:null;
         country: ['',Validators.required],
         state: ['',Validators.required],
         city: ['',Validators.required],
-        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
+        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
         longitude: [''],
         latitude: [''],
         search: [''],
@@ -267,8 +261,6 @@ public city:null;
     this.onSateSelect(this.data.dispatchData.state);
      this.dispatch.controls['state'].setValue(this.states[this.indextestsate], {onlySelf: true});
      this.url = this.data.dispatchData.file;
-   console.log(this.cities[this.indextestcity]);
-   console.log("city data");
 
   
   this.dispatch.controls['city'].setValue(this.cities[this.indextestcity], {onlySelf: true});  
@@ -375,8 +367,8 @@ public city:null;
     return  this.fb.group({
         'firstname': [''],
         'lastname': [''],
-        'email': ['', [Validators.pattern(this.emailPattern)]],
-        'phone':['', [Validators.pattern(this.mobnumPattern)]]
+        'email': [''],
+        'phone':['']
      })
   }
   initShiftItemRows() {

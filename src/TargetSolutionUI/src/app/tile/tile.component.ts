@@ -3,10 +3,8 @@ import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
-/* import { ExcelService } from '../shared/services/excel.service';
- */import { PagerService } from './pager.service';
- import { FilterPipe} from '../shared/pipes/filter.pipe';
-
+import { ExcelService } from '../shared/services/excel.service';
+import { PagerService } from './pager.service';
 import {
   trigger,
   state,
@@ -36,6 +34,7 @@ public contentarray;
   public exportBy:null;
   public TruckList:any[];
   public DriverList:any[];
+  public togglevalue="Active";
   config = {
     animated: false,
     keyboard: false,
@@ -68,8 +67,8 @@ public contentarray;
 
   constructor(private router: Router,
     private modalService: BsModalService,
-/*     private excelService: ExcelService,
- */  private pagerService:PagerService) {
+    private excelService: ExcelService,
+  private pagerService:PagerService) {
 
   }
 
@@ -96,14 +95,11 @@ public contentarray;
 
     // get current page of items
     this.pagedItems = this.games.slice(this.pager.startIndex, this.pager.endIndex + 1);
-    console.log("Page Items");
-
-    console.log(JSON.stringify(this.pagedItems));
 }
 
   exportToExcel() {
-/*     this.excelService.exportAsExcelFile(this.games, 'persons');
- */  }
+    this.excelService.exportAsExcelFile(this.games, 'persons');
+  }
 
 
   // Getting Selected Games and Count
@@ -175,12 +171,10 @@ public contentarray;
     this.createClick.emit();
   }
 
-  onExportChange(event)
+  onExportChange()
   {
-if(event.target.value=="excel")
-{
-/*   this.exportToExcel();
- */}
+
+  this.exportToExcel();
   }
 
 

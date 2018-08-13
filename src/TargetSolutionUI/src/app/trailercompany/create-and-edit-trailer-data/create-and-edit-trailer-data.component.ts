@@ -12,7 +12,7 @@ import { state } from '../../state';
 import { log } from 'util';
 import { cities } from '../../cities';
 import { ToastrService } from 'ngx-toastr';
-import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
+import { TabsetComponent } from 'ngx-bootstrap';
 
 
 @Component({
@@ -21,6 +21,8 @@ import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output
   styleUrls: ['./create-and-edit-trailer-data.component.scss']
 })
 export class CreateAndEditTrailerDataComponent implements OnInit {
+  @ViewChild('staticTabs') staticTabs: TabsetComponent;
+
   public indextest;
   user: FormGroup;
   public isvalid;
@@ -58,7 +60,7 @@ public city:null;
   // paged items
   pagedItems: any[];
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  mobnumPattern = "^((\\+-?))?[0-9]{5,10}$"; 
+  mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
 
   constructor(private router: Router, private fb: FormBuilder, private data: CreateTrailerService,
      private httpService: HttpClient,private mapsAPILoader: MapsAPILoader,
@@ -94,19 +96,36 @@ public city:null;
   groups = [
 
     {
-      title: 'Company Details',
-      content: 'Trailer'
+      title: 'Details',
+      content: 'Trailer',
+      
+      customClass: 'customClass'
     },
     {
-      title: 'Address Information',
-      content: 'Address'
+      title: 'Address',
+      content: 'Address',
+      
+      customClass: 'customClass'
     },
     {
-      title: 'Contact Information',
-      content: 'Contact'
+      title: 'Contact',
+      content: 'Contact',
+      
+      customClass: 'customClass'
     }
   ];
-
+  previous(i)
+  {
+  
+    console.log(this.staticTabs.tabs[i].active);
+    this.staticTabs.tabs[i-1].active = true;
+  
+  }
+  nextTab(i)
+  {
+    this.staticTabs.tabs[i+1].active = true;
+  
+  }
 
 add()
   {
@@ -144,18 +163,10 @@ onCountrySelect(n) {
 }
 onSateSelect(stateId) {
     this.citiesList = [];
-    console.log(stateId);
-
     this.citiesList = this.cities.filter(function (i) {
 
       return i.state_id == stateId.id;
     });
-    console.log(this.citiesList);
-
-   /*  if(this.citiesList.length===0){
-      console.log("True");
-      this.citiesList.push({"name":stateId.name,"state_id":stateId.id});
-    } */
   }
   onCitySelect(cityid) {
     this.wlCity = cityid;
@@ -215,7 +226,7 @@ onSateSelect(stateId) {
       country: ['',Validators.required],
       state: ['',Validators.required],
       city: ['',Validators.required],
-      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
+      zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
       longitude: [''],
       latitude: [''],
       search: [''],
@@ -240,7 +251,7 @@ onSateSelect(stateId) {
         country: ['',Validators.required],
         state: ['',Validators.required],
         city: ['',Validators.required],
-        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
+        zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
    
         longitude: [''],
         latitude: [''],

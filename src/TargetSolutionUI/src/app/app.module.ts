@@ -22,13 +22,15 @@ import { ReportsComponent } from './reports/reports.component';
 import { AdminstrationComponent } from './adminstration/adminstration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersService } from './users/Users.service';
+import { HttpService } from './shared/services/http.service';
+import {AuthGuard} from './shared/services/authguard.service';
+
+
 import { CreateTrailerService } from "./trailercompany/create-and-edit-trailer-data/createTrailer.service"
 import { CreateDispatchOfficeService } from './dispatchoffice/create-and-update-dispatch-office/createDispatchOffice.service';
 import { CreateUsersService } from './users/create-and-update-users/createUsers.service';
-import { TrailercompanyService } from './trailercompany/trailercompany.service';
 
-import { UsersService } from './users/Users.service'
-import { HttpService } from './shared/services/http.service';
 import { CreateAndEditTrailerDataComponent } from './trailercompany/create-and-edit-trailer-data/create-and-edit-trailer-data.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -40,10 +42,11 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { TileComponent } from './tile/tile.component';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { ClearinputDirective } from './shared/directives/clearinput.directive';
 import { DispatchofficeComponent } from './dispatchoffice/dispatchoffice.component';
@@ -51,8 +54,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { DriversComponent } from './drivers/drivers.component';
 import { UsersComponent } from './users/users.component';
 import { OrderModule } from 'ngx-order-pipe';
-//import { ExcelService } from './shared/services/excel.service';
-import {AuthGuard} from './shared/services/authguard.service';
+import { ExcelService } from './shared/services/excel.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { AssetsComponent } from './assets/assets.component';
 import { ViewtrailerdetailComponent } from './trailercompany/viewtrailerdetail/viewtrailerdetail.component';
@@ -62,6 +64,8 @@ import { CreateAndUpdateDispatchOfficeComponent } from './dispatchoffice/create-
 import { ViewDispatchOfficeComponent } from './dispatchoffice/view-dispatch-office/view-dispatch-office.component';
 import { CreateAndUpdateUsersComponent } from './users/create-and-update-users/create-and-update-users.component';
 import { ViewUsersComponent } from './users/view-users/view-users.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 const routes: Routes = [
   {
@@ -79,19 +83,19 @@ const routes: Routes = [
   },
   {
     path: 'track',
-    component: LivetrackingComponent, canActivate: [AuthGuard]
+    component: LivetrackingComponent
   },
   {
     path: 'report',
-    component: ReportsComponent, canActivate: [AuthGuard]
+    component: ReportsComponent
   },
   {
     path: 'admin',
-    component: AdminstrationComponent, canActivate: [AuthGuard],
+    component: AdminstrationComponent , canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        redirectTo: 'trailercompany',
+        redirectTo: 'users',
         pathMatch: 'full'
       },
       {
@@ -211,20 +215,22 @@ const routes: Routes = [
     BrowserAnimationsModule,
     OrderModule,
     RouterModule.forRoot(routes),
-/*     NgxSpinnerModule,
- */ ToastrModule.forRoot({
+    NgxSpinnerModule,
+    NgMultiSelectDropDownModule.forRoot(),
+ ToastrModule.forRoot({
       timeOut: 1200,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    NgMultiSelectDropDownModule.forRoot(),
     NgbModule.forRoot(),
+    TabsModule.forRoot(),
     TimepickerModule.forRoot(),
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
     PaginationModule.forRoot(),
     ButtonsModule.forRoot(),
+    BsDropdownModule.forRoot(),
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
@@ -233,8 +239,7 @@ const routes: Routes = [
     })
   ],
 
-//	// providers: [AppConfig,MSALService,AuthenticationHttpInterceptor,ExcelService,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
-	providers: [AppConstants,HttpService,TrailercompanyService,UsersService,AuthGuard,AppConfig,MSALService,AuthenticationHttpInterceptor,CreateTrailerService,PagerService,CreateDispatchOfficeService,CreateUsersService,
+  providers: [AppConstants,AppConfig,MSALService,ExcelService, CreateTrailerService,UsersService,HttpService,AuthGuard,  PagerService,CreateDispatchOfficeService,CreateUsersService,
     {
         provide: APP_INITIALIZER,
         useFactory: (config: AppConfig) => () => config.load(),

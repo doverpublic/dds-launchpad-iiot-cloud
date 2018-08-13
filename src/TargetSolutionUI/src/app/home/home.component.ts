@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MSALService} from '../shared/services/msal.service';
 import { Router } from '@angular/router';
+import { MSALService} from '../shared/services/msal.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,17 +11,14 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, public service: MSALService){
   }
-  
-
   ngOnInit() {
-    if(this.service.isOnline()) {
-      console.log("true");
-
-      this.router.navigate(['/admin']);
-  }else {
+/*     this.router.navigate(['/admin']);
+ */    if(this.service.isOnline()) {
+  this.router.navigate(['/admin']);
+}else {
     console.log("login");
       this.service.login();
-  }  
+  }
    
   }
 
