@@ -86,7 +86,7 @@
        
          </select> </li>
          <li>    
-            <svg version="1.1" width=16 height=16   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             <svg version="1.1" width=16 height=16   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               viewBox="0 0 52.966 52.966" style="width: 16px;height: 16px;fill: #55585d;enable-background:new 0 0 52.966 52.966;" xml:space="preserve;">
           <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
               c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
@@ -125,6 +125,9 @@
           </svg>  
        <label class="searchlabel"> Search by Name, Type, Address...
        </label>
+ <!-- <label class="searchexpandlabel">
+    <input class="searchexpand" type="Search" placeholder="Search by Name,Type,Address...">
+  </label>  -->
       </li>
        <li style="border-right:1px dashed black" class="dropdown">
           <a class="advanceFeatures" id="advance"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
@@ -183,7 +186,7 @@
      </li>
     <li> 
       <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-end paginationlist ">
-            <li><select>
+            <li><select class="paginationdropdown">
               <option selected>12</option>
               <option>8</option>
             </select><a>Per Page</a></li>
@@ -527,8 +530,8 @@
           <button type="button" class="btn btn-primary" (click)="decline()">No</button>
         </div>
       </ng-template>
-      <div class="card civaconGridTile ">
-            <div class="cardHeader" *ngIf="g.file else altenameimage"> 
+      <div class="card civaconGridTile " (click)="UserDeatil(g)">
+            <div class="cardHeader"  *ngIf="g.file else altenameimage"> 
                 <img  [src]="g.file" style="display: block;
                 width: 100%;
                 height: 200px;">

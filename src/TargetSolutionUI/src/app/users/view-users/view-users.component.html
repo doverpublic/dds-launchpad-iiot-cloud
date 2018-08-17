@@ -65,6 +65,6 @@
   
   </div> 
 <ng-template #gridtemplate>
-        <app-tile [childgridData]="gridUsersData" [flagItemscheck]="functionalitychecklist"  [flagItemscheck]="functionalitychecklist" (EditClick)="EditUser($event)"  (deleteClick)="deleteUser($event)" (createClick)="createUsersData($event)"></app-tile>
+        <app-tile [childgridData]="gridUsersData" [flagItemscheck]="functionalitychecklist"  [flagItemscheck]="functionalitychecklist" (EditClick)="EditUser($event)"  (deleteClick)="deleteUser($event)" (createClick)="createUsersData($event)" (userDetailClick)="displayUserDetail($event)"></app-tile>
 
 </ng-template>

@@ -22,6 +22,7 @@ import { TabsetComponent } from 'ngx-bootstrap';
 })
 export class CreateAndEditTrailerDataComponent implements OnInit {
   @ViewChild('staticTabs') staticTabs: TabsetComponent;
+  public HeaderDisplay;
 
   public indextest;
   user: FormGroup;
@@ -241,7 +242,7 @@ onSateSelect(stateId) {
       ])
     });
     if (this.isEmpty(this.data.trailerEdit)) {
-
+this.HeaderDisplay=true;
       this.user = this.fb.group({
         name: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
         code: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
@@ -270,7 +271,7 @@ onSateSelect(stateId) {
       });
 
     }else{
-            
+            this.HeaderDisplay=false;
       this.user = this.fb.group({
         name: [this.data.trailerEdit.name, [Validators.required, Validators.minLength(2)]],
       code: [this.data.trailerEdit.code, [Validators.required]],

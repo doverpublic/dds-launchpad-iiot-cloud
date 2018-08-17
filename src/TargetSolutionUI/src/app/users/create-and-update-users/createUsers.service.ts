@@ -23,5 +23,6 @@ export class CreateUsersService {
   role:string;
 
   public UsersData:any;
+  public UserInfoDisplay:any;
   
 }

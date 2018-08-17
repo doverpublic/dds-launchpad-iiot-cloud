@@ -93,7 +93,8 @@
             </svg>
             </li>
         <li class="CV-breadcrumb-item">
-      <a class="active">Create Trailer Company  </a>           
+      <a class="active" *ngIf="HeaderDisplay"> Create Trailer Company  </a>
+      <a class="active" *ngIf="!HeaderDisplay"> Edit Trailer Company  </a>                  
                <svg _ngcontent-c5="" height="5" width="580"><line _ngcontent-c5="" style="stroke:#dde0e3;stroke-width:2" x1="0" x2="580" y1="0" y2="0"></line> Sorry, your browser does not support inline SVG. </svg>
                 </li>
       
@@ -761,7 +762,7 @@
                      
                
              </div>
-             <div clas="col-sm-12">
+         <!--     <div clas="col-sm-12">
                     <div class="row">
 <div class="col-sm-6">
 
@@ -776,7 +777,36 @@
 </div>
 </div>
           
-             </div>
+             </div> -->
+             <div clas="col-sm-12">
+                    <div class="row">
+        <div class="col-sm-6">
+        
+        </div>
+        <div class="col-sm-6">
+        <button class=" TabCancel" (click)="cancelEdit()"> <span>Cancel</span>
+            <svg style="enable-background:new 0 0 32 32;display: inline-block;
+            display: inline-block;
+            vertical-align: text-bottom;
+            width: 20px;
+            fill: #000000;"  version="1.1" viewBox="0 0 32 32" width="20" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M17.459,16.014l8.239-8.194c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.391-1.034-0.391-1.428,0  l-8.232,8.187L7.73,6.284c-0.394-0.395-1.034-0.395-1.428,0c-0.394,0.396-0.394,1.037,0,1.432l8.302,8.303l-8.332,8.286  c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.428,0l8.325-8.279l8.275,8.276c0.394,0.395,1.034,0.395,1.428,0  c0.394-0.396,0.394-1.037,0-1.432L17.459,16.014z" fill="#000000" id="Close"/><g/><g/><g/><g/><g/><g/></svg></button>
+        
+        <button class=" TabMovebutton" (click)="nextTab(i)" *ngIf="i!=(groups.length-1)"><span>Next</span>
+            <svg id="Layer_1" style="enable-background:new 0 0 64 64;display: inline-block;
+            vertical-align: middle;width:35px;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+            .st0{fill:#000000;}
+        </style><g><g id="Icon-Chevron-Left" transform="translate(237.000000, 335.000000)"><polyline class="st0" id="Fill-35" points="-210.9,-289 -212.9,-291 -201.1,-302.7 -212.9,-314.4 -210.9,-316.4 -197.1,-302.7      -210.9,-289    "/></g></g></svg> </button>
+        <button class=" TabMovebutton"  *ngIf="i==(groups.length-1)" (click)="Submit(user)">Finish <i  class="fa fa-check-square" aria-hidden="true"></i></button>
+        <button class="TabBackbutton" (click)="previous(i)" *ngIf="i!=0">
+            <svg id="Layer_1" style="enable-background:new 0 0 64 64; display: inline-block;
+            vertical-align: middle;width:35px;" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+            .st0{fill:#000000;}
+        </style><g><g id="Icon-Chevron-Left" transform="translate(237.000000, 335.000000)"><polyline class="st0" id="Fill-35" points="-199.1,-289 -212.9,-302.7 -199.1,-316.4 -197.1,-314.4 -208.9,-302.7 -197.1,-291      -199.1,-289    "/></g></g></svg><span>Back</span></button>
+        
+        </div>
+        </div>
+        
+            </div>
            </tab>
           
           

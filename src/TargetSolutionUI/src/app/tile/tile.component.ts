@@ -25,6 +25,7 @@ export class TileComponent implements OnInit {
   @Output() deleteClick: EventEmitter<String> = new EventEmitter<String>();
   @Output() createClick:EventEmitter<String> = new EventEmitter<String>();
   @Output() associateClick:EventEmitter<String> = new EventEmitter<String>();
+  @Output() userDetailClick:EventEmitter<String>=new EventEmitter<String>();
   @Input() flagItemscheck: any;
   public modalRef: BsModalRef;
   options = [{ label: 'name' }, { label: 'address' }];
@@ -169,6 +170,10 @@ public contentarray;
   }
   createNewDetails() {
     this.createClick.emit();
+  }
+  UserDeatil(g)
+  {
+    this.userDetailClick.emit(g);
   }
 
   onExportChange()

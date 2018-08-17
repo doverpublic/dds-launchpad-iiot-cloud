@@ -51,6 +51,7 @@ export class CreateAndUpdateUsersComponent implements OnInit {
 public country:null;
 public state:null;
 public city:null;
+public HeaderDisplay;
   @ViewChild("search")
   public searchElementRef: ElementRef;
   // paged items
@@ -292,7 +293,7 @@ nextTab(i)
       
     });
     if (this.isEmpty(this.data.UsersData)) {
-
+      this.HeaderDisplay=true;
       this.users = this.fb.group({
         title:[],
         role:[],
@@ -324,9 +325,10 @@ nextTab(i)
 
     }else{
             console.log("Eited condition");
+            this.HeaderDisplay=false;
         this.users = this.fb.group({
           role:[],
-title:[],
+          title:[],
           firstname: [this.data.UsersData.firstName, Validators.compose([Validators.required, Validators.minLength(2)])],
           lastname: [this.data.UsersData.lastName,Validators.compose([ Validators.required, Validators.minLength(2)])],
           ToggleActive:this.data.UsersData.activeFlag,     

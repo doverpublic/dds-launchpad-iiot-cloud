@@ -66,7 +66,8 @@ import { CreateAndUpdateUsersComponent } from './users/create-and-update-users/c
 import { ViewUsersComponent } from './users/view-users/view-users.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-
+import { UserinfoComponent } from './users/userinfo/userinfo.component';
+import { TrailerInfoComponent } from './trailercompany/trailer-info/trailer-info.component';
 const routes: Routes = [
   {
     path: '',
@@ -114,6 +115,9 @@ const routes: Routes = [
           },
           {
             path: 'Edit', component: CreateAndEditTrailerDataComponent
+          },
+          {
+            path:'trailerInfo',component:TrailerInfoComponent
           }
 
         ]
@@ -158,6 +162,10 @@ const routes: Routes = [
         {
           path: "createUpdateUsers",
           component: CreateAndUpdateUsersComponent
+        },
+        {
+          path:"userInfo",
+          component:UserinfoComponent
         }
 
         ]
@@ -207,6 +215,9 @@ const routes: Routes = [
     ViewDispatchOfficeComponent,
     ViewUsersComponent,
     CreateAndUpdateUsersComponent
+	,
+    UserinfoComponent,
+    TrailerInfoComponent
   ],
   imports: [HttpModule, HttpClientModule,
     FormsModule,

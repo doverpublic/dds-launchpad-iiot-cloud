@@ -775,20 +775,20 @@ display: flex;
 
 
 .paginationlist li
-{
-    font-size: 14px;
-font-weight: normal;
-font-style: normal;
-font-stretch: normal;
-letter-spacing: normal;
-fill: #323232;
-margin-top: -50px;
-text-align: center;
-left: 50%;
-right: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
+{    font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  fill: #323232;
+  margin-top: -50px;
+  text-align: center;
+  left: 50%;
+  right: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 7px;
 }
 .paginationlist .page-item .disabled
 {
@@ -796,6 +796,28 @@ justify-content: center;
   {
   fill:gray;
   }
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.345rem 0.345rem !important;
+  /* margin-left: -1px; */
+  line-height: 1.4;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px 0 rgba(180, 184, 190, 0.44);
+  background-color: #ffffff;
+  border: solid 1px #dadde0;
+}
+.paginationdropdown
+{
+  width: 48px;
+  height: 30px;
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px 0 rgba(180, 184, 190, 0.44);
+  background-color: #ffffff;
+  border: solid 1px #dadde0;
 }
 /*****************  Check Box styels*****************************/
 
@@ -923,4 +945,27 @@ border: solid 1px #15a692;}
  .force-overflow
  {
    min-height: 300px;
+ }
+
+ .LargeFontSize
+ {
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #149ec0;
+ }
+ .mediumFontsize
+ {
+  font-size: 14px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 3.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: #149ec0;
  }

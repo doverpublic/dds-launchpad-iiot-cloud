@@ -393,7 +393,14 @@ next(i)
    var index = _.findIndex(this.gridUsersData, event)
    console.log(event);
   this.deleteUserFunction(event.id);
+
     
+ }
+ displayUserDetail(event)
+ {
+  this.usersServiceData.UserInfoDisplay=event;
+  this.router.navigate(['admin/users/userInfo']);
+
  }
  createUsersData() {
    this.usersServiceData.UsersData = [];
