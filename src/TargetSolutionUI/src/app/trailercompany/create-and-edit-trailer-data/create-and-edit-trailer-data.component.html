@@ -47,7 +47,7 @@
         </li>
         <li class="CV-breadcrumb-item">
        
-        <a  [routerLink]="['../view']">  <span style="color:#17bdde;font-weight: bold"> Trailer Company (15) </span></a>
+        <a  [routerLink]="['../view']">  <span style="color:#17bdde;font-weight: bold"> Trailer Company  </span></a>
         </li>
         <li class="CV-breadcrumb-item">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -428,7 +428,7 @@
                 <div [ngSwitch]="group?.content" class="col-sm-12">
                         <div *ngSwitchCase="'Trailer'" class="row col-sm-12 ">
                            
-                            <div class="col-sm-8">
+                            <div class="col-sm-8" style="margin-top: 35px;">
                                   <div class="row">
                                         <div class="form-group col-sm-6">
                                                 <div class="floating-label">      
@@ -466,17 +466,29 @@
                                      
                                             </div>
                     
-                                            <div class="form-group col-sm-12 ">
-                                                    <div class="floating-label">      
-                                                            <textarea  formControlName="description" class="floating-input floating-textarea" placeholder=" "></textarea>
-                                                            <span class="highlight"></span>
-                                                            <label>Trailer Company Description</label>
-                                                          </div>
-                                                       
-                                             
-                    
-                                        </div>
+                                          
 
+                                  </div>
+                                  <div class="row">
+                                        <div class="form-group col-sm-8 ">
+                                                <div class="floating-label">      
+                                                        <textarea  formControlName="description" class="floating-input floating-textarea" placeholder=" "></textarea>
+                                                        <span class="highlight"></span>
+                                                        <label>Trailer Company Description</label>
+                                                      </div>
+                                                   
+                                         
+                
+                                    </div>
+                                        <div class="form-group col-sm-4">
+                                                <div class="btn-group ToggleActive"  btnRadioGroup formControlName="ToggleActive">
+                                                        <label btnRadio="Active" class="btn" 
+                                                               tabindex="0" role="button" style="font-size:14px">Active</label>
+                                                        <label btnRadio="InActive" class="btn" 
+                                                               tabindex="0" role="button" style="font-size:14px">Inactive</label>
+                                                       
+                                                      </div>
+                                        </div>
                                   </div>
                               
             
@@ -522,14 +534,18 @@
                         </div>
                         <div *ngSwitchCase="'Address'" class="row col-sm-12 ">
                                 <div class="row col-sm-12 preview">
-                                        <div class="col-sm-4" style="border-right:solid 1px #252525;">TRAILER COMPANY <label>GIant Trailer Company</label></div>
-                                        <div class="col-sm-4" >CODE <label> Code123</label></div>
+                                        <div class="col-sm-4" style="border-right:solid 1px #252525;">TRAILER COMPANY <label>{{user.controls['name'].value}} Trailer Company</label></div>
+                                        <div class="col-sm-4" >CODE <label> {{user.controls['code'].value}}</label></div>
             
                                         </div>
-        <br/>
+        <br>
+        <br>
+
+        <br>
+
       
                             <div class="col-sm-6" style="border-right: 1px solid lightgray;">
-                                    <label>Address Detail</label>
+                                    <label class="floating-form-headers">Address Detail</label>
                       
                                     <div class="row">
                                         
@@ -558,13 +574,8 @@
                                                         <span class="highlight"></span>
                                                        
                                                         <label>Address Line 2
-                                                                <span class="star">*</span></label>
-                                                                <div class="error" *ngIf="user.get('address').touched && user.get('address').hasError('required')">
-                                                                        Address is required
-                                                                    </div>
-                                                                    <div class="error" *ngIf="user.get('address').touched && user.get('address').hasError('minlength')">
-                                                                        Minimum of 2 characters
-                                                                    </div>
+                                                               </label>
+                                                              
                     
                                                       </div>
 
@@ -644,13 +655,27 @@
                                             Locate in Map
 
                                       </div>
-                                        <div class=" col-sm-4 form-group">
+                                        <div class=" col-sm-4 form-group ">
 <!--                                                 <input  formControlName="latitude" placeholder="latitude" readonly="readonly" >
- -->                                            <label>{{lat }} &#xb0; N</label>
+ -->                                            <label style="font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.83;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3e3d47;">{{lat }} &#xb0; N</label>
                                             </div>
                                             <div class=" col-sm-4 form-group ">
 <!--                                                 <input formControlName="longitude" placeholder="longitude" readonly="readonly" >
- -->                                                <label>{{lng }} &#xb0;  E</label>
+ -->                                                <label style="font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.83;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3e3d47;">{{lng }} &#xb0;  E</label>
 
                                             </div> 
                                         </div>
@@ -669,18 +694,20 @@
             
                         <div *ngSwitchCase="'Contact'" class="row col-sm-12 ">
                             <div class="row col-sm-12 preview">
-                                <div class="col-sm-4" style="border-right:solid 1px #252525;">TRAILER COMPANY <label>GIant Trailer Company</label></div>
-                                <div class="col-sm-4" style="border-right:solid 1px #252525;">CODE <label> Code123</label></div>
-                                <div class="col-sm-4">LOCATION <label>India</label></div>
-    
+                                <div class="col-sm-4" style="border-right:solid 1px #252525;">TRAILER COMPANY <label>{{user.controls['name'].value}} Trailer Company</label></div>
+                                <div class="col-sm-4" style="border-right:solid 1px #252525;">CODE <label> {{user.controls['code'].value}}</label></div>
+<!--                                 <div class="col-sm-4">LOCATION <label> {{user.controls['country'].value.name}}</label></div>
+ -->    
                                 </div>
 <br>
 <br>
 <br>
 
                                 <div class="col-sm-12 scrollbar force-overflow " id="style-7" formArrayName="itemRows">
-                                        <div class="col-sm-12">
-                                                <p *ngIf="i==0"> Point Of Contact </p>
+                                        <div class="row col-sm-12">
+                                                <label class="floating-form-headers" > Point Of Contact {{user.controls.itemRows.controls.length}} &nbsp; 
+                                                        <button class="cvcbuttonstyle" (click)="addNewRow()">Add <i class="fa fa-plus"     aria-hidden="true"></i>
+                                                        </button> </label>
 <!--                                                     <p *ngIf="i>0"> Point of Contact {{i}}</p>
 -->                                                </div>
                                         <div class="row" *ngFor="let contactdeail of user.controls.itemRows.controls; let i=index">
@@ -748,7 +775,6 @@
                 
                                                         </i>
                 
-                                                        <i class="fa fa-plus plusButton iconAsButton" *ngIf="i==user.controls['itemRows'].controls.length-1" (click)="addNewRow()"></i>
                                                    
                                                     </div>
                                                     

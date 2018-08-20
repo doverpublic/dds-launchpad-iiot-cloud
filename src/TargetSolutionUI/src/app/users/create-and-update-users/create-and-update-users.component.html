@@ -120,9 +120,9 @@
                                   <div class="row">
                                         <div  class=" form-group row col-sm-12">
                                                 <div class="col-sm-4" style="    margin-right: -60px;
-                                                margin-left: 9px;">
+                                               ">
                                                   
-                                                        <label style="margin:10px auto"> User Persona :</label>
+                                                        <label class="UserRole"> User Persona :</label>
                                                      
                                                 </div>
                                                 <div class="col-sm-5">  
@@ -215,7 +215,7 @@
                                                           </div>
                                             </div>
                                             <div class="row col-sm-12">
-                                                    <label style="padding: 16px;">Create Login Information</label>
+                                                    <label class="UserLoginInfoHeader" >Create Login Information</label>
 
                                             </div>
                                                
@@ -354,20 +354,24 @@
                                              File size: 25kb jpg,png <br>
                                              Dimensions:250 * 70
                                         </ng-template>
-                                         <label [ngClass]="{ 'lableFocused' :url.length != 0 }">Upload Photo</label>
-                                         <svg  style="margin-bottom: -8px;" (click)="pop.toggle()" height="25" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="25" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="layer1" transform="translate(0,-284.29998)"><circle cx="6.3500376" cy="290.64993" id="path4504" r="3.8805983" style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.58506224;stroke:#003664;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/><path d="m 5.2916669,289.94443 c 0,-0.70557 0.3527779,-1.05835 1.0583334,-1.05835 0.7055555,0 1.0583337,0.35278 1.0583334,1.05835 3e-7,0.70555 -1.0583334,0 -1.0583334,1.41109" id="path4506" style="fill:none;fill-rule:evenodd;stroke:#003664;stroke-width:0.70555556px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/><rect height="0.70555556" id="rect4508" style="opacity:1;vector-effect:none;fill:#003664;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" width="0.70555556" x="5.9972234" y="292.06107"/></g></svg>
-                                         <span [popover]="popTemplate" 
-                                         triggers="" #pop="bs-popover" 
-                                         placement="top" [outsideClick]="true">
-                                   </span>
-                                         <div class="btn-file">
-                                             Browse & Upload
-                                             <input type="file" accept="image/*"  (change)="onSelectFile($event)">
-                                         </div>
-                                                                     <div *ngIf="error.isError" class="alert alert-danger">
-                                                     {{ error.errorMessage }}
-                                                  </div>
-                                                            
+                                         <label [ngClass]="{ 'lableFocused' :url.length != 0 }">Upload User’s Photo</label>
+                                       <div class="row col-sm-12">
+                                                <button class="btn-file">
+                                                                Browse & Upload
+                                                                <input type="file" accept="image/*"  (change)="onSelectFile($event)">
+                                                </button> 
+                                                 <svg  style="margin-top: 4px;" (click)="pop.toggle()" height="25" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="25" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="layer1" transform="translate(0,-284.29998)"><circle cx="6.3500376" cy="290.64993" id="path4504" r="3.8805983" style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.58506224;stroke:#18bae2;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/><path d="m 5.2916669,289.94443 c 0,-0.70557 0.3527779,-1.05835 1.0583334,-1.05835 0.7055555,0 1.0583337,0.35278 1.0583334,1.05835 3e-7,0.70555 -1.0583334,0 -1.0583334,1.41109" id="path4506" style="fill:none;fill-rule:evenodd;stroke:#18bae2;stroke-width:0.70555556px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/><rect height="0.70555556" id="rect4508" style="opacity:1;vector-effect:none;fill:#18bae2;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" width="0.70555556" x="5.9972234" y="292.06107"/></g></svg>
+    
+                                                 <span [popover]="popTemplate" 
+                                                            triggers="" #pop="bs-popover" 
+                                                            placement="top" [outsideClick]="true">
+                                                      </span>
+                                                                                        <div *ngIf="error.isError" class="alert alert-danger">
+                                                                        {{ error.errorMessage }}
+                                                                     </div>
+                                                             
+                                       </div>
+                                                           
                                  </div>
                                 <div class="col-sm-12">
                          
@@ -384,7 +388,10 @@
 
                                     
                                       <div class="col-sm-6">
-                                    
+                                                <ng-template #popTemplateOne>
+                                                                Default Background Colour  <br>
+                                                                Will Be Gray
+                                                           </ng-template>
                                           <div class="widgets_div">
                                                 <div class="icon_div">
                                                   
@@ -394,9 +401,17 @@
                                                               </label>
                                                 </div>
                                                 <div class="text_div">
-                                                  <span>No Image</span><br>
-                                                  <span>Default Background Is Light Grey</span>
+                                                  <span>No Image</span>
+                                        
                                                 </div>
+                                                <div class="icon_div">
+                                                                <svg  style="margin-top: 9px;" (click)="popOne.toggle()" height="25" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="25" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="layer1" transform="translate(0,-284.29998)"><circle cx="6.3500376" cy="290.64993" id="path4504" r="3.8805983" style="opacity:1;vector-effect:none;fill:none;fill-opacity:0.58506224;stroke:#18bae2;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/><path d="m 5.2916669,289.94443 c 0,-0.70557 0.3527779,-1.05835 1.0583334,-1.05835 0.7055555,0 1.0583337,0.35278 1.0583334,1.05835 3e-7,0.70555 -1.0583334,0 -1.0583334,1.41109" id="path4506" style="fill:none;fill-rule:evenodd;stroke:#18bae2;stroke-width:0.70555556px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/><rect height="0.70555556" id="rect4508" style="opacity:1;vector-effect:none;fill:#18bae2;fill-opacity:1;stroke:none;stroke-width:0.70555556;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" width="0.70555556" x="5.9972234" y="292.06107"/></g></svg>
+
+                                                                <span [popover]="popTemplateOne" 
+                                                                triggers="" #popOne="bs-popover" 
+                                                                placement="top" [outsideClick]="true">
+                                                          </span>
+                                                        </div>
                                               </div>
                                       </div>
                                                   
@@ -459,8 +474,11 @@
                                 <div class="row col-sm-12 preview">
                                         <div class="col-sm-4" style="border-right:solid 1px #252525;"> User Name<label>{{users.controls['username'].value}}</label></div>            
                                         </div>
-                                <div class="col-sm-6" style="border-right: 1px solid lightgray;">
-                                    <label>Address Detail</label>
+                                        <div class="col-sm-8" >    
+                                        <label class="floating-form-headers">Address Detail</label>
+                                        </div>
+                                <div class="col-sm-8" >
+                                   
 
                                     <div class="row">
                                         
@@ -470,7 +488,7 @@
                                                         <input class="floating-input" formControlName="address" type="text" placeholder=" " required>
                                                         <span class="highlight"></span>
                                                         
-                                                        <label>Address
+                                                        <label>Address Line 1
                                                                 <span class="star">*</span></label>
                                                                 <div class="error" *ngIf="users.get('address').touched && users.get('address').hasError('required')">
                                                                         Address is required
@@ -482,6 +500,24 @@
                                                         </div>
 
                                         </div>
+                                        <div class="col-sm-12 form-group">
+                                            
+                                                        <div class="floating-label">      
+                                                                <input class="floating-input" formControlName="AdressLineTwo" type="text" placeholder=" " required>
+                                                                <span class="highlight"></span>
+                                                                
+                                                                <label>Address Line 2
+                                                                       </label>
+                                                                        <div class="error" *ngIf="users.get('address').touched && users.get('address').hasError('required')">
+                                                                                Address is required
+                                                                            </div>
+                                                                            <div class="error" *ngIf="users.get('address').touched && users.get('address').hasError('minlength')">
+                                                                                Minimum of 2 characters
+                                                                            </div>
+        
+                                                                </div>
+        
+                                                </div>
                                         <div class="col-sm-6 form-group">
                                                 <div class="floating-label">  
                                                         <select class="floating-select"  [attr.selectValue]= "countryAttrValue" (change)="onCountrySelect(users.controls['country'].value)" formControlName="country" (click)="setAttribute($event,'country')" required>
@@ -549,8 +585,8 @@
                                     
                                     
                                 </div>
-                                <div class="col-sm-6">
-
+                                <div class="col-sm-4">
+<!-- 
                                     <label>Contact Detail</label>
 
                                     
@@ -592,7 +628,7 @@
 
                                                             </div>
                                                 </div>
-
+ -->
                                         
 
                                 </div>
@@ -601,9 +637,42 @@
                                 <div class="row col-sm-12 preview">
                                         <div class="col-sm-4" style="border-right:solid 1px #252525;"> User Name<label>{{users.controls['username'].value}}</label></div>            
                                 </div>
+                                <div class="col-sm-12">
+                                                <label class="floating-form-headers"> Own Contact 
+                                                </label>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                            
+                                                                <div class="floating-label">      
+                                                                        <input class="floating-input" formControlName="phonenumber" type="text" placeholder=" " required>
+                                                                        <span class="highlight"></span>
+                                                                        
+                                                                        <label>Phone Number
+                                                                                <span class="star">*</span></label>
+                        
+                
+                                                                        </div>
+                
+                                                        </div>
+                                                        <div class="col-sm-3 form-group">
+                                            
+                                                                        <div class="floating-label">      
+                                                                                <input class="floating-input" formControlName="alternateNumber" type="text" placeholder=" " required>
+                                                                                <span class="highlight"></span>
+                                                                                
+                                                                                <label>Alternate Number
+                                                                                </label>
+                                
+                        
+                                                                                </div>
+                        
+                                                                </div>
                                 <div class="col-sm-12 scrollbar force-overflow " id="style-7" formArrayName="EmergencyContact">
                                         <div class="row col-sm-12">
-                                                <p *ngIf="i==0"> Emergency Contact </p>
+                                                <label class="floating-form-headers"> Emergency Contact {{users.controls.EmergencyContact.controls.length}} &nbsp; 
+                                                        <button class="cvcbuttonstyle" (click)="addNewRow()">Add <i class="fa fa-plus"     aria-hidden="true"></i>
+                                                        </button>
+                                                </label>
                                                 </div>
                                         <div class="row " *ngFor="let contactdeail of users.controls.EmergencyContact.controls; let i=index">
                                                
@@ -667,7 +736,6 @@
                                                 </div>
                                                 <div class="col-sm-2"  >
                                                     <i class="fa fa-minus plusButton iconAsButton" *ngIf="users.controls['EmergencyContact'].controls.length > 1"  (click)="deleteRow(i)" aria-hidden="true"></i>
-                                                    <i class="fa fa-plus plusButton iconAsButton"    *ngIf="i==users.controls['EmergencyContact'].controls.length-1" (click)="addNewRow()" aria-hidden="true"></i>
 
                                                  </div>
                                                

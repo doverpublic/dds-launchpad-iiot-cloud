@@ -17,11 +17,12 @@ export class CreateUsersService {
   city:string;
   zipcode:string;
   phonenumber:number;
+  alternateNumber:number;
   fax:number;
   search:string;
   userGroup:string;
   role:string;
-
+  AdressLineTwo:string;
   public UsersData:any;
   public UserInfoDisplay:any;
   

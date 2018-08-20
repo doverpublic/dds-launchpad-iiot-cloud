@@ -472,10 +472,17 @@ display: flex;
 {
   label
   {
- font-size: 0.8rem;;
-  }
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.83;
+    letter-spacing: normal;
+    text-align: left;
+    color: #606060;  }
 }
 .btn-file {
+  font-size:12px;
   position: relative;
     overflow: hidden;
     /* background-color: #70e6b4; */
@@ -639,6 +646,7 @@ display: flex;
 .TabsForm
 {
     padding-left: 115px;
+    font-size: 14px;
    
 }
   
@@ -673,14 +681,27 @@ display: flex;
   width:320px;
 }
 
+.floating-form-headers
+{
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  /* line-height: 3.43; */
+  letter-spacing: normal;
+  text-align: left;
+  color: #343537;
+  margin-bottom: 20px;
+
+}
 /****  floating-Lable style start ****/
 .floating-label { 
   position:relative; 
   margin-bottom:20px; 
   label {
-      color:#999; 
-      font-size:14px;
-      font-weight:normal;
+      color: #606060;; 
+      font-size:12px;
+      font-weight:500;
       position:absolute;
       pointer-events:none;
       left:5px;
@@ -706,18 +727,24 @@ display: flex;
      border-bottom:2px solid #17bdde; 
 }
 
+.floating-input:hover , .floating-select:hover {
+  outline:none;
+  border-bottom:2px solid #17bdde; 
+}
 
 
 .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label {
   top:-18px;
-  font-size:14px;
+  font-size:12px;
   color:#17bdde;
+  font-weight: normal;
 }
 
 .floating-select:focus ~ label , .floating-select:not([selectValue=""]):valid ~ label {
   top:-18px;
-  font-size:14px;
+  font-size:12px;
   color:#17bdde;
+  font-weight: normal;
 }
 
 /* active state */
@@ -935,7 +962,7 @@ border: solid 1px #15a692;}
  .scrollbar
  {
    
-   height: 300px;
+   height: 210px;
    overflow-y: auto;
      overflow-x: hidden;
 
@@ -944,7 +971,7 @@ border: solid 1px #15a692;}
  
  .force-overflow
  {
-   min-height: 300px;
+   min-height: 210px;
  }
 
  .LargeFontSize
@@ -968,4 +995,39 @@ border: solid 1px #15a692;}
   letter-spacing: normal;
   text-align: left;
   color: #149ec0;
+ }
+ .UserRole
+ {
+  margin: 10px auto;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  /* line-height: 4; */
+  letter-spacing: normal;
+  /* text-align: left; */
+  color: #343537;
+ }
+
+.UserLoginInfoHeader
+ {
+  padding: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.71;
+  letter-spacing: normal;
+  text-align: left;
+  color: #343537;
+ }
+
+.cvcbuttonstyle
+ {
+  width: 80px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: solid 1px #27bdff;
+  color: #27bdff;
+  cursor: pointer;
  }

@@ -267,6 +267,7 @@ nextTab(i)
     this.users = this.fb.group({
       title:[],
       role:[],
+      AdressLineTwo:[],
       firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
       ToggleActive:'Active',     
@@ -280,6 +281,7 @@ nextTab(i)
       city: ['',Validators.required],
       zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{5}(?:-[0-9]{4})?$')])],
       phonenumber: ['',Validators.pattern(this.mobnumPattern)],
+      alternateNumber:['',Validators.pattern(this.mobnumPattern)],
       fax: [''],
          
       EmergencyContact: this.fb.array([    
@@ -297,6 +299,7 @@ nextTab(i)
       this.users = this.fb.group({
         title:[],
         role:[],
+        AdressLineTwo:[],
         firstname: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
         lastname: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
         ToggleActive:'Active',     
@@ -311,6 +314,8 @@ nextTab(i)
         city: ['',Validators.required],
         zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
         phonenumber: ['',Validators.pattern(this.mobnumPattern)],
+        alternateNumber:['',Validators.pattern(this.mobnumPattern)],
+
         fax: [''],
          
         EmergencyContact: this.fb.array([    
@@ -329,6 +334,7 @@ nextTab(i)
         this.users = this.fb.group({
           role:[],
           title:[],
+          AdressLineTwo:[],
           firstname: [this.data.UsersData.firstName, Validators.compose([Validators.required, Validators.minLength(2)])],
           lastname: [this.data.UsersData.lastName,Validators.compose([ Validators.required, Validators.minLength(2)])],
           ToggleActive:this.data.UsersData.activeFlag,     
@@ -343,6 +349,8 @@ nextTab(i)
           city: ['', Validators.required],
           zipcode: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]{6}(?:-[0-9]{5})?$')])],
           phonenumber: [this.data.UsersData.phone],
+          alternateNumber:[''],
+
           fax: [],
          
           EmergencyContact: this.fb.array([    

@@ -25,6 +25,7 @@ export class CreateTrailerService {
   shiftname:string;
   shiftStartTime:number;
   shiftEndTime:number;
+  ToggleActive:string;
  
    public storage: any;
 public trailerEdit:any;

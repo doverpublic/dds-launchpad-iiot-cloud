@@ -36,6 +36,7 @@ public contentarray;
   public TruckList:any[];
   public DriverList:any[];
   public togglevalue="Active";
+  public itemsPerPage=12;
   config = {
     animated: false,
     keyboard: false,
@@ -92,7 +93,7 @@ public contentarray;
   }
   setPage(page: number) {
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.games.length, page);
+    this.pager = this.pagerService.getPager(this.games.length, page,this.itemsPerPage);
 
     // get current page of items
     this.pagedItems = this.games.slice(this.pager.startIndex, this.pager.endIndex + 1);
@@ -174,6 +175,16 @@ public contentarray;
   UserDeatil(g)
   {
     this.userDetailClick.emit(g);
+  }
+  onPageSelect(event)
+  {
+    console.log(event.target.value);
+    this.itemsPerPage=event.target.value;
+ // get pager object from service
+ this.pager = this.pagerService.getPager(this.games.length, 1,event.target.value);
+
+ // get current page of items
+ this.pagedItems = this.games.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 
   onExportChange()

@@ -1,0 +1,31 @@
+
+.ToggleActive
+{
+  color: #000000;
+  width: 145px;
+  height: 33px;
+  border-radius: 16px;
+  box-shadow: 0px 2px 2px 0 rgba(25, 196, 172, 0.44);
+  border: 2px solid #19c4ac;
+  position: absolute;
+    bottom: 21px;
+    .active
+
+    {
+        color:white;
+        background-color: #19c4ac;
+        border-radius: 63px 64px 64px 63px;
+        padding: 0.01rem 0.25rem;
+        width: 71px;
+        border: 1px solid honeydew;
+
+    }
+
+    label
+    {
+        padding: 0.01rem 0.25rem;
+        margin-bottom: 0px;
+    border-radius: 63px 64px 64px 63px;
+    width: 71px;
+    }
+}
