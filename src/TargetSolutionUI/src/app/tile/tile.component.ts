@@ -151,8 +151,8 @@ public contentarray;
     this.modalRef.hide();
   }
   delete(g, template: TemplateRef<any>,event) {
-event.stoppropagation();
-
+/* event.stoppropagation();
+ */
     this.modalRef = this.modalService.show(template, this.config);
 
   }

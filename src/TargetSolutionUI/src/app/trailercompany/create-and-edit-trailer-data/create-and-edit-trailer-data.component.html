@@ -47,7 +47,7 @@
         </li>
         <li class="CV-breadcrumb-item">
        
-        <a  [routerLink]="['../view']">  <span style="color:#17bdde;font-weight: bold"> Trailer Company  </span></a>
+        <a  [routerLink]="['../view']">  <span style="color:#17bdde;font-weight: bold"> Company  </span></a>
         </li>
         <li class="CV-breadcrumb-item">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -93,9 +93,9 @@
             </svg>
             </li>
         <li class="CV-breadcrumb-item">
-      <a class="active" *ngIf="HeaderDisplay"> Create Trailer Company  </a>
-      <a class="active" *ngIf="!HeaderDisplay"> Edit Trailer Company  </a>                  
-               <svg _ngcontent-c5="" height="5" width="580"><line _ngcontent-c5="" style="stroke:#dde0e3;stroke-width:2" x1="0" x2="580" y1="0" y2="0"></line> Sorry, your browser does not support inline SVG. </svg>
+      <a class="active" *ngIf="HeaderDisplay"> Create Company  </a>
+      <a class="active" *ngIf="!HeaderDisplay"> Edit Company  </a>                  
+               <svg  height="5" width="580"><line  style="stroke:#dde0e3;stroke-width:2" x1="0" x2="580" y1="0" y2="0"></line> Sorry, your browser does not support inline SVG. </svg>
                 </li>
       
           </ul>
@@ -435,7 +435,7 @@
                                                         <input class="floating-input" formControlName="name" type="text" placeholder=" ">
                                                         <span class="highlight"></span>
                                                        
-                                                        <label>Trailer Company Name  <span class="star" >*</span></label>
+                                                        <label>Company Name  <span class="star" >*</span></label>
                                                                 
                                                         <div class="error" *ngIf="user.get('name').touched && user.get('name').hasError('required')">
                                                                 Name is required
@@ -474,7 +474,7 @@
                                                 <div class="floating-label">      
                                                         <textarea  formControlName="description" class="floating-input floating-textarea" placeholder=" "></textarea>
                                                         <span class="highlight"></span>
-                                                        <label>Trailer Company Description</label>
+                                                        <label>Company Description</label>
                                                       </div>
                                                    
                                          
@@ -534,7 +534,7 @@
                         </div>
                         <div *ngSwitchCase="'Address'" class="row col-sm-12 ">
                                 <div class="row col-sm-12 preview">
-                                        <div class="col-sm-4" style="border-right:solid 1px #252525;">TRAILER COMPANY <label>{{user.controls['name'].value}} Trailer Company</label></div>
+                                        <div class="col-sm-4" style="border-right:solid 1px #252525;">COMPANY <label>{{user.controls['name'].value}} Company</label></div>
                                         <div class="col-sm-4" >CODE <label> {{user.controls['code'].value}}</label></div>
             
                                         </div>
@@ -556,7 +556,7 @@
                                                         <span class="highlight"></span>
                                                        
                                                         <label>Address Line 1
-                                                                <span class="star">*</span></label>
+                                                                <!-- <span class="star">*</span> --></label>
                                                                 <div class="error" *ngIf="user.get('address').touched && user.get('address').hasError('required')">
                                                                         Address is required
                                                                     </div>
@@ -587,7 +587,7 @@
                                                           <option *ngFor=" let n of countries;let i=index" [ngValue]="n">{{n.name}}</option>
                                                         </select>
                                                         <span class="highlight"></span>
-                                                        <label >Country<span class="star" >*</span></label>
+                                                        <label >Country<!-- <span class="star">*</span> --></label>
                                                         <div class="error" *ngIf="user.get('country').touched && user.get('country').hasError('required')">
                                                                 Country is required
                                                             </div>
@@ -604,7 +604,7 @@
                                                         </select>
                                                         <span class="highlight"></span>
                                                         <label >State / Province
-                                                                <span class="star" >*</span></label>
+                                                                <!-- <span class="star">*</span> --></label>
                                                                 <div class="error" *ngIf="user.get('state').touched && user.get('state').hasError('required')">
                                                                         State is required
                                                                     </div>
@@ -620,7 +620,7 @@
                                                         </select>
                                                         <span class="highlight"></span>
                                                         <label > City 
-                                                                <span class="star" >*</span></label>
+                                                                <!-- <span class="star">*</span> --></label>
                                                                 <div class="error" *ngIf="user.get('city').touched && user.get('city').hasError('required')">
                                                                         City is required
                                                                     </div>
@@ -633,7 +633,7 @@
                                                         <span class="highlight"></span>
                                                        
                                                         <label>Postal Code
-                                                                <span class="star">*</span></label>
+                                                                <!-- <span class="star">*</span> --></label>
                                                                 <div class="error" *ngIf="user.get('zipcode').touched && user.get('zipcode').hasError('pattern')">
                                                                         Postal Code is not valid
                                                                       </div>
@@ -694,7 +694,7 @@
             
                         <div *ngSwitchCase="'Contact'" class="row col-sm-12 ">
                             <div class="row col-sm-12 preview">
-                                <div class="col-sm-4" style="border-right:solid 1px #252525;">TRAILER COMPANY <label>{{user.controls['name'].value}} Trailer Company</label></div>
+                                <div class="col-sm-4" style="border-right:solid 1px #252525;">COMPANY <label>{{user.controls['name'].value}} Company</label></div>
                                 <div class="col-sm-4" style="border-right:solid 1px #252525;">CODE <label> {{user.controls['code'].value}}</label></div>
 <!--                                 <div class="col-sm-4">LOCATION <label> {{user.controls['country'].value.name}}</label></div>
  -->    
@@ -718,7 +718,7 @@
                                                         <div class="floating-label">      
                                                                 <input class="floating-input" formControlName="firstname" type="text" placeholder=" ">
                                                                 <span class="highlight"></span>
-                                                                <label>First Name<span class="star" >*</span></label>
+                                                                <label>First Name<!-- <span class="star" >*</span> --></label>
                                                               </div>
                                                    
                 
@@ -727,7 +727,7 @@
                                                         <div class="floating-label">      
                                                                 <input class="floating-input" formControlName="lastname" type="text" placeholder=" ">
                                                                 <span class="highlight"></span>
-                                                                <label>Last Name<span class="star" >*</span></label>
+                                                                <label>Last Name<!--  --></label>
                                                               </div>
                                                    
                 
@@ -737,7 +737,7 @@
                                                         <div class="floating-label">      
                                                                 <input class="floating-input" formControlName="email" type="text" placeholder=" ">
                                                                 <span class="highlight"></span>
-                                                                <label>Email<span class="star" >*</span></label>
+                                                                <label>Email<!-- <span class="star" >*</span> --></label>
                                                                 <div class="error" *ngIf="user.controls.itemRows.controls[i].controls.email.touched && user.controls.itemRows.controls[i].controls.email.hasError('pattern')">
                                                                         Email is not valid   
                                                                  </div> 
@@ -751,7 +751,7 @@
                                                         <div class="floating-label">      
                                                                 <input class="floating-input" formControlName="phone" type="text" placeholder=" ">
                                                                 <span class="highlight"></span>
-                                                                <label>Phone#<span class="star" >*</span></label>
+                                                                <label>Phone#<!-- <span class="star" >*</span> --></label>
                                                                 <div class="error" *ngIf="user.controls.itemRows.controls[i].controls.phone.touched && user.controls.itemRows.controls[i].controls.phone.hasError('pattern')">
                                                                         Phone Number is not valid   
                                                                  </div> 
@@ -763,7 +763,7 @@
                                                         <div class="floating-label">      
                                                                 <input class="floating-input"  type="text" placeholder=" ">
                                                                 <span class="highlight"></span>
-                                                                <label>Fax<span class="star" >*</span></label>
+                                                                <label>Fax<!-- <span class="star" >*</span> --></label>
                                                               
                                                               </div>
                                                    
