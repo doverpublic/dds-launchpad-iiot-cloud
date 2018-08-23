@@ -11,6 +11,7 @@ export class CreateUsersService {
   file:string;
   username: string;
   email:string;
+  emailAlternate:string;
   address:string;
   country:string;
   state:string;

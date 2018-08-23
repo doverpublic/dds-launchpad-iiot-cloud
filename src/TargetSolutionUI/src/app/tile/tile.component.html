@@ -1,4 +1,4 @@
-<ul class="CV-breadcrumb" style="padding-left: 115px;">
+<ul class="CV-breadcrumb" style="padding-left: 14px;">
     <li class="CV-breadcrumb-item">
     Administration 
     </li>
@@ -48,7 +48,7 @@
     <li class="CV-breadcrumb-item">
         {{this.flagItems[0].name}}
         <span>({{games.length}})</span>
-    <svg _ngcontent-c5="" height="5" width="600"><line _ngcontent-c5="" style="stroke:#dde0e3;stroke-width:2" x1="0" x2="600" y1="0" y2="0"></line> Sorry, your browser does not support inline SVG. </svg>
+    <svg _ngcontent-c5="" height="5" width="880"><line _ngcontent-c5="" style="stroke:#dde0e3;stroke-width:2" x1="0" x2="880" y1="0" y2="0"></line> Sorry, your browser does not support inline SVG. </svg>
     </li>
     
     <li>
@@ -59,7 +59,8 @@
     </li>
     <li>
         <button class="createButton" >
-           Import 
+           Import           <svg style="vertical-align: sub;" height="16px" version="1.1" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1"><g fill="#17bdde" id="Group" transform="translate(-768.000000, -432.000000)"><path d="M769,446 L781,446 L781,443 L783,443 L783,446 L783,448 L769,448 Z M769,443 L771,443 L771,446 L769,446 Z M778,438 L778,445 L774,445 L774,438 L772,438 L776,433 L780,438 Z M778,438" id="Rectangle 217 copy"/></g></g></svg>
+
           </button>
       </li>
     <!-- <li>
@@ -76,323 +77,374 @@
       </button>
     </li> -->
       </ul>
-<ul class="TileOperationDiv" style="padding-left: 115px;">
-          <li style="border-right:1px dashed black">    <label class="sortbyLabel">SORT BY</label> 
-             <select class="form-control sortbydropdown"  [(ngModel)]="sortBy" >
-             <option [ngValue]="undefined" disabled  selected> Most Recent </option>
-       
-           <option value="name">Name</option>
-           <option value="address">Address</option>
-       
-         </select> </li>
-         <li>    
-             <svg version="1.1" width=16 height=16   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-              viewBox="0 0 52.966 52.966" style="width: 16px;height: 16px;fill: #55585d;enable-background:new 0 0 52.966 52.966;" xml:space="preserve;">
-          <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
-              c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
-              C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
-              S32.459,40,21.983,40z"/>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          <g>
-          </g>
-          </svg>  
-       <label class="searchlabel"> Search by Name, Type, Address...
-       </label>
- <!-- <label class="searchexpandlabel">
-    <input class="searchexpand" type="Search" placeholder="Search by Name,Type,Address...">
-  </label>  -->
-      </li>
-       <li style="border-right:1px dashed black" class="dropdown">
-          <a class="advanceFeatures" id="advance"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
-              Advanced
-          </a> 
-          <div class="dropdown-menu" aria-labelledby="advance" >
-        <div class="row" style="border-bottom: solid 1px #21c2dc;">
-            <a class="dropdown-item" href="#">USER ROLE TYPE</a>
+<div class="row">
+<div class="col-sm-12">
+    <label class="sortbyLabel">SORT BY</label> 
 
-        <div class="col-sm-6 dropdown-item">System Admin</div>
-        <div class="col-sm-6 dropdown-item">Tech Engineer</div>
-        <div class="col-sm-6 dropdown-item">System Engineer</div>
-        <div class="col-sm-6 dropdown-item">Dispatcher</div>
-        <div class="col-sm-6 dropdown-item">Technician</div>
-        </div>    
-        <div class="row" style="border-bottom: solid 1px #21c2dc;margin-left:5px">
-            <a class="dropdown-item" href="#">STATUS</a>
-            <div class="btn-group ToggleActive" [(ngModel)]="togglevalue"  btnRadioGroup >
-                <label btnRadio="Active" class="btn" 
-                       tabindex="0" role="button" style="font-size:14px">Active</label>
-                <label btnRadio="InActive" class="btn" 
-                       tabindex="0" role="button" style="font-size:14px">Inactive</label>
-               
-              </div>
-        </div>   
-        <div class="row" style="border-bottom: solid 1px #21c2dc;margin-left:5px">
+</div>
+  <div class="col-sm-7"><ul class="TileOperationDiv">
+      <li>    
+         <select class="form-control cvc-dropdown"  [(ngModel)]="sortBy" >
+         <option [ngValue]="undefined" disabled  selected> Most Recent </option>
+   
+       <option value="name">Name</option>
+       <option value="address">Address</option>
+   
+     </select> </li>
+
+     <li><svg width="10" height="25" viewBox="0 0 10 25" style="vertical-align: middle;">
+  
+      <line x1="2" x2="2" y1="2" y2="25" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-dasharray="1, 4"></line>
+  
+          </svg></li>
+     <li>    
+         <svg version="1.1" width=16 height=16   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 52.966 52.966" style="width: 16px;height: 16px;fill: #55585d;enable-background:new 0 0 52.966 52.966;" xml:space="preserve;">
+      <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
+          c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
+          C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
+          S32.459,40,21.983,40z"/>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      <g>
+      </g>
+      </svg>  
+   <label class="searchlabel"> Search by Name, Type, Address...
+   </label>
+<!-- <label class="searchexpandlabel">
+<input class="searchexpand" type="Search" placeholder="Search by Name,Type,Address...">
+</label>  -->
+  </li>
+   <li  class="dropdown">
+      <a class="advanceFeatures" id="advance"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+          Advanced
+      </a> 
+      <div class="dropdown-menu" aria-labelledby="advance" >
+    <div class="row" style="border-bottom: solid 1px #21c2dc;">
+        <a class="dropdown-item" href="#">USER ROLE TYPE</a>
+
+    <div class="col-sm-6 dropdown-item">System Admin</div>
+    <div class="col-sm-6 dropdown-item">Tech Engineer</div>
+    <div class="col-sm-6 dropdown-item">System Engineer</div>
+    <div class="col-sm-6 dropdown-item">Dispatcher</div>
+    <div class="col-sm-6 dropdown-item">Technician</div>
+    </div>    
+    <div class="row" style="border-bottom: solid 1px #21c2dc;margin-left:5px">
+        <a class="dropdown-item" href="#">STATUS</a>
+        <div class="btn-group ToggleActive" [(ngModel)]="togglevalue"  btnRadioGroup >
+            <label btnRadio="Active" class="btn" 
+                   tabindex="0" role="button" style="font-size:14px">Active</label>
+            <label btnRadio="InActive" class="btn" 
+                   tabindex="0" role="button" style="font-size:14px">Inactive</label>
+           
+          </div>
+    </div>   
+    <div class="row" style="border-bottom: solid 1px #21c2dc;margin-left:5px">
 <div class="col-sm-6">
-  <button style="width: 126px;
+<button style="width: 126px;
 
-  height: 30px;
+height: 30px;
 
-  border-radius: 3px;
+border-radius: 3px;
 
-  background-color: #f1fcff;
+background-color: #f1fcff;
 
-  box-shadow: 0px 3px 7px 0 rgba(20, 158, 192, 0.71);">Apply Filter</button>
- 
+box-shadow: 0px 3px 7px 0 rgba(20, 158, 192, 0.71);">Apply Filter</button>
+
 </div>
 <div class="col-sm-6">Reset All
-  </div>
-        </div>   
 </div>
-       </li>
-       <li>
-         <label class="CheckBoxcontainer"> Select All
-           <input type="checkbox" (change)="selectAll()" id="selectall" value="{{g?.id}}" [(ngModel)]="selectedAll">
+    </div>   
+</div>
+   </li>
+   <li><svg width="10" height="25" viewBox="0 0 10 25" style="vertical-align: middle;">
+  
+      <line x1="2" x2="2" y1="2" y2="25" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-dasharray="1, 4"></line>
+  
+          </svg></li>
+   <li>
+     <button style="height:30px;border-radius: 3px;
+     background-color: rgba(188,188,188,0.2);
+     border: solid 1px rgba(21,166,146,0.2);
+     color: #707070;vertical-align: middle;">
+        <label class="CheckBoxcontainer">
+            <input type="checkbox" (change)="selectAll()" id="selectall" value="{{g?.id}}" [(ngModel)]="selectedAll">
+     
+            <span class="checkmarkTile"></span>
+          </label>
+          <label style="vertical-align:sub;"> Select All</label>
+     </button>
+     
+   </li>
+  <li> 
+      <select class="form-control cvc-dropdown" (change)="onExportChange()" id="exportselect" [(ngModel)]="exportBy">
+          <option [ngValue]="undefined" disabled  selected> Export</option>
 
-           <span class="checkmarkTile"></span>
-         </label>
-       </li>
-      <li>  <button class="importAndExport" (click)="onExportChange()" >
-             <svg height="16px" version="1.1" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1"><g fill="#fff" id="Group" transform="translate(-720.000000, -432.000000)"><path d="M721,446 L733,446 L733,443 L735,443 L735,446 L735,448 L721,448 Z M721,443 L723,443 L723,446 L721,446 Z M726,433 L730,433 L730,440 L732,440 L728,445 L724,440 L726,440 Z M726,433" id="Rectangle 217"/></g></g></svg>
-             Export
-       
-         </button>
-     </li>
-    <li> 
+        <option value="excel">Excel</option>
+
+      </select> 
+    <!-- <button class="importAndExport" (click)="onExportChange()" >
+         <svg style="vertical-align: sub;" height="16px" version="1.1" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill="none" fill-rule="evenodd" id="Icons with numbers" stroke="none" stroke-width="1"><g fill="#fff" id="Group" transform="translate(-720.000000, -432.000000)"><path d="M721,446 L733,446 L733,443 L735,443 L735,446 L735,448 L721,448 Z M721,443 L723,443 L723,446 L721,446 Z M726,433 L730,433 L730,440 L732,440 L728,445 L724,440 L726,440 Z M726,433" id="Rectangle 217"/></g></g></svg>
+         Export
+   
+     </button> -->
+ </li>
+
+</ul> 
+ </div>
+  <div class="col-sm-5">
+
       <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-end paginationlist ">
-            <li><select class="paginationdropdown" (change)="onPageSelect($event)">
-              <option [ngValue]="12" selected>12</option>
-              <option [ngValue]="8">8</option>
-            </select><a>Per Page</a></li>
-              <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
-                  <a class="page-link" (click)="setPage(1)">
-                    <svg width=13 height=13 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
-                 <g>
-                   <polygon points="266.452,21.178 245.204,0 42.149,203.718 245.204,407.436 266.452,386.258 84.507,203.718 	"/>
-                   <polygon points="365.286,21.178 344.038,0 140.983,203.718 344.038,407.436 365.286,386.258 183.341,203.718 	"/>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 </svg>
-                 </a>
-              </li>
-              <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
-                  <a class="page-link" (click)="setPage(pager.currentPage - 1)">
-                    <svg width=13 height=13 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 404.258 404.258" style="enable-background:new 0 0 404.258 404.258;" xml:space="preserve">
-                 <polygon points="289.927,18 265.927,0 114.331,202.129 265.927,404.258 289.927,386.258 151.831,202.129 "/>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 </svg>
-                 </a>
-              </li>
-            <!--   <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-               <a class="page-link" (click)="setPage(page)">{{page}}</a>
-              </li> -->
-              <li class="page-item">
-                Page {{pager.currentPage}} of {{ pager.pages.length}}
-              </li>
-              <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                  <a class="page-link" (click)="setPage(pager.currentPage + 1)"><svg width=13 height=13  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 404.258 404.258" style="enable-background:new 0 0 404.258 404.258;" xml:space="preserve">
-                 <polygon points="138.331,0 114.331,18 252.427,202.129 114.331,386.258 138.331,404.258 289.927,202.129 "/>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 </svg>
-                 </a>
-              </li>
-              <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                  <a class="page-link" (click)="setPage(pager.totalPages)"><svg width=13 height=13 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
-                 <g>
-                   <polygon points="162.231,0 140.983,21.178 322.929,203.718 140.983,386.258 162.231,407.436 365.286,203.718 	"/>
-                   <polygon points="63.397,0 42.149,21.178 224.095,203.718 42.149,386.258 63.397,407.436 266.452,203.718 	"/>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 <g>
-                 </g>
-                 </svg>
-                 </a>
-              </li>
-              <li><a>Go To Page<input type="number" style="width: 3em" /></a>
-                <svg width=25 height=25 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 455 455" style="fill: gray;enable-background:new 0 0 455 455;" xml:space="preserve">
-             <path d="M227.5,0C101.855,0,0,101.855,0,227.5S101.855,455,227.5,455S455,353.145,455,227.5S353.145,0,227.5,0z M199.476,355.589
-               l-21.248-21.178L284.791,227.5L178.228,120.589l21.248-21.178L327.148,227.5L199.476,355.589z"/>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             <g>
-             </g>
-             </svg>
-             </li>
-      </ul>
-    </li>
-    </ul>  
-<div *ngIf="games.length!=0" style="padding-left: 115px;">
+          <li><select class="paginationdropdown" (change)="onPageSelect($event)">
+            <option [ngValue]="12" selected>12</option>
+            <option [ngValue]="8">8</option>
+          </select> &nbsp; <a>Per Page</a></li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a class="page-link" (click)="setPage(1)">
+                  <svg width=13 height=10 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
+               <g>
+                 <polygon points="266.452,21.178 245.204,0 42.149,203.718 245.204,407.436 266.452,386.258 84.507,203.718 	"/>
+                 <polygon points="365.286,21.178 344.038,0 140.983,203.718 344.038,407.436 365.286,386.258 183.341,203.718 	"/>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               </svg>
+               </a>
+            </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a class="page-link" (click)="setPage(pager.currentPage - 1)">
+                  <svg width=13 height=10 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 404.258 404.258" style="enable-background:new 0 0 404.258 404.258;" xml:space="preserve">
+               <polygon points="289.927,18 265.927,0 114.331,202.129 265.927,404.258 289.927,386.258 151.831,202.129 "/>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               </svg>
+               </a>
+            </li>
+          <!--   <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+             <a class="page-link" (click)="setPage(page)">{{page}}</a>
+            </li> -->
+            <li class="page-item">
+                <a class="page-link" style="background-color:#fff!important">
+                    Page {{pager.currentPage}} of {{ pager.pages.length}}
+
+                </a>
+            </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.currentPage + 1)"><svg width=13 height=10  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 404.258 404.258" style="enable-background:new 0 0 404.258 404.258;" xml:space="preserve">
+               <polygon points="138.331,0 114.331,18 252.427,202.129 114.331,386.258 138.331,404.258 289.927,202.129 "/>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               </svg>
+               </a>
+            </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.totalPages)">
+                  <svg width=13 height=10 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 407.436 407.436" style="enable-background:new 0 0 407.436 407.436;" xml:space="preserve">
+               <g>
+                 <polygon points="162.231,0 140.983,21.178 322.929,203.718 140.983,386.258 162.231,407.436 365.286,203.718 	"/>
+                 <polygon points="63.397,0 42.149,21.178 224.095,203.718 42.149,386.258 63.397,407.436 266.452,203.718 	"/>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               </svg>
+               </a>
+            </li>
+            <li style="margin-left: 50px; "><svg width="10" height="25" viewBox="0 0 10 25" style="vertical-align: middle;">
+  
+                <line x1="2" x2="2" y1="2" y2="25" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-dasharray="1, 4"></line>
+            
+                    </svg></li>
+            <li><a>Go To Page  &nbsp;<input type="number" style="width: 38px;
+              height: 30px;
+              border-radius: 3px;
+              box-shadow: 0px 2px 2px 0 rgba(180, 184, 190, 0.44);
+              background-color: #ffffff;
+              border: solid 1px #dadde0;" /></a>
+              &nbsp;
+              <svg width=25 height=25 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 455 455" style="fill: gray;enable-background:new 0 0 455 455;cursor: pointer;" xml:space="preserve">
+           <path d="M227.5,0C101.855,0,0,101.855,0,227.5S101.855,455,227.5,455S455,353.145,455,227.5S353.145,0,227.5,0z M199.476,355.589
+             l-21.248-21.178L284.791,227.5L178.228,120.589l21.248-21.178L327.148,227.5L199.476,355.589z"/>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           <g>
+           </g>
+           </svg>
+           </li>
+    </ul>
+  </div>
+
+</div>
+ 
+<div *ngIf="games.length!=0" style="padding-left: 14px;">
       <!-- Game List -->
    
 <!-- <div class="row"> 
@@ -873,7 +925,7 @@
             <button type="button" class="btn btn-primary" (click)="decline()">No</button>
           </div>
         </ng-template>
-        <div class="card civaconGridTile ">
+        <div class="card civaconGridTile " (click)="TrailerDeatail(g)">
             <div class="cardHeader" *ngIf="g.file else altenameimage"> 
                 <img  [src]="g.file" style="display: block;
                 width: 100%;

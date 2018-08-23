@@ -52,7 +52,8 @@ public country:null;
 public state:null;
 public city:null;
 public HeaderDisplay;
-  @ViewChild("search")
+/* public readonlyValue=false;
+ */  @ViewChild("search")
   public searchElementRef: ElementRef;
   // paged items
   pagedItems: any[];
@@ -275,6 +276,7 @@ nextTab(i)
       userGroup:[''],
       username:['',Validators.compose([Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
       email:['',Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
+      emailAlternate:[''],
       address: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
       country: ['',Validators.required],
       state: ['',Validators.required],
@@ -308,6 +310,9 @@ nextTab(i)
 
         username:['',Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
         email:['',Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
+        emailAlternate:[''],
+
+
         address: ['',Validators.compose([ Validators.required, Validators.minLength(2)])],
         country: ['',Validators.required],
         state: ['',Validators.required],
@@ -343,6 +348,8 @@ nextTab(i)
     
           username:[this.data.UsersData.userName,Validators.compose([ Validators.required, Validators.minLength(8),Validators.maxLength(15),Validators.pattern(this.usernamePattern)])],
           email:[this.data.UsersData.email,Validators.compose([Validators.required,Validators.pattern(this.emailPattern)])],
+          emailAlternate:[''],
+
           address: ['', Validators.required],
           country:  ['', Validators.required],
           state: ['', Validators.required],
@@ -476,7 +483,23 @@ else if(type=='city')
 
 }
 }
+public enableEdit=[];
+editContact(contactdetail)
+{
+  console.log(contactdetail);
+  contactdetail.value.readonlyValue=false;
+  contactdetail.value.isFirstShow=false;
+}
+saveContact(contactdetail)
+{
+  contactdetail.value.isFirstShow=true;
+  contactdetail.value.readonlyValue=true;
+}
+cancelEditContact(contactdetail)
+{
+  contactdetail.value.isFirstShow=false;
 
+}
 
 initEmergencyContacts() {
      

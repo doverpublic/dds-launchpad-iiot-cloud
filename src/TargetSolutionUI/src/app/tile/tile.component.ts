@@ -25,7 +25,7 @@ export class TileComponent implements OnInit {
   @Output() deleteClick: EventEmitter<String> = new EventEmitter<String>();
   @Output() createClick:EventEmitter<String> = new EventEmitter<String>();
   @Output() associateClick:EventEmitter<String> = new EventEmitter<String>();
-  @Output() userDetailClick:EventEmitter<String>=new EventEmitter<String>();
+  @Output() DetailClick:EventEmitter<String>=new EventEmitter<String>();
   @Input() flagItemscheck: any;
   public modalRef: BsModalRef;
   options = [{ label: 'name' }, { label: 'address' }];
@@ -150,8 +150,8 @@ public contentarray;
   decline(): void {
     this.modalRef.hide();
   }
-  delete(g, template: TemplateRef<any>) {
-
+  delete(g, template: TemplateRef<any>,event) {
+event.stoppropagation();
 
     this.modalRef = this.modalService.show(template, this.config);
 
@@ -174,7 +174,13 @@ public contentarray;
   }
   UserDeatil(g)
   {
-    this.userDetailClick.emit(g);
+    this.DetailClick.emit(g);
+  }
+  TrailerDeatail(g)
+  {
+    this.DetailClick.emit(g);
+
+
   }
   onPageSelect(event)
   {

@@ -34,7 +34,7 @@ export class UsersService {
       getUserById = (id:any) => {
         this.setUrl();
         var self = this, header = { 'Content-Type': 'application/json; charset=utf-8' };
-        return self.httpService.send(this.BackendUrl+"/entity/User/"+id , 'get', null, header);
+        return self.httpService.send(this.BackendUrl+"/entity/User/id/"+id , 'get', null, header);
     }
      deleteUser=(id:any)=> {
       this.setUrl();

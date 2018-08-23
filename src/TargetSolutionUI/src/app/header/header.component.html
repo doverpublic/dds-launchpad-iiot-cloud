@@ -1,5 +1,5 @@
-<!-- <span *ngIf="service.isOnline()">
- --><ul class="nav nav-tabs civoconTab" id="myTab" role="tablist">
+<span *ngIf="service.isOnline()">
+ <ul class="nav nav-tabs civoconTab" id="myTab" role="tablist">
     <!--  <li class="nav-item">
              <a class="nav-link"  href="#">
                  <img   src="../../assets/images/logo_Civacon.png" class="logo"></a>
@@ -9,25 +9,23 @@
      <a  class="nav-link "><img src="../../assets/images/logo-assetmgmt.png"></a>
    
 </li> 
-<li class="nav-item" style="width: 10%;">
+<li class="nav-item" style="width: 7%;">
         <a class="nav-link civacontopnav"   id="contact-tab" >Dashboard</a>
       </li>
 
-  <li class="nav-item dropdown" style="width: 13%;">
-        <a class="nav-link civacontopnav" id="admin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/track"   [routerLinkActive]="['active']" >
+  <li class="nav-item" style="width: 9%;">
+        <a class="nav-link civacontopnav"  routerLink="/track"   [routerLinkActive]="['active']" >
             Live Tracking
-                <i class="fa fa-chevron-down open"></i>
               </a>
-              <div class="dropdown-menu" aria-labelledby="admin">
-                    <a class="dropdown-item" href="#">Dashboard</a>
-
-
-
-
-              </div>
+             
 </li>
-
-<li class="nav-item dropdown" style="width: 10%;">
+<li class="nav-item" style="width: 6%;">
+        <a class="nav-link civacontopnav"  routerLink="/report"   [routerLinkActive]="['active']" >
+            Reports
+               
+              </a>
+</li>
+<!-- <li class="nav-item dropdown" style="width: 10%;">
         <a class="nav-link civacontopnav" id="admin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/report"   [routerLinkActive]="['active']" >
             Reports
                 <i class="fa fa-chevron-down open"></i>
@@ -37,11 +35,11 @@
                     <a class="dropdown-item" href="#">TrailerCompany</a>
               </div>
 </li>
- 
- <li class="nav-item" style="width: 8%;">
+  -->
+ <li class="nav-item" style="width: 6%;">
     <a class="nav-link civacontopnav"  routerLink="/alerts"  id="contact-tab" [routerLinkActive]="['active']"  >Alerts</a>
   </li>
-<li class="nav-item dropdown" style="width: 14%;">
+<li class="nav-item dropdown" style="width: 12%;">
         <a class="nav-link civacontopnav" id="admin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/admin"   [routerLinkActive]="['active']" >
             Administration
                 <i class="fa fa-chevron-down open"></i>
@@ -155,7 +153,7 @@
                    </svg>
                    
                    
-TrailerCompany</a>
+Company</a>
                     <a class="dropdown-item" href="#"> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve">
                    <path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
@@ -198,7 +196,7 @@ TrailerCompany</a>
                    </g>
                    </svg>
                    
-                   Dispatch Office</a>
+                   Branch Office</a>
                     <a class="dropdown-item" routerLink="admin/users" [routerLinkActive]="['active']">        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 299.998 299.998" style="enable-background:new 0 0 299.998 299.998;" xml:space="preserve">
                    <g>
@@ -247,7 +245,7 @@ TrailerCompany</a>
                    </g>
                    </svg>
                    Users</a>                 
-                      <a class="dropdown-item" href="#">   <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  <!--                     <a class="dropdown-item" href="#">   <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 489.785 489.785" style="enable-background:new 0 0 489.785 489.785;" xml:space="preserve">
                    <g id="XMLID_196_">
                        <path id="XMLID_203_" d="M409.772,379.327l-81.359-124.975c-5.884-9.054-15.925-13.119-25.987-13.119
@@ -312,7 +310,7 @@ TrailerCompany</a>
                    <g>
                    </g>
                    </svg>
-                   Driver</a>
+                   Driver</a> -->
                     <a class="dropdown-item" href="#"> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         width="47.825px" height="47.825px" viewBox="0 0 47.825 47.825" style="enable-background:new 0 0 47.825 47.825;"
                         xml:space="preserve">
@@ -658,4 +656,3 @@ TrailerCompany</a>
 <div style="height: 30px;
 mix-blend-mode: undefined;
 background-image: linear-gradient(to bottom, #ebf4f6, #ffffff);"></div>
-<!-- </span> -->

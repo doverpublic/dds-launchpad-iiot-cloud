@@ -82,12 +82,16 @@ border: 0px;
 
 .CV-breadcrumb li {
   display: inline;
-  padding: 4px;
+  padding-right: 4px;
+
+}
+.CV-breadcrumb li:first-child {
+  
+  color: #5d6065;
 
 }
 
 .CV-breadcrumb{
-  padding: 20px;
   font-size: 14px;
   a{
     color: #5d6065 !important;
@@ -799,40 +803,55 @@ display: flex;
 }
 
 /****  floating-Lable style end ****/
+.paginationlist li:first-child
+{
+  margin-right:50px;
+}
 
+.paginationlist .page-item .page-link
+{
+  background-color: #ececec !important;
+
+}
 
 .paginationlist li
-{    font-size: 12px;
+{
+line-height: 3.69;
+
+    font-size: 12px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: normal;
   fill: #323232;
-  margin-top: -50px;
   text-align: center;
   left: 50%;
   right: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 7px;
 }
-.paginationlist .page-item .disabled
+.page-item.disabled
 {
+  cursor:no-drop;
+.page-link{
+  cursor:no-drop;
+
   svg
   {
   fill:gray;
+  cursor:no-drop;
   }
+}
 }
 .page-link {
   position: relative;
   display: block;
-  padding: 0.345rem 0.345rem !important;
+  padding: 0.5rem 0.345rem !important;
   /* margin-left: -1px; */
   line-height: 1.4;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: 3px;
   box-shadow: 0px 2px 2px 0 rgba(180, 184, 190, 0.44);
   background-color: #ffffff;
   border: solid 1px #dadde0;
@@ -852,22 +871,12 @@ display: flex;
 .CheckBoxcontainer {
   display: inline;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 21px;
   cursor: pointer;
-  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
-      font-size: 14px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 0.57;
-      letter-spacing: normal;
-      text-align: left;
-      color: #707070;
+ 
 }
 
 /* Hide the browser's default checkbox */
