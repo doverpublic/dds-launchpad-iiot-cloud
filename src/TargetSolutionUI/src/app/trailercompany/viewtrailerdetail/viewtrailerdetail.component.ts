@@ -523,7 +523,12 @@ createGridData()
     this.router.navigate(['admin/trailercompany/Edit']);
  
 }
+displayTrailerDetail()
+{
+  this.createTrailerData.TrailerInfoDisplay = event;
 
+  this.router.navigate(['admin/trailercompany/trailerInfo']);
+}
   ngOnInit() {
     this.createTrailerData.currentMessage.subscribe(message => this.message = message)
    

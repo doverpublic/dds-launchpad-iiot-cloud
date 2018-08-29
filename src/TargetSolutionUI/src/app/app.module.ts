@@ -5,37 +5,30 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Http, HttpModule } from '@angular/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpService } from './shared/services/http.service';
+import { Routes, RouterModule } from '@angular/router';
+
+
+
+
+/* Authorization Components */
+import { MSALService } from './shared/services/msal.service';
+import { AuthenticationHttpInterceptor } from './shared/services/authentication.httpInterceptor';
+import {AuthGuard} from './shared/services/authguard.service';
+
+/* Shared Components */
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { HomeComponent } from './home/home.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { AppComponent } from './app.component';
 import { AppConfig }  from './app.config';
 import {AppConstants } from './config/app.constants';
 
-import { MSALService } from './shared/services/msal.service';
-import { AuthenticationHttpInterceptor } from './shared/services/authentication.httpInterceptor';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { HomeComponent } from './home/home.component';
-import { AssetmanagementComponent } from './assetmanagement/assetmanagement.component'
-import { LivetrackingComponent } from './livetracking/livetracking.component';
-import { ReportsComponent } from './reports/reports.component';
-import { AdminstrationComponent } from './adminstration/adminstration.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UsersService } from './users/Users.service';
-import { HttpService } from './shared/services/http.service';
-import {AuthGuard} from './shared/services/authguard.service';
-
-
-import { CreateTrailerService } from "./trailercompany/create-and-edit-trailer-data/createTrailer.service"
-import { CreateDispatchOfficeService } from './dispatchoffice/create-and-update-dispatch-office/createDispatchOffice.service';
-import { CreateUsersService } from './users/create-and-update-users/createUsers.service';
-
-import { CreateAndEditTrailerDataComponent } from './trailercompany/create-and-edit-trailer-data/create-and-edit-trailer-data.component';
-import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { TrailercompanyComponent } from './trailercompany/trailercompany.component';
-import { PagerService } from './tile/pager.service';
+/* NGX boot Components */
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
@@ -44,30 +37,52 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { TileComponent } from './tile/tile.component';
-
 import { ClearinputDirective } from './shared/directives/clearinput.directive';
+
+/* Users Components */
+import { UsersComponent } from './users/users.component';
+import { UsersService } from './users/Users.service';
+import { CreateUsersService } from './users/create-and-update-users/createUsers.service';
+import { CreateAndUpdateUsersComponent } from './users/create-and-update-users/create-and-update-users.component';
+import { ViewUsersComponent } from './users/view-users/view-users.component';
+import { UserinfoComponent } from './users/userinfo/userinfo.component';
+
+/* Trailers Components */
+import { TrailercompanyComponent } from './trailercompany/trailercompany.component';
+import { CreateTrailerService } from "./trailercompany/create-and-edit-trailer-data/createTrailer.service"
+import { ViewtrailerdetailComponent } from './trailercompany/viewtrailerdetail/viewtrailerdetail.component';
+import { TrailerInfoComponent } from './trailercompany/trailer-info/trailer-info.component';
+import { CreateAndEditTrailerDataComponent } from './trailercompany/create-and-edit-trailer-data/create-and-edit-trailer-data.component';
+
+/* Dispatch Office Components */
+import { CreateDispatchOfficeService } from './dispatchoffice/create-and-update-dispatch-office/createDispatchOffice.service';
 import { DispatchofficeComponent } from './dispatchoffice/dispatchoffice.component';
+import { ViewDispatchOfficeComponent } from './dispatchoffice/view-dispatch-office/view-dispatch-office.component';
+import { CreateAndUpdateDispatchOfficeComponent } from './dispatchoffice/create-and-update-dispatch-office/create-and-update-dispatch-office.component';
+
+/* Other Components */
+import { AssetmanagementComponent } from './assetmanagement/assetmanagement.component'
+import { LivetrackingComponent } from './livetracking/livetracking.component';
+import { ReportsComponent } from './reports/reports.component';
+import { AdminstrationComponent } from './adminstration/adminstration.component';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PagerService } from './tile/pager.service';
+
 import { LocationsComponent } from './locations/locations.component';
 import { DriversComponent } from './drivers/drivers.component';
-import { UsersComponent } from './users/users.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { ExcelService } from './shared/services/excel.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { AssetsComponent } from './assets/assets.component';
-import { ViewtrailerdetailComponent } from './trailercompany/viewtrailerdetail/viewtrailerdetail.component';
 import { ToastrModule } from 'ngx-toastr';
 import { DisableControlDirectiveDirective } from './shared/directives/disable-control-directive.directive';
-import { CreateAndUpdateDispatchOfficeComponent } from './dispatchoffice/create-and-update-dispatch-office/create-and-update-dispatch-office.component';
-import { ViewDispatchOfficeComponent } from './dispatchoffice/view-dispatch-office/view-dispatch-office.component';
-import { CreateAndUpdateUsersComponent } from './users/create-and-update-users/create-and-update-users.component';
-import { ViewUsersComponent } from './users/view-users/view-users.component';
+
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { UserinfoComponent } from './users/userinfo/userinfo.component';
-import { TrailerInfoComponent } from './trailercompany/trailer-info/trailer-info.component';
+
 const routes: Routes = [
   {
     path: '',

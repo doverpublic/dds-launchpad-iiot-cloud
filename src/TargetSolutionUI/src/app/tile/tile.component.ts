@@ -172,16 +172,11 @@ public contentarray;
   createNewDetails() {
     this.createClick.emit();
   }
-  UserDeatil(g)
+  Deatil(g)
   {
     this.DetailClick.emit(g);
   }
-  TrailerDeatail(g)
-  {
-    this.DetailClick.emit(g);
-
-
-  }
+  
   onPageSelect(event)
   {
     console.log(event.target.value);

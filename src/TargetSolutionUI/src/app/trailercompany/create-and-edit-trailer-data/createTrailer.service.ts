@@ -26,7 +26,7 @@ export class CreateTrailerService {
   shiftStartTime:number;
   shiftEndTime:number;
   ToggleActive:string;
- 
+ public TrailerInfoDisplay:any;
    public storage: any;
 public trailerEdit:any;
 private messageSource = new BehaviorSubject('default message');
